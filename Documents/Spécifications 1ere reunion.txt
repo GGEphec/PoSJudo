@@ -1,0 +1,78 @@
+Compte-rendu des spécifications
+Sujet
+	Logiciel de suivi des ventes de consommations lors d'une compétition.
+	PoS facile à utiliser et paramétrer afin de pouvoir gérer au mieux les stocks d'une année sur l'autre
+	
+Pourquoi avoir choisi le sujet
+	Au départ pas de suivi des ventes, le judo club était en négatif à la fin de la journée
+	Essai de plusieurs solutions téléchargées sur internet mais bien souvent trop compliquées à paramétrer et utiliser. Deux soirées pour paramétrer et 1h d'explication pour les utilisateurs. Utilisation de version d'essai, donc pas de sauvegarde des paramètres d'une année sur l'autre.
+	Avoir une solution propre au judo club Athois et simple à prendre en main
+
+Spécifications
+	Interface pour traiter les commandes
+		Boutons de couleur / valeur / dénomination de la consommation
+		Fenêtre de totalisation
+		Fenêtre de calcul de rendu
+		Bouton pour imprimer le reçu
+		
+	Interface pour les mises en sécurité
+		Quel argent est sorti
+		Sous quelle forme (billet de ....€ x le nbre)
+		Heure et personnes responsables de la mise en sécurité
+		Bouton d'impression
+		
+	Interface fonds de caisse
+		Quel argent et sous quelle forme
+		
+	Interface pour les entrées
+		Boutons différents en fonction du statut de la personne
+		Enregistrement des coachs pour chaque club
+		
+	
+	Interface pour paramétrer les boutons
+		Savoir changer la couleur
+		Savoir changer la valeur
+		Éditer l'en-tête du ticket de caisse
+		
+	Interface pour rapports
+		Fichier type excel avec la vente de chaque élément, le nombre
+		Analyse plus poussée afin de déterminer les moments d'affluence en fct de l'horaire de la compétition
+		Rapports des mises en sécurité
+		
+	Pouvoir ajouter un commentaire libre sur la journée
+
+		
+Pistes
+	Une application java avec une base de données derrière pour enregistrer les rapports plus poussés. Ou une base de données dont les champs vente augmentent au fur et à mesure
+
+	Une application légère qui puisse être utilisée sur différents OS
+
+
+Outils
+	/!\ Faire un comparatif Java & PHP /!\
+	Java 8
+	Eclipse 
+	MySQL
+
+Dénomination des personnes	
+Client
+	Judo Club Athois
+Utilisateurs finaux
+	Secrétaire + mari
+	Parents
+	Moi
+Consommateur
+	Toute personnes venant faire une commande
+	
+	
+	
+	
+	
+Éléments à ajouter
+	Comparaison PHP / Java
+	
+	Relire les consignes pour documents administratifs
+	Faire les US, maquettes
+	Penser au planning
+	
+	
