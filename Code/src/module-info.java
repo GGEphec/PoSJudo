@@ -7,4 +7,5 @@
  */
 module PoSJudoAth {
 	requires java.desktop;
+	requires java.logging;
 }
