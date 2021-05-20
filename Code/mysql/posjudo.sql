@@ -24,6 +24,12 @@ CREATE TABLE `commandes` (
   `heureCommande` date NOT NULL COMMENT 'L''heure de la commande'
 );
 
+CREATE TABLE `sorties` (
+  `idSortie` int(11) NOT NULL COMMENT 'L''id de la commande',
+  `heureSortie` date NOT NULL COMMENT 'L''heure de la commande',
+  'responsableSortie' varchar(100) NOT NULL COMMENT 'Personne responsables de la sortie'
+);
+
 CREATE TABLE `contenucommande` (
   `idCommande` int(11) NOT NULL COMMENT 'L''id référencant la commande',
   `idProduit` int(11) NOT NULL COMMENT 'L''id référencant le produit',

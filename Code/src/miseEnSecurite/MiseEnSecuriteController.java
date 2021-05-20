@@ -8,8 +8,7 @@ import javax.swing.JButton;
 public class MiseEnSecuriteController implements ActionListener {
 	private MiseEnSecurite mes;
 	private JButton boutton;
-	private String nombre="0";
-	private int nbre;
+	//private String nombre="0";
 
 	public MiseEnSecuriteController(JButton btn, MiseEnSecurite miseEnSecurite) {
 		super();
@@ -20,15 +19,15 @@ public class MiseEnSecuriteController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(boutton.getName().contains("argent")) {
-			System.out.println(nombre);
-			nbre=(nombre=="0" ? 1 : Integer.parseInt(nombre));
-			System.out.println("actionperf " + nbre + " " + boutton.getName());
-			nombre="0";
-			mes.ajoutSortie(boutton.getName(), nbre);
+			if(mes.getNbre()==0) {
+				mes.setNbre(1);
+			}
+			mes.ajoutSortie(boutton.getName(), mes.getNbre());
+			mes.setNbre(0);
 		}
 		else if(boutton.getName().contains("pave")) {
-			nombre+=boutton.getName().substring(4, 5);
-			System.out.println(nombre);
+			mes.setNbre(mes.getNbre()*10 + Integer.parseInt(boutton.getName().substring(4, 5)));
+			System.out.println(mes.getNbre());
 		}
 		else if(boutton.getName().contains("validation")) {
 			if(boutton.getName().contains("Vrai")) {

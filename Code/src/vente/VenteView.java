@@ -20,6 +20,7 @@ import javax.swing.border.LineBorder;
 
 import acceuil.AcceuilView;
 import fondDeCaisse.FondDeCaisseView;
+import miseEnSecurite.MiseEnSecuriteController;
 import miseEnSecurite.MiseEnSecuriteView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
@@ -407,40 +408,61 @@ public class VenteView {
 						paveNumerique.setLayout(new GridLayout(4, 3, 0, 0));
 						
 						JButton pave7 = new JButton("7");
+						pave7.setName("pave7");
 						paveNumerique.add(pave7);
+						pave7.addActionListener(new VenteController(pave7, venteActuelle));
 						
 						JButton pave8 = new JButton("8");
+						pave8.setName("pave8");
 						paveNumerique.add(pave8);
+						pave8.addActionListener(new VenteController(pave8, venteActuelle));
 						
 						JButton pave9 = new JButton("9");
+						pave9.setName("pave9");
 						paveNumerique.add(pave9);
+						pave9.addActionListener(new VenteController(pave9, venteActuelle));
 						
 						JButton pave4 = new JButton("4");
+						pave4.setName("pave4");
 						paveNumerique.add(pave4);
+						pave4.addActionListener(new VenteController(pave4, venteActuelle));
 						
 						JButton pave5 = new JButton("5");
+						pave5.setName("pave5");
 						paveNumerique.add(pave5);
+						pave5.addActionListener(new VenteController(pave5, venteActuelle));
 						
 						JButton pave6 = new JButton("6");
+						pave6.setName("pave6");
 						paveNumerique.add(pave6);
+						pave6.addActionListener(new VenteController(pave6, venteActuelle));
 						
 						JButton pave1 = new JButton("1");
+						pave1.setName("pave1");
 						paveNumerique.add(pave1);
+						pave1.addActionListener(new VenteController(pave1, venteActuelle));
 						
 						JButton pave2 = new JButton("2");
+						pave2.setName("pave2");
 						paveNumerique.add(pave2);
+						pave2.addActionListener(new VenteController(pave2, venteActuelle));
 						
 						JButton pave3 = new JButton("3");
+						pave3.setName("pave3");
 						paveNumerique.add(pave3);
+						pave3.addActionListener(new VenteController(pave3, venteActuelle));
 						
 						JButton paveVide = new JButton("");
-						paveVide.setVisible(false);
+						setInvisible(paveVide);
 						paveNumerique.add(paveVide);
 						
 						JButton pave0 = new JButton("0");
+						pave0.setName("pave0");
 						paveNumerique.add(pave0);
+						pave0.addActionListener(new VenteController(pave0, venteActuelle));
 						
 						JButton pavePoint = new JButton(".");
+						setInvisible(pavePoint);
 						paveNumerique.add(pavePoint);
 					
 					//Panneau de validation

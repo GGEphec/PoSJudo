@@ -16,6 +16,7 @@ public class Vente {
 	private int idCommande;
 	private String heureCommande;
 	private List<Parametrage> contenu;
+	private int nbre;
 
 	
 	public Vente() {
@@ -38,11 +39,11 @@ public class Vente {
 		window.vueVente.setVisible(true);
 	}
 	
-	public void ajoutUnAchat(String nomBouton) {
+	public void ajoutUnAchat(String nomBouton, int nbre) {
 		for(Parametrage p : contenu) {
 			//System.out.println(p.getNom().equals(nomBouton));
 			if(p.getNom().equals(nomBouton)){
-				p.setVendu(p.getVendu() + 1);
+				p.setVendu(p.getVendu() + nbre);
 			}	
 		}
 		//System.out.println(contenu);
@@ -50,11 +51,20 @@ public class Vente {
 	
 	public void finaliserCommande() {
 		DBHelper.enregistrerCommande(this.idCommande, this.heureCommande, this.contenu);
+		DBHelper.setTotal(DBHelper.getTotal()+sommeCommande());
 		java.awt.Window win[] = java.awt.Window.getWindows();
 		for(int i=0;i<win.length;i++){
 			win[i].dispose();
 		}
 		initialise();
+	}
+
+	private double sommeCommande() {
+		double somme=0;
+		for(Parametrage p : contenu) {
+			somme+= p.getPrix()*p.getVendu();
+		}
+		return somme;
 	}
 
 	public void annulerCommande() {
@@ -64,6 +74,20 @@ public class Vente {
 		}
 		initialise();
 		
+	}
+
+	/**
+	 * @return the nbre
+	 */
+	public int getNbre() {
+		return nbre;
+	}
+
+	/**
+	 * @param nbre the nbre to set
+	 */
+	public void setNbre(int nbre) {
+		this.nbre = nbre;
 	}
 
 	

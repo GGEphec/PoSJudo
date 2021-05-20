@@ -15,8 +15,7 @@ import vente.Vente;
 
 public class DBHelper { // Save as "JdbcSelectTest.java"
 	public static void main(String[] args) {
-		nextCommande();
-		getProduits();
+
 	}
 
 	/**
@@ -78,16 +77,13 @@ public class DBHelper { // Save as "JdbcSelectTest.java"
 		String sqlCommande2 = "INSERT INTO contenuCommande VALUES ";
 		for(Parametrage p : contenu) {
 			if(p.getVendu()>0) {
-				sqlCommande2 += "(" + idCommande + ", " + p.getNumeroBoutton() + ", " + p.getVendu() + "),";
+				sqlCommande2 +=( "(" + idCommande + ", " + p.getNumeroBoutton() + ", " + p.getVendu() + "),");
 			}
 		}
 		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
 		sqlCommande2 +=";";
-		//System.out.println(sqlCommande1);
-		//System.out.println(sqlCommande2);
+		System.out.println(sqlCommande2);
 
-		
-		
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
 				Statement stmt = conn.createStatement();) {
 				stmt.execute(sqlCommande1);
@@ -95,7 +91,6 @@ public class DBHelper { // Save as "JdbcSelectTest.java"
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
-		System.out.println(contenu);
 	}
 
 	public static int getnextMiseEnSecurite() {
@@ -141,11 +136,76 @@ public class DBHelper { // Save as "JdbcSelectTest.java"
 		return argent;
 	}
 
-	public static void enregistrerMiseEnSecurite(int idMiseEnSecurite, String heureMiseEnSecurite, List<Argent> contenuMiseEnSecurite) {
+	public static void enregistrerMiseEnSecurite(int idMiseEnSecurite, String heureMiseEnSecurite, String responsables, List<Argent> contenuMiseEnSecurite) {
+		String sqlCommande1 = "INSERT INTO sorties(idSortie, heureSortie, responsables) VALUES ( " + idMiseEnSecurite + ", '" + heureMiseEnSecurite + "', '" + responsables + "');";
+		String sqlCommande2 = "INSERT INTO contenuSortie VALUES ";
 		for(Argent a : contenuMiseEnSecurite) {
-			System.out.println(a);
+			if(a.getSorti()>0) {
+				sqlCommande2 +=( "(" + idMiseEnSecurite + ", " + a.getIdArgent() + ", " + a.getSorti() + "),");
+			}
 		}
-		
+		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
+		sqlCommande2 +=";";
+
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
+				Statement stmt = conn.createStatement();) {
+				stmt.execute(sqlCommande1);
+				stmt.execute(sqlCommande2);
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+	}
+
+	public static double getTotal() {
+		double argentEnregistre = 0;
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
+			Statement stmt = conn.createStatement();) {
+			String strSelect = "SELECT argentCaisse FROM memoire;";
+			//System.out.println("The SQL statement is: " + strSelect + "\n");
+
+			ResultSet rset = stmt.executeQuery(strSelect);
+			//System.out.println("The records selected are:");
+
+			while (rset.next()) { // Repeatedly process each row
+				argentEnregistre = rset.getDouble("argentCaisse");
+
+				//System.out.println(maxCommande);
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return argentEnregistre;
+	}
+
+	public static void setTotal(double d) {
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
+			Statement stmt = conn.createStatement();) {
+			String strSet = "UPDATE memoire SET argentcaisse = (" + d + ");";
+			stmt.execute(strSet);
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}		
+	}
+
+	public static void enregistrerFondDeCaisse(int idFondDeCaisse, String heureFondDeCaisse, String responsables, List<Argent> contenuFondDeCaisse) {
+		String sqlCommande1 = "INSERT INTO sorties(idSortie, heureSortie, responsables) VALUES ( " + idFondDeCaisse + ", '" + heureFondDeCaisse + "', '" + responsables + "');";
+		String sqlCommande2 = "INSERT INTO contenuSortie VALUES ";
+		for(Argent a : contenuFondDeCaisse) {
+			if(a.getSorti()>0) {
+				sqlCommande2 +=( "(" + idFondDeCaisse + ", " + a.getIdArgent() + ", " + a.getSorti() + "),");
+			}
+		}
+		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
+		sqlCommande2 +=";";
+
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
+				Statement stmt = conn.createStatement();) {
+				stmt.execute(sqlCommande1);
+				stmt.execute(sqlCommande2);
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 	}
 
 

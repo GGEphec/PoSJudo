@@ -26,7 +26,12 @@ public class VenteController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(boutton.getName().contains("btn")) {
-			v.ajoutUnAchat(boutton.getName());
+			v.ajoutUnAchat(boutton.getName(), v.getNbre());
+			v.setNbre(0);
+		}
+		else if(boutton.getName().contains("pave")) {
+			v.setNbre(v.getNbre()*10 + Integer.parseInt(boutton.getName().substring(4, 5)));
+			System.out.println(v.getNbre());
 		}
 		else if(boutton.getName().contains("validation")) {
 			if(boutton.getName().contains("Vrai")) {
