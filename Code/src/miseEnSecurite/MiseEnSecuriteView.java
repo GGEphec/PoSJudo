@@ -22,36 +22,13 @@ import acceuil.AcceuilView;
 import fondDeCaisse.FondDeCaisseView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
+import vente.VenteController;
 import vente.VenteView;
 
 public class MiseEnSecuriteView {
 
-	private JFrame vueMiseEnSecurite;
+	JFrame vueMiseEnSecurite;
 	private JTable resumeMiseEnSecurite;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MiseEnSecuriteView window = new MiseEnSecuriteView();
-					window.vueMiseEnSecurite.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public MiseEnSecuriteView() {
-		initialize();
-	}
-	
 	
 	private void setInvisible(JButton btn) {
 		btn.setOpaque(false);
@@ -60,12 +37,17 @@ public class MiseEnSecuriteView {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Create the application.
 	 */
-	private void initialize() {
+	public MiseEnSecuriteView() {
+		//Creation modele
+		MiseEnSecurite miseEnSecurite = new MiseEnSecurite();
+		
+		//Creation graphique
+
 		Border noir1px = new LineBorder(new Color(0,0,0));
 		Border transparent9px = new LineBorder(new Color(250, 250, 10), 9);
-		CompoundBorder bordure = new CompoundBorder(noir1px, transparent9px);
+		new CompoundBorder(noir1px, transparent9px);
 		
 		vueMiseEnSecurite = new JFrame();
 		vueMiseEnSecurite.setSize(new Dimension(1850, 950));
@@ -110,7 +92,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue d'acceuil
 						vueMiseEnSecurite.dispose();
-						AcceuilView av = new AcceuilView();
+						new AcceuilView();
 					}
 				});
 				MenuLateral.add(btnAcceuil);
@@ -120,7 +102,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de vente
 						vueMiseEnSecurite.dispose();
-						VenteView vv = new VenteView();
+						new VenteView();
 					}
 				});
 				MenuLateral.add(btnVente);
@@ -130,7 +112,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de paramétrage
 						vueMiseEnSecurite.dispose();
-						ParametrageView pv = new ParametrageView();							
+						new ParametrageView();							
 					}
 				});
 				MenuLateral.add(btnProduits);
@@ -140,7 +122,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de fond de caisse
 						vueMiseEnSecurite.dispose();
-						FondDeCaisseView cv = new FondDeCaisseView();	
+						new FondDeCaisseView();	
 					}
 				});
 				MenuLateral.add(btnCaisse);
@@ -150,7 +132,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de mise en securite
 						vueMiseEnSecurite.dispose();
-						MiseEnSecuriteView pv = new MiseEnSecuriteView();	
+						new MiseEnSecuriteView();	
 					}
 				});
 				MenuLateral.add(btnSecurite);
@@ -160,7 +142,7 @@ public class MiseEnSecuriteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de rapports
 						vueMiseEnSecurite.dispose();
-						RapportsView rv = new RapportsView();	
+						new RapportsView();	
 					}
 				});
 				MenuLateral.add(btnRapports);
@@ -182,13 +164,19 @@ public class MiseEnSecuriteView {
 
 					
 					JButton btn01 = new JButton("200€");
+					btn01.setName("argent20000");
 					Boutons.add(btn01);
+					btn01.addActionListener(new MiseEnSecuriteController(btn01, miseEnSecurite));
 					
 					JButton btn02 = new JButton("100€");
+					btn02.setName("argent10000");
 					Boutons.add(btn02);
+					btn02.addActionListener(new MiseEnSecuriteController(btn02, miseEnSecurite));
 					
 					JButton btn03 = new JButton("50€");
+					btn03.setName("argent5000");
 					Boutons.add(btn03);
+					btn03.addActionListener(new MiseEnSecuriteController(btn03, miseEnSecurite));
 					
 					JButton btn04 = new JButton("");
 					setInvisible(btn04);
@@ -206,13 +194,19 @@ public class MiseEnSecuriteView {
 					Boutons.add(btn10);
 					
 					JButton btn11 = new JButton("20€");
+					btn11.setName("argent2000");
 					Boutons.add(btn11);
+					btn11.addActionListener(new MiseEnSecuriteController(btn11, miseEnSecurite));
 					
 					JButton btn12 = new JButton("10€");
+					btn12.setName("argent1000");
 					Boutons.add(btn12);
+					btn12.addActionListener(new MiseEnSecuriteController(btn12, miseEnSecurite));
 					
 					JButton btn13 = new JButton("5€");
+					btn13.setName("argent500");
 					Boutons.add(btn13);
+					btn13.addActionListener(new MiseEnSecuriteController(btn13, miseEnSecurite));
 					
 					JButton btn14 = new JButton("");
 					setInvisible(btn14);
@@ -253,10 +247,14 @@ public class MiseEnSecuriteView {
 					Boutons.add(btn30);
 					
 					JButton btn31 = new JButton("2€");
+					btn31.setName("argent200");
 					Boutons.add(btn31);
+					btn31.addActionListener(new MiseEnSecuriteController(btn31, miseEnSecurite));
 					
 					JButton btn32 = new JButton("1€");
+					btn32.setName("argent100");
 					Boutons.add(btn32);
+					btn32.addActionListener(new MiseEnSecuriteController(btn32, miseEnSecurite));
 					
 					JButton btn33 = new JButton("");
 					setInvisible(btn33);
@@ -276,13 +274,19 @@ public class MiseEnSecuriteView {
 					Boutons.add(btn40);
 					
 					JButton btn41 = new JButton("0,50€");
+					btn41.setName("argent50");
 					Boutons.add(btn41);
+					btn41.addActionListener(new MiseEnSecuriteController(btn41, miseEnSecurite));
 					
 					JButton btn42 = new JButton("0,20€");
+					btn42.setName("argent20");
 					Boutons.add(btn42);
+					btn42.addActionListener(new MiseEnSecuriteController(btn42, miseEnSecurite));
 					
 					JButton btn43 = new JButton("0,10€");
+					btn43.setName("argent10");
 					Boutons.add(btn43);
+					btn43.addActionListener(new MiseEnSecuriteController(btn43, miseEnSecurite));
 					
 					JButton btn44 = new JButton("");
 					setInvisible(btn44);
@@ -298,13 +302,19 @@ public class MiseEnSecuriteView {
 					Boutons.add(btn50);
 					
 					JButton btn51 = new JButton("0,05€");
+					btn51.setName("argent5");
 					Boutons.add(btn51);
+					btn51.addActionListener(new MiseEnSecuriteController(btn51, miseEnSecurite));
 					
 					JButton btn52 = new JButton("0,02€");
+					btn52.setName("argent2");
 					Boutons.add(btn52);
+					btn52.addActionListener(new MiseEnSecuriteController(btn52, miseEnSecurite));
 					
 					JButton btn53 = new JButton("0,01€");
+					btn53.setName("argent1");
 					Boutons.add(btn53);
+					btn53.addActionListener(new MiseEnSecuriteController(btn53, miseEnSecurite));
 					
 					JButton btn54 = new JButton("");
 					setInvisible(btn54);
@@ -341,40 +351,61 @@ public class MiseEnSecuriteView {
 						paveNumerique.setLayout(new GridLayout(4, 3, 0, 0));
 						
 						JButton pave7 = new JButton("7");
+						pave7.setName("pave7");
 						paveNumerique.add(pave7);
+						pave7.addActionListener(new MiseEnSecuriteController(pave7, miseEnSecurite));
 						
 						JButton pave8 = new JButton("8");
+						pave8.setName("pave8");
 						paveNumerique.add(pave8);
+						pave8.addActionListener(new MiseEnSecuriteController(pave8, miseEnSecurite));
 						
 						JButton pave9 = new JButton("9");
+						pave9.setName("pave9");
 						paveNumerique.add(pave9);
+						pave9.addActionListener(new MiseEnSecuriteController(pave9, miseEnSecurite));
 						
 						JButton pave4 = new JButton("4");
+						pave4.setName("pave4");
 						paveNumerique.add(pave4);
+						pave4.addActionListener(new MiseEnSecuriteController(pave4, miseEnSecurite));
 						
 						JButton pave5 = new JButton("5");
+						pave5.setName("pave5");
 						paveNumerique.add(pave5);
+						pave5.addActionListener(new MiseEnSecuriteController(pave5, miseEnSecurite));
 						
 						JButton pave6 = new JButton("6");
+						pave6.setName("pave6");
 						paveNumerique.add(pave6);
+						pave6.addActionListener(new MiseEnSecuriteController(pave6, miseEnSecurite));
 						
 						JButton pave1 = new JButton("1");
+						pave1.setName("pave1");
 						paveNumerique.add(pave1);
+						pave1.addActionListener(new MiseEnSecuriteController(pave1, miseEnSecurite));
 						
 						JButton pave2 = new JButton("2");
+						pave2.setName("pave2");
 						paveNumerique.add(pave2);
+						pave2.addActionListener(new MiseEnSecuriteController(pave2, miseEnSecurite));
 						
 						JButton pave3 = new JButton("3");
+						pave3.setName("pave3");
 						paveNumerique.add(pave3);
+						pave3.addActionListener(new MiseEnSecuriteController(pave3, miseEnSecurite));
 						
 						JButton paveVide = new JButton("");
 						setInvisible(paveVide);
 						paveNumerique.add(paveVide);
 						
 						JButton pave0 = new JButton("0");
+						pave0.setName("pave0");
 						paveNumerique.add(pave0);
+						pave0.addActionListener(new MiseEnSecuriteController(pave0, miseEnSecurite));
 						
 						JButton pavePoint = new JButton(".");
+						setInvisible(pavePoint);
 						paveNumerique.add(pavePoint);
 					
 					//Panneau de validation
@@ -383,10 +414,14 @@ public class MiseEnSecuriteView {
 						validation.setLayout(new GridLayout(2, 1, 0, 0));
 						
 						JButton validationVrai = new JButton("Valider");
+						validationVrai.setName("validationVrai");
 						validation.add(validationVrai);
+						validationVrai.addActionListener(new MiseEnSecuriteController(validationVrai, miseEnSecurite));
 						
 						JButton validationFaux = new JButton("Annuler");
+						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
+						validationFaux.addActionListener(new MiseEnSecuriteController(validationFaux, miseEnSecurite));
 					
 		
 

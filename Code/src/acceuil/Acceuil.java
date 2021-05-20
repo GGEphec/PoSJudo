@@ -5,6 +5,9 @@ package acceuil;
 
 import javax.swing.JFrame;
 
+import java.awt.EventQueue;
+import java.sql.*;
+
 /**
  * @author gaeta_2b6psqs
  *
@@ -12,17 +15,19 @@ import javax.swing.JFrame;
 public class Acceuil {
 
 	/**
-	 * @param args
+	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		// TODO Créer fenêtre acceuil
-		JFrame acceuil = new JFrame();
-		
-		// TODO Afficher fenêtre acceuil
-		acceuil.setVisible(true);
-		
-		
-
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AcceuilView window = new AcceuilView();
+					window.vueAcceuil.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 }

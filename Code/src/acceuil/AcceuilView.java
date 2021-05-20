@@ -18,21 +18,7 @@ public class AcceuilView {
 
 	protected JFrame vueAcceuil;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AcceuilView window = new AcceuilView();
-					window.vueAcceuil.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.

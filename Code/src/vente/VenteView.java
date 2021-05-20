@@ -1,9 +1,9 @@
 package vente;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
@@ -24,29 +23,14 @@ import fondDeCaisse.FondDeCaisseView;
 import miseEnSecurite.MiseEnSecuriteView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
+import vente.Vente;
 
 public class VenteView {
 
-	private JFrame vueVente;
+	JFrame vueVente;
 	private JTable resumeCommande;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VenteView window = new VenteView();
-					window.vueVente.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
 	private void setInvisible(JButton btn) {
 		btn.setOpaque(false);
 		btn.setVisible(false);
@@ -54,16 +38,13 @@ public class VenteView {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the view of Vente
 	 */
 	public VenteView() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	//Création modele
+		Vente venteActuelle = new Vente();
+		
+	//Création graphique
 		Border noir1px = new LineBorder(new Color(0,0,0));
 		Border transparent9px = new LineBorder(new Color(250, 250, 10), 9);
 		CompoundBorder bordure = new CompoundBorder(noir1px, transparent9px);
@@ -111,7 +92,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue d'acceuil
 						vueVente.dispose();
-						AcceuilView av = new AcceuilView();
+						new AcceuilView();
 					}
 				});
 				MenuLateral.add(btnAcceuil);
@@ -121,7 +102,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de vente
 						vueVente.dispose();
-						VenteView vv = new VenteView();
+						new VenteView();
 					}
 				});
 				MenuLateral.add(btnVente);
@@ -131,7 +112,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de paramétrage
 						vueVente.dispose();
-						ParametrageView pv = new ParametrageView();							
+						new ParametrageView();							
 					}
 				});
 				MenuLateral.add(btnProduits);
@@ -141,7 +122,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de fond de caisse
 						vueVente.dispose();
-						FondDeCaisseView cv = new FondDeCaisseView();	
+						new FondDeCaisseView();	
 					}
 				});
 				MenuLateral.add(btnCaisse);
@@ -151,7 +132,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de mise en securite
 						vueVente.dispose();
-						MiseEnSecuriteView pv = new MiseEnSecuriteView();	
+						new MiseEnSecuriteView();	
 					}
 				});
 				MenuLateral.add(btnSecurite);
@@ -161,7 +142,7 @@ public class VenteView {
 					public void actionPerformed(ActionEvent e) {
 						//TODO va sur la vue de rapports
 						vueVente.dispose();
-						RapportsView rv = new RapportsView();	
+						new RapportsView();	
 					}
 				});
 				MenuLateral.add(btnRapports);
@@ -176,155 +157,228 @@ public class VenteView {
 				Boutons.setBackground(new Color(61, 72, 73));
 				Boutons.setBorder(transparent9px);
 				Boutons.setLayout(new GridLayout(6, 6, 0, 0));
-				//Première ligne
-					JButton btn00 = new JButton("<html><center>Ticket rouge <br> 1,50€ </center></html>");
-					btn00.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn00);
-					
-					JButton btn01 = new JButton("<html><center>Eau plate <br> 1,50€ </center></html>");
-					btn01.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn01);
-					
-					JButton btn02 = new JButton("<html><center> Eau pétillante <br> 1,50€ </hmtl>");
-					btn02.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn02);
-					
-					JButton btn03 = new JButton("<html><center> Coca cola <br> 1,50€ </center></html>");
-					btn03.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn03);
-					
-					JButton btn04 = new JButton("<html><center> Coca light <br> 1,50€ </center></html>");
-					btn04.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn04);
-					
-					JButton btn05 = new JButton("<html><center> Limonade <br> 1,50€ </center></html>");
-					btn05.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn05);
+			//Première ligne 
+				JButton btn11 = new JButton("<html><center>Ticket rouge <br> 1,50€ </center></html>");
+				btn11.setBackground(new Color(255, 0 ,0));
+				btn11.setName("btn11");
+				Boutons.add(btn11);
+				btn11.addActionListener(new VenteController(btn11, venteActuelle));
 				
-				//Deuxième ligne
-					JButton btn10 = new JButton("New button");
-					setInvisible(btn10);
-					Boutons.add(btn10);
-					
-					JButton btn11 = new JButton("<html><center> Ice Tea <br> 2,00€ </center></html>");
-					btn11.setBackground(new Color(8, 96, 168));
-					Boutons.add(btn11);
-					
-					JButton btn12 = new JButton("New button");
-					setInvisible(btn12);
-					Boutons.add(btn12);
-					
-					JButton btn13 = new JButton("New button");
-					setInvisible(btn13);
-					Boutons.add(btn13);
-					
-					JButton btn14 = new JButton("New button");
-					setInvisible(btn14);
-					Boutons.add(btn14);
-					
-					JButton btn15 = new JButton("<html><center> Jus de fruit <br> 1,50€ </center></html>");
-					btn15.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn15);
-					
-				//Troisième ligne
-					JButton btn20 = new JButton("<html><center> Ticket bleu <br> 2,00€ </center></html>");
-					btn20.setBackground(new Color(8, 96, 168));
-					Boutons.add(btn20);
-					
-					JButton btn21 = new JButton("<html><center> Kriek <br> 2,00€ </center></html>");
-					btn21.setBackground(new Color(8, 96, 168));
-					Boutons.add(btn21);
-					
-					JButton btn22 = new JButton("<html><center> Blanche <br> 2,00€ </center></html>");
-					btn22.setBackground(new Color(8, 96, 168));
-					Boutons.add(btn22);
-					
-					JButton btn23 = new JButton("<html><center> Verre de vin <br> 2,00€ </center></html>");
-					btn23.setBackground(new Color(8, 96, 168));
-					Boutons.add(btn23);
-					
-					JButton btn24 = new JButton("<html><center> Pils <br> 1,50€ </center></html>");
-					btn24.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn24);
-					
-					JButton btn25 = new JButton("<html><center> Gouyasse <br> 2,50€ </center></html>");
-					btn25.setBackground(new Color(255, 255 ,0));
-					Boutons.add(btn25);
-					
-				//Quatrième ligne
-					JButton btn30 = new JButton("<html><center> Ticket orange <br> 3,00€ </center></html>");
-					btn30.setBackground(new Color(255, 131 ,0));
-					Boutons.add(btn30);
-					
-					JButton btn31 = new JButton("<html><center> Chimay bleue <br> 3,00€ </center></html>");
-					btn31.setBackground(new Color(255, 131 ,0));
-					Boutons.add(btn31);
-					
-					JButton btn32 = new JButton("New button");
-					setInvisible(btn32);
-					Boutons.add(btn32);
-					
-					JButton btn33 = new JButton("New button");
-					setInvisible(btn33);
-					Boutons.add(btn33);
-					
-					JButton btn34 = new JButton("New button");
-					setInvisible(btn34);
-					Boutons.add(btn34);
-					
-					JButton btn35 = new JButton("New button");
-					setInvisible(btn35);
-					Boutons.add(btn35);
-					
-				//Cinquième ligne
-					JButton btn40 = new JButton("<html><center> Ticket jaune <br> 2,50€ </center></html>");
-					btn40.setBackground(new Color(255, 255 ,0));
-					Boutons.add(btn40);
-					
-					JButton btn41 = new JButton("<html><center> Petit déjeuner <br> 2,50€ </center></html>");
-					btn41.setBackground(new Color(255, 255 ,0));
-					Boutons.add(btn41);
-					
-					JButton btn42 = new JButton("<html><center> Sandwich <br> 2,50€ </center></html>");
-					btn42.setBackground(new Color(255, 255 ,0));
-					Boutons.add(btn42);
-					
-					JButton btn43 = new JButton("<html><center> Hot Dog <br> 2,50€ </center></html>");
-					btn43.setBackground(new Color(255, 255 ,0));
-					Boutons.add(btn43);
-					
-					JButton btn44 = new JButton("New button");
-					setInvisible(btn44);
-					Boutons.add(btn44);
-					
-					JButton btn45 = new JButton("New button");
-					setInvisible(btn45);
-					Boutons.add(btn45);
-					
-				//Sixième ligne
-					JButton btn50 = new JButton("New button");
-					setInvisible(btn50);
-					Boutons.add(btn50);
-					
-					JButton btn51 = new JButton("<html><center> Café <br> 1,50€ </center></html>");
-					btn51.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn51);
-					
-					JButton btn52 = new JButton("<html><center> Chocolat chaud <br> 1,50€ </center></html>");
-					btn52.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn52);
-					
-					JButton btn53 = new JButton("<html><center> Couque <br> 1,50€ </center></html>");
-					btn53.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn53);
-					
-					JButton btn54 = new JButton("<html><center> Chips <br> 1,50€ </center></html>");
-					btn54.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn54);
-					
-					JButton btn55 = new JButton("<html><center> Bonbon <br> 1,50€ </center></html>");
-					btn55.setBackground(new Color(255, 0 ,0));
-					Boutons.add(btn55);
+				JButton btn12 = new JButton("<html><center>Eau plate <br> 1,50€ </center></html>");
+				btn12.setBackground(new Color(255, 0 ,0));
+				btn12.setName("btn12");
+				Boutons.add(btn12);
+				btn12.addActionListener(new VenteController(btn12, venteActuelle));
+				
+				JButton btn13 = new JButton("<html><center> Eau pétillante <br> 1,50€ </hmtl>");
+				btn13.setBackground(new Color(255, 0 ,0));
+				btn13.setName("btn13");
+				Boutons.add(btn13);
+				btn13.addActionListener(new VenteController(btn13, venteActuelle));
+				
+				JButton btn14 = new JButton("<html><center> Coca cola <br> 1,50€ </center></html>");
+				btn14.setBackground(new Color(255, 0 ,0));
+				btn14.setName("btn14");
+				Boutons.add(btn14);
+				btn14.addActionListener(new VenteController(btn14, venteActuelle));
+				
+				JButton btn15 = new JButton("<html><center> Coca light <br> 1,50€ </center></html>");
+				btn15.setBackground(new Color(255, 0 ,0));
+				btn15.setName("btn15");
+				Boutons.add(btn15);
+				btn15.addActionListener(new VenteController(btn15, venteActuelle));
+				
+				JButton btn16 = new JButton("<html><center> Limonade <br> 1,50€ </center></html>");
+				btn16.setBackground(new Color(255, 0 ,0));
+				btn16.setName("btn16");
+				Boutons.add(btn16);
+				btn16.addActionListener(new VenteController(btn16, venteActuelle));
+			
+			//Deuxième ligne
+				JButton btn21 = new JButton("New button");
+				setInvisible(btn21);
+				btn21.setName("btn21");
+				Boutons.add(btn21);
+				btn21.addActionListener(new VenteController(btn21, venteActuelle));
+				
+				JButton btn22 = new JButton("<html><center> Ice Tea <br> 2,00€ </center></html>");
+				btn22.setBackground(new Color(8, 96, 168));
+				btn22.setName("btn22");
+				Boutons.add(btn22);
+				btn22.addActionListener(new VenteController(btn22, venteActuelle));
+				
+				JButton btn23 = new JButton("New button");
+				setInvisible(btn23);
+				btn23.setName("btn23");
+				Boutons.add(btn23);
+				btn23.addActionListener(new VenteController(btn23, venteActuelle));
+				
+				JButton btn24 = new JButton("New button");
+				setInvisible(btn24);
+				btn24.setName("btn24");
+				Boutons.add(btn24);
+				btn24.addActionListener(new VenteController(btn24, venteActuelle));
+				
+				JButton btn25 = new JButton("New button");
+				setInvisible(btn25);
+				btn25.setName("btn25");
+				Boutons.add(btn25);
+				btn25.addActionListener(new VenteController(btn25, venteActuelle));
+				
+				JButton btn26 = new JButton("<html><center> Jus de fruit <br> 1,50€ </center></html>");
+				btn26.setBackground(new Color(255, 0 ,0));
+				btn26.setName("btn26");
+				Boutons.add(btn26);
+				btn26.addActionListener(new VenteController(btn26, venteActuelle));
+				
+			//Troisième ligne
+				JButton btn31 = new JButton("<html><center> Ticket bleu <br> 2,00€ </center></html>");
+				btn31.setBackground(new Color(8, 96, 168));
+				btn31.setName("btn31");
+				Boutons.add(btn31);
+				btn31.addActionListener(new VenteController(btn31, venteActuelle));
+				
+				JButton btn32 = new JButton("<html><center> Kriek <br> 2,00€ </center></html>");
+				btn32.setBackground(new Color(8, 96, 168));
+				btn32.setName("btn32");
+				Boutons.add(btn32);
+				btn32.addActionListener(new VenteController(btn32, venteActuelle));
+				
+				JButton btn33 = new JButton("<html><center> Blanche <br> 2,00€ </center></html>");
+				btn33.setBackground(new Color(8, 96, 168));
+				btn33.setName("btn33");
+				Boutons.add(btn33);
+				btn33.addActionListener(new VenteController(btn33, venteActuelle));
+				
+				JButton btn34 = new JButton("<html><center> Verre de vin <br> 2,00€ </center></html>");
+				btn34.setBackground(new Color(8, 96, 168));
+				btn34.setName("btn34");
+				Boutons.add(btn34);
+				btn34.addActionListener(new VenteController(btn34, venteActuelle));
+				
+				JButton btn35 = new JButton("<html><center> Pils <br> 1,50€ </center></html>");
+				btn35.setBackground(new Color(255, 0 ,0));
+				btn35.setName("btn35");
+				Boutons.add(btn35);
+				btn35.addActionListener(new VenteController(btn35, venteActuelle));
+				
+				JButton btn36 = new JButton("<html><center> Gouyasse <br> 2,50€ </center></html>");
+				btn36.setBackground(new Color(255, 255 ,0));
+				btn36.setName("btn36");
+				Boutons.add(btn36);
+				btn36.addActionListener(new VenteController(btn36, venteActuelle));
+				
+			//Quatrième ligne
+				JButton btn41 = new JButton("<html><center> Ticket orange <br> 3,00€ </center></html>");
+				btn41.setBackground(new Color(255, 131 ,0));
+				btn41.setName("btn41");
+				Boutons.add(btn41);
+				btn41.addActionListener(new VenteController(btn41, venteActuelle));
+				
+				JButton btn42 = new JButton("<html><center> Chimay bleue <br> 3,00€ </center></html>");
+				btn42.setBackground(new Color(255, 131 ,0));
+				btn42.setName("btn42");
+				Boutons.add(btn42);
+				btn42.addActionListener(new VenteController(btn42, venteActuelle));
+				
+				JButton btn43 = new JButton("New button");
+				setInvisible(btn43);
+				btn43.setName("btn43");
+				Boutons.add(btn43);
+				btn43.addActionListener(new VenteController(btn43, venteActuelle));
+				
+				JButton btn44 = new JButton("New button");
+				setInvisible(btn44);
+				btn44.setName("btn44");
+				Boutons.add(btn44);
+				btn44.addActionListener(new VenteController(btn44, venteActuelle));
+				
+				JButton btn45 = new JButton("New button");
+				setInvisible(btn45);
+				btn45.setName("btn45");
+				Boutons.add(btn45);
+				btn45.addActionListener(new VenteController(btn45, venteActuelle));
+				
+				JButton btn46 = new JButton("New button");
+				setInvisible(btn46);
+				btn46.setName("btn46");
+				Boutons.add(btn46);
+				btn46.addActionListener(new VenteController(btn46, venteActuelle));
+				
+			//Cinquième ligne
+				JButton btn51 = new JButton("<html><center> Ticket jaune <br> 2,50€ </center></html>");
+				btn51.setBackground(new Color(255, 255 ,0));
+				btn51.setName("btn51");
+				Boutons.add(btn51);
+				btn51.addActionListener(new VenteController(btn51, venteActuelle));
+				
+				JButton btn52 = new JButton("<html><center> Petit déjeuner <br> 2,50€ </center></html>");
+				btn52.setBackground(new Color(255, 255 ,0));
+				btn52.setName("btn52");
+				Boutons.add(btn52);
+				btn52.addActionListener(new VenteController(btn52, venteActuelle));
+				
+				JButton btn53 = new JButton("<html><center> Sandwich <br> 2,50€ </center></html>");
+				btn53.setBackground(new Color(255, 255 ,0));
+				btn53.setName("btn53");
+				Boutons.add(btn53);
+				btn53.addActionListener(new VenteController(btn53, venteActuelle));
+				
+				JButton btn54 = new JButton("<html><center> Hot Dog <br> 2,50€ </center></html>");
+				btn54.setBackground(new Color(255, 255 ,0));
+				btn54.setName("btn54");
+				Boutons.add(btn54);
+				btn54.addActionListener(new VenteController(btn54, venteActuelle));
+				
+				JButton btn55 = new JButton("New button");
+				setInvisible(btn55);
+				btn55.setName("btn55");
+				Boutons.add(btn55);
+				btn55.addActionListener(new VenteController(btn55, venteActuelle));
+				
+				JButton btn56 = new JButton("New button");
+				setInvisible(btn56);
+				btn56.setName("btn56");
+				Boutons.add(btn56);
+				btn56.addActionListener(new VenteController(btn56, venteActuelle));
+				
+			//Sixième ligne
+				JButton btn61 = new JButton("New button");
+				setInvisible(btn61);
+				btn61.setName("btn61");
+				Boutons.add(btn61);
+				btn61.addActionListener(new VenteController(btn61, venteActuelle));
+				
+				JButton btn62 = new JButton("<html><center> Café <br> 1,50€ </center></html>");
+				btn62.setBackground(new Color(255, 0 ,0));
+				btn62.setName("btn62");
+				Boutons.add(btn62);
+				btn62.addActionListener(new VenteController(btn62, venteActuelle));
+				
+				JButton btn63 = new JButton("<html><center> Chocolat chaud <br> 1,50€ </center></html>");
+				btn63.setBackground(new Color(255, 0 ,0));
+				btn63.setName("btn63");
+				Boutons.add(btn63);
+				btn63.addActionListener(new VenteController(btn63, venteActuelle));
+				
+				JButton btn64 = new JButton("<html><center> Couque <br> 1,50€ </center></html>");
+				btn64.setBackground(new Color(255, 0 ,0));
+				btn64.setName("btn64");
+				Boutons.add(btn64);
+				btn64.addActionListener(new VenteController(btn64, venteActuelle));
+				
+				JButton btn65 = new JButton("<html><center> Chips <br> 1,50€ </center></html>");
+				btn65.setBackground(new Color(255, 0 ,0));
+				btn65.setName("btn65");
+				Boutons.add(btn65);
+				btn65.addActionListener(new VenteController(btn65, venteActuelle));
+				
+				JButton btn66 = new JButton("<html><center> Bonbon <br> 1,50€ </center></html>");
+				btn66.setBackground(new Color(255, 0 ,0));
+				btn66.setName("btn66");
+				Boutons.add(btn66);
+				btn66.addActionListener(new VenteController(btn66, venteActuelle));
+
 	
 		
 			//Panneau de résumé de ce qui a été introduit
@@ -395,10 +449,14 @@ public class VenteView {
 						validation.setLayout(new GridLayout(2, 1, 0, 0));
 						
 						JButton validationVrai = new JButton("Valider");
+						validationVrai.setName("validationVrai");
 						validation.add(validationVrai);
+						validationVrai.addActionListener(new VenteController(validationVrai, venteActuelle));
 						
 						JButton validationFaux = new JButton("Annuler");
+						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
+						validationFaux.addActionListener(new VenteController(validationFaux, venteActuelle));
 					
 		
 	}
