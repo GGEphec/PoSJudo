@@ -1,13 +1,16 @@
+/**Cette classe va créer la vue parametrage avec les éléments qui permettent d'interragir avec celui-ci.
+ * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
+ */
 package parametrage;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +19,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
-
 import acceuil.AcceuilView;
 import fondDeCaisse.FondDeCaisseView;
 import miseEnSecurite.MiseEnSecuriteView;
@@ -24,39 +26,17 @@ import rapports.RapportsView;
 import vente.VenteView;
 
 public class ParametrageView {
-
+//Variables d'instance
 	private JFrame vueParametrage;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ParametrageView window = new ParametrageView();
-					window.vueParametrage.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
-	 * Create the application.
+	 * Création de la vue paramétrage
 	 */
 	public ParametrageView() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
 		Border noir1px = new LineBorder(new Color(0,0,0));
 		Border transparent9px = new LineBorder(new Color(250, 250, 10), 9);
-		CompoundBorder bordure = new CompoundBorder(noir1px, transparent9px);
+		new CompoundBorder(noir1px, transparent9px);
 		
 		vueParametrage = new JFrame();
 		vueParametrage.setSize(new Dimension(1850, 950));
@@ -70,8 +50,7 @@ public class ParametrageView {
 
 		//Titre de la vue
 		JTextField TitreVue = new JTextField();
-		//TitreVue.setMinimumSize(new Dimension(718, 50));
-		//TitreVue.setMaximumSize(new Dimension(1918, 98));
+		TitreVue.setEditable(false);
 		TitreVue.setPreferredSize(new Dimension(1258, 70));
 		TitreVue.setSize(new Dimension(1258, 70));
 		TitreVue.setBackground(new Color(250, 250, 250));
@@ -87,9 +66,6 @@ public class ParametrageView {
 			//Panneau du menu latéral commun à toutes les vues
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalParametrage.add(MenuLateral);
-				//MenuLateral.setMinimumSize(new Dimension(53, 94));
-				//MenuLateral.setMaximumSize(new Dimension(94, 562));
-				//MenuLateral.setPreferredSize(new Dimension(112, 617));
 				MenuLateral.setSize(new Dimension(90, 617));
 				MenuLateral.setBackground(new Color(0, 150, 150));
 				MenuLateral.setBorder(transparent9px);
@@ -99,9 +75,8 @@ public class ParametrageView {
 				JButton btnAcceuil = new JButton("Acceuil");
 				btnAcceuil.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue d'acceuil
 						vueParametrage.dispose();
-						AcceuilView av = new AcceuilView();
+						new AcceuilView();
 					}
 				});
 				MenuLateral.add(btnAcceuil);
@@ -109,9 +84,8 @@ public class ParametrageView {
 				JButton btnVente = new JButton("Vente");
 				btnVente.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de vente
 						vueParametrage.dispose();
-						VenteView vv = new VenteView();
+						new VenteView();
 					}
 				});
 				MenuLateral.add(btnVente);
@@ -119,9 +93,8 @@ public class ParametrageView {
 				JButton btnProduits = new JButton("Produits");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de paramétrage
 						vueParametrage.dispose();
-						ParametrageView pv = new ParametrageView();							
+						new ParametrageView();							
 					}
 				});
 				MenuLateral.add(btnProduits);
@@ -129,9 +102,8 @@ public class ParametrageView {
 				JButton btnCaisse = new JButton("Caisse");
 				btnCaisse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de fond de caisse
 						vueParametrage.dispose();
-						FondDeCaisseView cv = new FondDeCaisseView();	
+						new FondDeCaisseView();	
 					}
 				});
 				MenuLateral.add(btnCaisse);
@@ -139,9 +111,8 @@ public class ParametrageView {
 				JButton btnSecurite = new JButton("Sécurité");
 				btnSecurite.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de mise en securite
 						vueParametrage.dispose();
-						MiseEnSecuriteView pv = new MiseEnSecuriteView();	
+						new MiseEnSecuriteView();	
 					}
 				});
 				MenuLateral.add(btnSecurite);
@@ -149,9 +120,8 @@ public class ParametrageView {
 				JButton btnRapports = new JButton("Rapports");
 				btnRapports.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de rapports
 						vueParametrage.dispose();
-						RapportsView rv = new RapportsView();	
+						new RapportsView();	
 					}
 				});
 				MenuLateral.add(btnRapports);
@@ -159,8 +129,6 @@ public class ParametrageView {
 			//Panneau des boutons pour introduire
 				JPanel Boutons = new JPanel();
 				AffichagePrincipalParametrage.add(Boutons);
-				//Boutons.setMinimumSize(new Dimension(53, 94));
-				//Boutons.setMaximumSize(new Dimension(94, 562));
 				Boutons.setPreferredSize(new Dimension(550, 617));
 				Boutons.setSize(new Dimension(550, 617));
 				Boutons.setBackground(new Color(150, 0, 150));
@@ -319,8 +287,6 @@ public class ParametrageView {
 			//Panneau de résumé de ce qui a été introduit
 				JPanel Resume = new JPanel();
 				AffichagePrincipalParametrage.add(Resume);
-				//Resume.setMinimumSize(new Dimension(53, 94));
-				//Resume.setMaximumSize(new Dimension(112, 562));
 				Resume.setPreferredSize(new Dimension(550, 617));
 				Resume.setSize(new Dimension(550, 617));
 				Resume.setBackground(new Color(150, 150, 0));
@@ -328,11 +294,15 @@ public class ParametrageView {
 				Resume.setLayout(new GridLayout(2, 1, 0, 0));
 	}
 
+	/**
+	 * Cette fonction regroupe la modification de plusieurs attributs d'un objet JButton pour le rendre invisible	
+	 * 
+	 * @param btn Le boutton qu'il faut rendre invisible
+	 */
 	private void setInvisible(JButton btn) {
 		btn.setOpaque(false);
 		btn.setVisible(false);
 		btn.setBorderPainted(false);
-		
 	}
 
 }

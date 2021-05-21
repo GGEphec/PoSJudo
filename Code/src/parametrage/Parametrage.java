@@ -1,24 +1,37 @@
-/**
+/**Cette classe va permettre de créer le modèle d'un produit qui sera utilisé pour déterminer quels produits ont été vendus
+ * L'objet représente un produit et les caractéristiques de la touche le comprenant
  * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
  */
 package parametrage;
 
-/**
- * @author gaeta_2b6psqs
- *
- */
+
 public class Parametrage {
-	//Variable d'instances
-	int numeroBoutton;
-	String nom; //Concat btn+numero
-	boolean visible;
-	double prix;
-	int couleurR;
-	int couleurG;
-	int couleurB;
-	String description;
-	int vendu;
+//Variable d'instance
+	int numeroBoutton; //Le numéro du boutton pour le repérer dans le cadre
+	String nom; //Concaténation de "btn"+numero
+	boolean visible; //Si le boutton du produit est visible ou non
+	double prix; //Le prix unitaire du produit
+	int couleurR; //La valeur Red de la couleur du boutton
+	int couleurG; //La valeur Green de la couleur du boutton
+	int couleurB; //La valeur Blue de la couleur du boutton
+	String description; //La description du produit
+	int vendu; //Le nombre de fois que le produit a été vendu pour cette transaction
 	
+	
+//Constructeur
+	/**
+	 * Le constructeur d'un objet Parametrage
+	 * 
+	 * @param n le numéro du boutton
+	 * @param v la visibilité du boutton
+	 * @param p le prix unitaire
+	 * @param R la valeur Red de la couleur du boutton
+	 * @param G la valeur Green de la couleur du boutton
+	 * @param B la valeur Blue de la couleur du boutton
+	 * @param d la description du boutton
+	 */
 	public Parametrage(int n, boolean v, double p, int R, int G, int B, String d) {
 		this.numeroBoutton = n;
 		this.nom = "btn"+n;
@@ -34,7 +47,6 @@ public class Parametrage {
 	
 	
 //Getters and Setters	
-	
 	/**
 	 * @return the numeroBoutton
 	 */
@@ -165,11 +177,13 @@ public class Parametrage {
 
 //toString	
 	/**
-	 * @return the object to a String
+	 * Cette fonction va retourner un objet Parametrage sous une forme lisible
+	 * 
+	 * @return La description et le nombre de fois que le produit a été vendu
 	 */
 	public String toString() {
 		return this.getDescription() + " " + this.getVendu();
-		//todo compelter avec autres éléments
+		//TODO compléter avec les autres éléments
 	}
 	
 	

@@ -1,27 +1,31 @@
+/**Cette classe va permettre de créer le modèle d'une vente qui sera utilisé pour déterminer quel est l'id de la vente, son heure et son contenu
+ * Le mot commande est parfois utilisé à la place du mot vente mais il détermine toujours ce qu'un client vient commander/achter comme tickets
+ * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
+ */
 package vente;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
 import acceuil.DBHelper;
 import parametrage.Parametrage;
 
-/**
- * @author gaeta_2b6psqs
- *
- */
+
 public class Vente {
 //Variable d'instance
-	private int idCommande;
-	private String heureCommande;
-	private List<Parametrage> contenu;
-	private int nbre;
-
+	private int idCommande; //L'id de la vente
+	private String heureCommande; //L'heure de la vente
+	private List<Parametrage> contenu; //Le contenu de la vente
 	
+	private int nbre; //Variable temporaire pour déterminer le nombre encodé sur le pavé numérique
+
+//Constructeur
+	/**
+	 * Le constructeur d'un objet Vente
+	 * L'objet vente est par défaut initalisé par des valeurs pré-calculées ou nulles
+	 */
 	public Vente() {
 		this.idCommande = DBHelper.nextCommande()+1;
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -30,28 +34,77 @@ public class Vente {
 		this.contenu = DBHelper.getProduits();
 	}
 
+//Méthodes
 	/**
-	 * @param args /
+	 * Permet d'initaliser la vue vente
 	 */
-	public static void main(String[] args) {
-		initialise();
-	}
-	
 	public static void initialise() {
 		VenteView window = new VenteView();
 		window.vueVente.setVisible(true);
 	}
 	
+	
+	/**
+	 * Cette fonction va pemettre d'ajouter une demande de ticket dans le contenu de la commande
+	 * 
+	 * @param nomBouton Le nom du boutton qui a été pressé
+	 * @param nbre Le nombre de fois qu'il faut ajouter le ticket
+	 */
 	public void ajoutUnAchat(String nomBouton, int nbre) {
 		for(Parametrage p : contenu) {
-			//System.out.println(p.getNom().equals(nomBouton));
 			if(p.getNom().equals(nomBouton)){
 				p.setVendu(p.getVendu() + nbre);
 			}	
 		}
-		//System.out.println(contenu);
 	}
 	
+	
+	/**
+	 * Cette fonction va permettre de finaliser la vente en enregistrant les données dans la base de données au moyen de DBHelper
+	 * Puis la fonction va raffraichir la vue
+	 */
+	public void finaliserCommande() {
+		DBHelper.enregistrerCommande(this.idCommande, this.heureCommande, this.contenu);
+		DBHelper.setTotal(DBHelper.getTotal()+sommeCommande());
+		java.awt.Window win[] = java.awt.Window.getWindows();
+		for(int i=0;i<win.length;i++){
+			win[i].dispose();
+		}
+		initialise();
+	}
+
+	/**
+	 * Cette fonction va permettre d'annuler la vente en cours en raffraichissant la vue
+	 */
+	public void annulerCommande() {
+		java.awt.Window win[] = java.awt.Window.getWindows();
+		for(int i=0;i<win.length;i++){
+			win[i].dispose();
+		}
+		initialise();
+	}
+	
+	
+	/**
+	 * Cette fonction va calculer la somme de la vente sur base du contenu de celle-ci
+	 * 
+	 * @return La somme de la vente
+	 */
+	//TODO JUnitTests
+	private double sommeCommande() {
+		double somme=0;
+		for(Parametrage p : contenu) {
+			somme+= p.getPrix()*p.getVendu();
+		}
+		return somme;
+	}
+	
+	
+	/**
+	 * Cette fonction va permettre de transformer une vente en un tableau d'objets pouvant être affiché dans le résumé de la vente
+	 * 
+	 * @return Un double tableau représentant le résumé de la vente
+	 */
 	public Object[][] affichage() {
 		int totalLigne = getRow(this.contenu)+5;
 		Object[][] retour = new Object[totalLigne][4];
@@ -90,6 +143,13 @@ public class Vente {
 		return retour;
 	}
 
+	
+	/**
+	 * Cette fonction va calculer la somme des tickets de la vente sur base du contenu de celle-ci
+	 * 
+	 * @return La somme des tickets de la vente
+	 */
+	//TODO JUnitTests
 	private int getTotalTicket() {
 		int totalTicket=0;
 		for(Parametrage p : contenu) {
@@ -98,6 +158,14 @@ public class Vente {
 		return totalTicket;
 	}
 
+	
+	/**
+	 * Cette fonction va calculer le nombre de lignes que doit contenir le résumé de la vente sur base du nombres d'objet Parametrage ayant des ventes non nulles
+	 * 
+	 * @param contenuRow Le contenu de la vente
+	 * @return Le nombre d'objet Parametrage dont la valeur vendu est non nulle
+	 */
+	//TODO JUnitTests
 	private int getRow(List<Parametrage> contenuRow) {
 		int nbreLigne = 0;
 		for(Parametrage a : contenuRow) {
@@ -108,33 +176,7 @@ public class Vente {
 		return nbreLigne;
 	}
 
-	public void finaliserCommande() {
-		DBHelper.enregistrerCommande(this.idCommande, this.heureCommande, this.contenu);
-		DBHelper.setTotal(DBHelper.getTotal()+sommeCommande());
-		java.awt.Window win[] = java.awt.Window.getWindows();
-		for(int i=0;i<win.length;i++){
-			win[i].dispose();
-		}
-		initialise();
-	}
-
-	private double sommeCommande() {
-		double somme=0;
-		for(Parametrage p : contenu) {
-			somme+= p.getPrix()*p.getVendu();
-		}
-		return somme;
-	}
-
-	public void annulerCommande() {
-		java.awt.Window win[] = java.awt.Window.getWindows();
-		for(int i=0;i<win.length;i++){
-			win[i].dispose();
-		}
-		initialise();
-		
-	}
-
+//Getters&Setters
 	/**
 	 * @return the nbre
 	 */
@@ -149,5 +191,4 @@ public class Vente {
 		this.nbre = nbre;
 	}
 
-	
 }

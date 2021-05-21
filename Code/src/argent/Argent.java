@@ -1,23 +1,31 @@
-/**
+/**Cette classe va permettre de représenter un objet de type Argent. L'objet de type Argent dispose d'un id, d'une valeur et d'un nombre de fois qu'il est échangé.
  * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
  */
 package argent;
 
-/**
- * @author gaeta_2b6psqs
- *
- */
 public class Argent {
-	private int idArgent;
-	private double valeurArgent;
-	private int sorti;
+//Variable d'instance
+	private int idArgent;  //L'id de l'argent, il correspond à la valeur en centimes
+	private double valeurArgent; //La valeur de l'argent, il correspond à la valeur en euros
+	private int sorti; //Le nombre de fois que l'argent a été échangé
 	
+//Constructeur
+	/**
+	 * Constructeur de l'objet Argent
+	 * 
+	 * @param id L'id de l'argent à construire
+	 * @param valeur La valeur de l'argent à construire
+	 */
 	public Argent(int id, double valeur) {
 		this.idArgent = id;
 		this.valeurArgent = valeur;
 		this.sorti = 0;
 	}
 
+	
+//Getters&Setters
 	/**
 	 * @return the idArgent
 	 */
@@ -60,14 +68,13 @@ public class Argent {
 		this.sorti = sorti;
 	}
 
+//toString
 	/**
-	 * @param args
+	 * Cette fonction va retourner un objet Argent sous une forme lisible
+	 * 
+	 * @return L'id de l'argent : le nombre de fois qu'il a été échangé
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
+	@Override
 	public String toString() {
 		return this.getIdArgent() + " : " + this.getSorti();
 	}

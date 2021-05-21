@@ -1,13 +1,16 @@
+/**Cette classe va créer la vue fondDeCaisse avec les éléments qui permettent d'interragir avec celui-ci.
+ * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
+ */
 package fondDeCaisse;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,43 +20,28 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
-
+import javax.swing.table.DefaultTableModel;
 import acceuil.AcceuilView;
-import miseEnSecurite.MiseEnSecuriteController;
 import miseEnSecurite.MiseEnSecuriteView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
 import vente.VenteView;
 
 public class FondDeCaisseView {
-
+//Variables d'instance
 	JFrame vueFondDeCaisse;
 	private JTable resumeFondDeCaisse;
+	DefaultTableModel modelTable = new DefaultTableModel(0,4);
+
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FondDeCaisseView window = new FondDeCaisseView();
-					window.vueFondDeCaisse.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
+	 * Creation de la vue fond de caisse
 	 */
 	public FondDeCaisseView() {
-		//Creation modele
+		//Création modèle
 		FondDeCaisse fondCaisse = new FondDeCaisse();
 		
-		//Creation graphique
+		//Création graphique
 		Border noir1px = new LineBorder(new Color(0,0,0));
 		Border transparent9px = new LineBorder(new Color(250, 250, 10), 9);
 		CompoundBorder bordure = new CompoundBorder(noir1px, transparent9px);
@@ -70,6 +58,7 @@ public class FondDeCaisseView {
 
 		//Titre de la vue
 		JTextField TitreVue = new JTextField();
+		TitreVue.setEditable(false);
 		//TitreVue.setMinimumSize(new Dimension(718, 50));
 		//TitreVue.setMaximumSize(new Dimension(1918, 98));
 		TitreVue.setPreferredSize(new Dimension(1258, 70));
@@ -88,9 +77,6 @@ public class FondDeCaisseView {
 			//Panneau du menu latéral commun à toutes les vues
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalFondDeCaisse.add(MenuLateral);
-				//MenuLateral.setMinimumSize(new Dimension(53, 94));
-				//MenuLateral.setMaximumSize(new Dimension(94, 562));
-				//MenuLateral.setPreferredSize(new Dimension(112, 617));
 				MenuLateral.setSize(new Dimension(90, 617));
 				MenuLateral.setBackground(new Color(0, 150, 150));
 				MenuLateral.setBorder(transparent9px);
@@ -100,9 +86,8 @@ public class FondDeCaisseView {
 					JButton btnAcceuil = new JButton("Acceuil");
 					btnAcceuil.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue d'acceuil
 							vueFondDeCaisse.dispose();
-							AcceuilView av = new AcceuilView();
+							new AcceuilView();
 						}
 					});
 					MenuLateral.add(btnAcceuil);
@@ -110,9 +95,8 @@ public class FondDeCaisseView {
 					JButton btnVente = new JButton("Vente");
 					btnVente.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue de vente
 							vueFondDeCaisse.dispose();
-							VenteView vv = new VenteView();
+							new VenteView();
 						}
 					});
 					MenuLateral.add(btnVente);
@@ -120,9 +104,8 @@ public class FondDeCaisseView {
 					JButton btnProduits = new JButton("Produits");
 					btnProduits.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue de paramétrage
 							vueFondDeCaisse.dispose();
-							ParametrageView pv = new ParametrageView();							
+							new ParametrageView();							
 						}
 					});
 					MenuLateral.add(btnProduits);
@@ -130,9 +113,8 @@ public class FondDeCaisseView {
 					JButton btnCaisse = new JButton("Caisse");
 					btnCaisse.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue de fond de caisse
 							vueFondDeCaisse.dispose();
-							FondDeCaisseView cv = new FondDeCaisseView();	
+							new FondDeCaisseView();	
 						}
 					});
 					MenuLateral.add(btnCaisse);
@@ -140,9 +122,8 @@ public class FondDeCaisseView {
 					JButton btnSecurite = new JButton("Sécurité");
 					btnSecurite.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue de mise en securite
 							vueFondDeCaisse.dispose();
-							MiseEnSecuriteView pv = new MiseEnSecuriteView();	
+							new MiseEnSecuriteView();	
 						}
 					});
 					MenuLateral.add(btnSecurite);
@@ -150,9 +131,8 @@ public class FondDeCaisseView {
 					JButton btnRapports = new JButton("Rapports");
 					btnRapports.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							//TODO va sur la vue de rapports
 							vueFondDeCaisse.dispose();
-							RapportsView rv = new RapportsView();	
+							new RapportsView();	
 						}
 					});
 					MenuLateral.add(btnRapports);
@@ -160,8 +140,6 @@ public class FondDeCaisseView {
 					//Panneau des boutons pour introduire
 					JPanel Boutons = new JPanel();
 					AffichagePrincipalFondDeCaisse.add(Boutons);
-					//Boutons.setMinimumSize(new Dimension(53, 94));
-					//Boutons.setMaximumSize(new Dimension(94, 562));
 					Boutons.setPreferredSize(new Dimension(550, 617));
 					Boutons.setSize(new Dimension(550, 617));
 					Boutons.setBackground(new Color(150, 0, 150));
@@ -175,17 +153,17 @@ public class FondDeCaisseView {
 					JButton btn01 = new JButton("200€");
 					btn01.setName("argent20000");
 					Boutons.add(btn01);
-					btn01.addActionListener(new FondDeCaisseController(btn01, fondCaisse));
+					btn01.addActionListener(new FondDeCaisseController(btn01, fondCaisse, modelTable));
 					
 					JButton btn02 = new JButton("100€");
 					btn02.setName("argent10000");
 					Boutons.add(btn02);
-					btn02.addActionListener(new FondDeCaisseController(btn02, fondCaisse));
+					btn02.addActionListener(new FondDeCaisseController(btn02, fondCaisse, modelTable));
 					
 					JButton btn03 = new JButton("50€");
 					btn03.setName("argent5000");
 					Boutons.add(btn03);
-					btn03.addActionListener(new FondDeCaisseController(btn03, fondCaisse));
+					btn03.addActionListener(new FondDeCaisseController(btn03, fondCaisse, modelTable));
 					
 					JButton btn04 = new JButton("");
 					setInvisible(btn04);
@@ -205,17 +183,17 @@ public class FondDeCaisseView {
 					JButton btn11 = new JButton("20€");
 					btn11.setName("argent2000");
 					Boutons.add(btn11);
-					btn11.addActionListener(new FondDeCaisseController(btn11, fondCaisse));
+					btn11.addActionListener(new FondDeCaisseController(btn11, fondCaisse, modelTable));
 					
 					JButton btn12 = new JButton("10€");
 					btn12.setName("argent1000");
 					Boutons.add(btn12);
-					btn12.addActionListener(new FondDeCaisseController(btn12, fondCaisse));
+					btn12.addActionListener(new FondDeCaisseController(btn12, fondCaisse, modelTable));
 					
 					JButton btn13 = new JButton("5€");
 					btn13.setName("argent500");
 					Boutons.add(btn13);
-					btn13.addActionListener(new FondDeCaisseController(btn13, fondCaisse));
+					btn13.addActionListener(new FondDeCaisseController(btn13, fondCaisse, modelTable));
 					
 					JButton btn14 = new JButton("");
 					setInvisible(btn14);
@@ -258,12 +236,12 @@ public class FondDeCaisseView {
 					JButton btn31 = new JButton("2€");
 					btn31.setName("argent200");
 					Boutons.add(btn31);
-					btn31.addActionListener(new FondDeCaisseController(btn31, fondCaisse));
+					btn31.addActionListener(new FondDeCaisseController(btn31, fondCaisse, modelTable));
 					
 					JButton btn32 = new JButton("1€");
 					btn32.setName("argent100");
 					Boutons.add(btn32);
-					btn32.addActionListener(new FondDeCaisseController(btn32, fondCaisse));
+					btn32.addActionListener(new FondDeCaisseController(btn32, fondCaisse, modelTable));
 					
 					JButton btn33 = new JButton("");
 					setInvisible(btn33);
@@ -285,17 +263,17 @@ public class FondDeCaisseView {
 					JButton btn41 = new JButton("0,50€");
 					btn41.setName("argent50");
 					Boutons.add(btn41);
-					btn41.addActionListener(new FondDeCaisseController(btn41, fondCaisse));
+					btn41.addActionListener(new FondDeCaisseController(btn41, fondCaisse, modelTable));
 					
 					JButton btn42 = new JButton("0,20€");
 					btn42.setName("argent20");
 					Boutons.add(btn42);
-					btn42.addActionListener(new FondDeCaisseController(btn42, fondCaisse));
+					btn42.addActionListener(new FondDeCaisseController(btn42, fondCaisse, modelTable));
 					
 					JButton btn43 = new JButton("0,10€");
 					btn43.setName("argent10");
 					Boutons.add(btn43);
-					btn43.addActionListener(new FondDeCaisseController(btn43, fondCaisse));
+					btn43.addActionListener(new FondDeCaisseController(btn43, fondCaisse, modelTable));
 					
 					JButton btn44 = new JButton("");
 					setInvisible(btn44);
@@ -313,17 +291,17 @@ public class FondDeCaisseView {
 					JButton btn51 = new JButton("0,05€");
 					btn51.setName("argent5");
 					Boutons.add(btn51);
-					btn51.addActionListener(new FondDeCaisseController(btn51, fondCaisse));
+					btn51.addActionListener(new FondDeCaisseController(btn51, fondCaisse, modelTable));
 					
 					JButton btn52 = new JButton("0,02€");
 					btn52.setName("argent2");
 					Boutons.add(btn52);
-					btn52.addActionListener(new FondDeCaisseController(btn52, fondCaisse));
+					btn52.addActionListener(new FondDeCaisseController(btn52, fondCaisse, modelTable));
 					
 					JButton btn53 = new JButton("0,01€");
 					btn53.setName("argent1");
 					Boutons.add(btn53);
-					btn53.addActionListener(new FondDeCaisseController(btn53, fondCaisse));
+					btn53.addActionListener(new FondDeCaisseController(btn53, fondCaisse, modelTable));
 					
 					JButton btn54 = new JButton("");
 					setInvisible(btn54);
@@ -337,8 +315,6 @@ public class FondDeCaisseView {
 			//Panneau de résumé de ce qui a été introduit
 				JPanel Resume = new JPanel();
 				AffichagePrincipalFondDeCaisse.add(Resume);
-				//Resume.setMinimumSize(new Dimension(53, 94));
-				//Resume.setMaximumSize(new Dimension(112, 562));
 				Resume.setPreferredSize(new Dimension(550, 617));
 				Resume.setSize(new Dimension(550, 617));
 				Resume.setBackground(new Color(150, 150, 0));
@@ -346,7 +322,7 @@ public class FondDeCaisseView {
 				Resume.setLayout(new GridLayout(2, 1, 0, 0));
 				
 				//Affichage du résumé de la commande
-					resumeFondDeCaisse = new JTable();
+					resumeFondDeCaisse = new JTable(modelTable);
 					Resume.add(resumeFondDeCaisse);
 				
 				//Panneau du bas pour introduire les chiffres et valider
@@ -362,47 +338,47 @@ public class FondDeCaisseView {
 						JButton pave7 = new JButton("7");
 						pave7.setName("pave7");
 						paveNumerique.add(pave7);
-						pave7.addActionListener(new FondDeCaisseController(pave7, fondCaisse));
+						pave7.addActionListener(new FondDeCaisseController(pave7, fondCaisse, modelTable));
 						
 						JButton pave8 = new JButton("8");
 						pave8.setName("pave8");
 						paveNumerique.add(pave8);
-						pave8.addActionListener(new FondDeCaisseController(pave8, fondCaisse));
+						pave8.addActionListener(new FondDeCaisseController(pave8, fondCaisse, modelTable));
 						
 						JButton pave9 = new JButton("9");
 						pave9.setName("pave9");
 						paveNumerique.add(pave9);
-						pave9.addActionListener(new FondDeCaisseController(pave9, fondCaisse));
+						pave9.addActionListener(new FondDeCaisseController(pave9, fondCaisse, modelTable));
 						
 						JButton pave4 = new JButton("4");
 						pave4.setName("pave4");
 						paveNumerique.add(pave4);
-						pave4.addActionListener(new FondDeCaisseController(pave4, fondCaisse));
+						pave4.addActionListener(new FondDeCaisseController(pave4, fondCaisse, modelTable));
 						
 						JButton pave5 = new JButton("5");
 						pave5.setName("pave5");
 						paveNumerique.add(pave5);
-						pave5.addActionListener(new FondDeCaisseController(pave5, fondCaisse));
+						pave5.addActionListener(new FondDeCaisseController(pave5, fondCaisse, modelTable));
 						
 						JButton pave6 = new JButton("6");
 						pave6.setName("pave6");
 						paveNumerique.add(pave6);
-						pave6.addActionListener(new FondDeCaisseController(pave6, fondCaisse));
+						pave6.addActionListener(new FondDeCaisseController(pave6, fondCaisse, modelTable));
 						
 						JButton pave1 = new JButton("1");
 						pave1.setName("pave1");
 						paveNumerique.add(pave1);
-						pave1.addActionListener(new FondDeCaisseController(pave1, fondCaisse));
+						pave1.addActionListener(new FondDeCaisseController(pave1, fondCaisse, modelTable));
 						
 						JButton pave2 = new JButton("2");
 						pave2.setName("pave2");
 						paveNumerique.add(pave2);
-						pave2.addActionListener(new FondDeCaisseController(pave2, fondCaisse));
+						pave2.addActionListener(new FondDeCaisseController(pave2, fondCaisse, modelTable));
 						
 						JButton pave3 = new JButton("3");
 						pave3.setName("pave3");
 						paveNumerique.add(pave3);
-						pave3.addActionListener(new FondDeCaisseController(pave3, fondCaisse));
+						pave3.addActionListener(new FondDeCaisseController(pave3, fondCaisse, modelTable));
 						
 						JButton paveVide = new JButton("");
 						setInvisible(paveVide);
@@ -411,7 +387,7 @@ public class FondDeCaisseView {
 						JButton pave0 = new JButton("0");
 						pave0.setName("pave0");
 						paveNumerique.add(pave0);
-						pave0.addActionListener(new FondDeCaisseController(pave0, fondCaisse));
+						pave0.addActionListener(new FondDeCaisseController(pave0, fondCaisse, modelTable));
 						
 						JButton pavePoint = new JButton(".");
 						setInvisible(pavePoint);
@@ -425,20 +401,23 @@ public class FondDeCaisseView {
 						JButton validationVrai = new JButton("Valider");
 						validationVrai.setName("validationVrai");
 						validation.add(validationVrai);
-						validationVrai.addActionListener(new FondDeCaisseController(validationVrai, fondCaisse));
+						validationVrai.addActionListener(new FondDeCaisseController(validationVrai, fondCaisse, modelTable));
 						
 						JButton validationFaux = new JButton("Annuler");
 						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
-						validationFaux.addActionListener(new FondDeCaisseController(validationFaux, fondCaisse));
+						validationFaux.addActionListener(new FondDeCaisseController(validationFaux, fondCaisse, modelTable));
 	}
 					
-		
+	/**
+	 * Cette fonction regroupe la modification de plusieurs attributs d'un objet JButton pour le rendre invisible	
+	 * 
+	 * @param btn Le boutton qu'il faut rendre invisible
+	 */
 	private void setInvisible(JButton btn) {
 		btn.setOpaque(false);
 		btn.setVisible(false);
 		btn.setBorderPainted(false);
 	}
-
 
 }

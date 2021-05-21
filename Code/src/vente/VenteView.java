@@ -1,5 +1,9 @@
+/**Cette classe va créer la vue venteView avec les éléments qui permettent d'interragir avec celle-ci.
+ * 
+ * @author gaeta_2b6psqs
+ * @version 2021-05-21
+ */
 package vente;
-
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -7,7 +11,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,30 +21,22 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-
 import acceuil.AcceuilView;
 import fondDeCaisse.FondDeCaisseView;
-import miseEnSecurite.MiseEnSecuriteController;
 import miseEnSecurite.MiseEnSecuriteView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
 import vente.Vente;
 
 public class VenteView {
-
+//Varaibles d'instance
 	JFrame vueVente;
 	JTable resumeCommande;
 	DefaultTableModel modelTable = new DefaultTableModel(0,4);
 
 
-	private void setInvisible(JButton btn) {
-		btn.setOpaque(false);
-		btn.setVisible(false);
-		btn.setBorderPainted(false);
-	}
-
 	/**
-	 * Create the view of Vente
+	 * Création de la vue vente
 	 */
 	public VenteView() {
 	//Création modele
@@ -65,8 +60,6 @@ public class VenteView {
 		//Titre de la vue
 		JTextField TitreVue = new JTextField();
 		TitreVue.setEditable(false);
-		//TitreVue.setMinimumSize(new Dimension(718, 50));
-		//TitreVue.setMaximumSize(new Dimension(1918, 98));
 		TitreVue.setPreferredSize(new Dimension(1258, 70));
 		TitreVue.setSize(new Dimension(1258, 70));
 		TitreVue.setBackground(new Color(250, 250, 250));
@@ -82,9 +75,6 @@ public class VenteView {
 			//Panneau du menu latéral commun à toutes les vues
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalVente.add(MenuLateral);
-				//MenuLateral.setMinimumSize(new Dimension(53, 94));
-				//MenuLateral.setMaximumSize(new Dimension(94, 562));
-				//MenuLateral.setPreferredSize(new Dimension(112, 617));
 				MenuLateral.setSize(new Dimension(90, 617));
 				MenuLateral.setBackground(new Color(0, 150, 150));
 				MenuLateral.setBorder(transparent9px);
@@ -94,7 +84,6 @@ public class VenteView {
 				JButton btnAcceuil = new JButton("Acceuil");
 				btnAcceuil.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue d'acceuil
 						vueVente.dispose();
 						new AcceuilView();
 					}
@@ -104,7 +93,6 @@ public class VenteView {
 				JButton btnVente = new JButton("Vente");
 				btnVente.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de vente
 						vueVente.dispose();
 						new VenteView();
 					}
@@ -114,7 +102,6 @@ public class VenteView {
 				JButton btnProduits = new JButton("Produits");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de paramétrage
 						vueVente.dispose();
 						new ParametrageView();							
 					}
@@ -124,7 +111,6 @@ public class VenteView {
 				JButton btnCaisse = new JButton("Caisse");
 				btnCaisse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de fond de caisse
 						vueVente.dispose();
 						new FondDeCaisseView();	
 					}
@@ -134,7 +120,6 @@ public class VenteView {
 				JButton btnSecurite = new JButton("Sécurité");
 				btnSecurite.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de mise en securite
 						vueVente.dispose();
 						new MiseEnSecuriteView();	
 					}
@@ -144,7 +129,6 @@ public class VenteView {
 				JButton btnRapports = new JButton("Rapports");
 				btnRapports.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//TODO va sur la vue de rapports
 						vueVente.dispose();
 						new RapportsView();	
 					}
@@ -154,8 +138,6 @@ public class VenteView {
 			//Panneau des boutons pour introduire
 				JPanel Boutons = new JPanel();
 				AffichagePrincipalVente.add(Boutons);
-				//Boutons.setMinimumSize(new Dimension(53, 94));
-				//Boutons.setMaximumSize(new Dimension(94, 562));
 				Boutons.setPreferredSize(new Dimension(550, 617));
 				Boutons.setSize(new Dimension(550, 617));
 				Boutons.setBackground(new Color(61, 72, 73));
@@ -388,8 +370,6 @@ public class VenteView {
 			//Panneau de résumé de ce qui a été introduit
 				JPanel Resume = new JPanel();
 				AffichagePrincipalVente.add(Resume);
-				//Resume.setMinimumSize(new Dimension(53, 94));
-				//Resume.setMaximumSize(new Dimension(112, 562));
 				Resume.setPreferredSize(new Dimension(550, 617));
 				Resume.setSize(new Dimension(550, 617));
 				Resume.setBackground(new Color(150, 150, 0));
@@ -397,10 +377,7 @@ public class VenteView {
 				Resume.setLayout(new GridLayout(2, 1, 0, 0));
 				
 				//Affichage du résumé de la commande
-//					String[] item = {"Nbre", "Produit", "prix", "total"};
-//					modelTable.addRow(item);
 					resumeCommande = new JTable(modelTable);
-					//resumeCommande.repaint();
 					Resume.add(resumeCommande);
 				
 				//Panneau du bas pour introduire les chiffres et valider
@@ -485,8 +462,17 @@ public class VenteView {
 						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
 						validationFaux.addActionListener(new VenteController(validationFaux, venteActuelle, modelTable, resumeCommande));
-					
-		
 	}
 
+	/**
+	 * Cette fonction regroupe la modification de plusieurs attributs d'un objet JButton pour le rendre invisible	
+	 * 
+	 * @param btn Le boutton qu'il faut rendre invisible
+	 */
+	private void setInvisible(JButton btn) {
+		btn.setOpaque(false);
+		btn.setVisible(false);
+		btn.setBorderPainted(false);
+	}
+	
 }
