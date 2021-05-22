@@ -94,3 +94,5 @@ INSERT INTO "produits" ("idProduit", "visibleProduit", "prixUnitaireProduit", "c
 INSERT INTO "produits" ("idProduit", "visibleProduit", "prixUnitaireProduit", "couleurRProduit", "couleurGProduit", "couleurBProduit", "descriptionProduit") VALUES (46, 0, 0, 0, 0, 0, '');
 INSERT INTO "produits" ("idProduit", "visibleProduit", "prixUnitaireProduit", "couleurRProduit", "couleurGProduit", "couleurBProduit", "descriptionProduit") VALUES (56, 0, 0, 0, 0, 0, '');
 INSERT INTO "produits" ("idProduit", "visibleProduit", "prixUnitaireProduit", "couleurRProduit", "couleurGProduit", "couleurBProduit", "descriptionProduit") VALUES (66, 1, 1.5, 255, 0, 0, 'Bonbons');
+
+INSERT INTO "memoire" ("argentcaisse") VALUES (0);

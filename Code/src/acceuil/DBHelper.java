@@ -14,8 +14,8 @@ import parametrage.Parametrage;
 
 public class DBHelper {
 //Variables d'instance
-	private static String db_prefix = "D:\\PosJudo\\Code\\mysql2\\posjudo";
-	//private static String db_prefix = "mysql2/posjudo";
+	//private static String db_prefix = "D:\\PosJudo\\Code\\mysql2\\posjudo";
+	private static String db_prefix = "mysql2/posjudo";
 
 	/**
 	 * Main pour lancer la fonction runQuery
@@ -31,23 +31,23 @@ public class DBHelper {
 	public static void runQuery() {
 		Connection con = null;
 		try {
-			Class.forName("org.hsqldb.jdbcDriver");
-			con = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", "");
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			con = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", "");
 			
-			String select = "SELECT * from \"produits\";";
+			String select = "SHUTDOWN SCRIPT;";
 			Statement stmt = con.createStatement();
-			ResultSet rset = stmt.executeQuery(select);
-			int id=0;
-			while (rset.next()) {
-				id = rset.getInt("idProduit");
-				System.out.println(id);
+			boolean a = stmt.execute(select);
+			if(a) {
+				System.out.println("reussi");
 			}
+			else {
+				System.out.println("rate");
+			}
+
 			stmt.close();
-		} catch (ClassNotFoundException ex) {
-			System.out.println("classnotfound" + ex.getMessage());
-			ex.printStackTrace();
+//		} catch (ClassNotFoundException ex) {
+//			ex.printStackTrace();
 		} catch (SQLException e) {
-			System.out.println("sql" + e.getMessage());;
 			e.printStackTrace();
 		}
 		
@@ -62,8 +62,8 @@ public class DBHelper {
 	public static int nextCommande() {
 		int maxCommande = 0;
 		try {
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSelect = "SELECT(MAX(\"idCommande\")) AS \"maxIdCommande\" FROM \"commandes\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
@@ -73,8 +73,8 @@ public class DBHelper {
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 		return maxCommande;
 	}
@@ -88,8 +88,8 @@ public class DBHelper {
 	public static List<Parametrage> getProduits() {
 		List<Parametrage> produit = new ArrayList<>();
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSelect = "SELECT * FROM \"produits\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
@@ -107,8 +107,8 @@ public class DBHelper {
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 		return produit;
 	}
@@ -130,16 +130,16 @@ public class DBHelper {
 			}
 		}
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			stmt.execute(sqlCommande1);
 			stmt.execute(sqlCommande2);
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 	}
 
@@ -152,8 +152,8 @@ public class DBHelper {
 	public static int getnextMiseEnSecurite() {
 		int maxMiseEnSecurite = 0;
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSelect = "SELECT(MAX(\"idSortie\")) AS \"maxIdMiseEnSecurite\" FROM \"sorties\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
@@ -163,8 +163,8 @@ public class DBHelper {
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 		return maxMiseEnSecurite;
 	}
@@ -177,8 +177,8 @@ public class DBHelper {
 	public static List<Argent> getArgent() {
 		List<Argent> argent = new ArrayList<>();
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSelect = "SELECT * FROM \"argent\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
@@ -191,8 +191,8 @@ public class DBHelper {
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 		return argent;
 	}
@@ -215,16 +215,16 @@ public class DBHelper {
 			}
 		}
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			stmt.execute(sqlCommande1);
 			stmt.execute(sqlCommande2);
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 	}
 
@@ -237,8 +237,8 @@ public class DBHelper {
 	public static double getTotal() {
 		double argentEnregistre = 0;
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSelect = "SELECT \"argentcaisse\" FROM \"memoire\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
@@ -248,8 +248,8 @@ public class DBHelper {
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}
 		return argentEnregistre;
 	}
@@ -262,16 +262,16 @@ public class DBHelper {
 	 */
 	public static void setTotal(double d) {
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 			String strSet = "UPDATE \"memoire\" SET \"argentcaisse\" = (" + d + ");";
 			stmt.execute(strSet);
 			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
 		}		
 	}
 
@@ -293,16 +293,34 @@ public class DBHelper {
 			}
 		}
 		try{
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
 			Statement stmt = conn.createStatement();
 				stmt.execute(sqlCommande1);
 				stmt.execute(sqlCommande2);
 				stmt.close();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+//			} catch (ClassNotFoundException e) {
+//				e.printStackTrace();
 			}
+	}
+
+	/**
+	 * Cette fonction permet de fermer proprement la base de données
+	 */
+	public static void shutdown() {
+		try{
+			//Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "SA", ""); 
+			Statement stmt = conn.createStatement();
+			String strSet = "SHUTDOWN;";
+			stmt.execute(strSet);
+			stmt.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+		}	
 	}
 }

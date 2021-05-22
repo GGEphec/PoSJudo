@@ -29,6 +29,7 @@ public class AcceuilView {
 		new CompoundBorder(noir1px, transparent9px);
 		
 		vueAcceuil = new JFrame();
+		vueAcceuil.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		vueAcceuil.setSize(new Dimension(1850, 950));
 		vueAcceuil.setVisible(true);
 		vueAcceuil.getContentPane().setMinimumSize(new Dimension(720, 480));
@@ -63,7 +64,7 @@ public class AcceuilView {
 				MenuLateral.setSize(new Dimension(90, 617));
 				MenuLateral.setBackground(new Color(0, 150, 150));
 				MenuLateral.setBorder(transparent9px);
-				MenuLateral.setLayout(new GridLayout(6, 1, 0, 0));
+				MenuLateral.setLayout(new GridLayout(7, 1, 0, 0));
 				
 				//Boutons d'accès du menu latéral
 					JButton btnAcceuil = new JButton("Acceuil");
@@ -119,6 +120,15 @@ public class AcceuilView {
 						}
 					});
 					MenuLateral.add(btnRapports);
+					
+					JButton btnClose = new JButton("Quitter");
+					btnClose.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							DBHelper.shutdown();
+							vueAcceuil.dispose();
+						}
+					});
+					MenuLateral.add(btnClose);
 					
 			//Panneau principal qui va changer en fonction de la vue
 				JPanel info = new JPanel();
