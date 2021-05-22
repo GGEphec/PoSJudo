@@ -96,7 +96,7 @@ public class MiseEnSecurite {
 		for(Argent i : contenuMiseEnSecurite) {
 			somme += (i.getValeurArgent()*i.getSorti());
 		}
-		return somme;
+		return (double)Math.round(somme*100)/100;
 	}
 	
 	
@@ -126,7 +126,7 @@ public class MiseEnSecurite {
 				retour[i][0]=a.getSorti();
 				retour[i][1]=a.getValeurArgent() + "€";
 				retour[i][2]="";
-				retour[i][3]=a.getValeurArgent()*a.getSorti();
+				retour[i][3]=(double)Math.round((a.getValeurArgent()*a.getSorti())*100)/100;
 				i++;
 			}
 			

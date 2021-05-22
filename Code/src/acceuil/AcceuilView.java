@@ -46,7 +46,10 @@ public class AcceuilView {
 		TitreVue.setName("TitreAcceuil");
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
-		TitreVue.setText("				Acceuil 								Somme en caisse : " + DBHelper.getTotal() + "€");
+		TitreVue.setText("Acceuil						Somme en caisse : " + DBHelper.getTotal() + "€");
+		Font font = new Font("SansSerif", Font.BOLD, 20);
+		TitreVue.setFont(font);
+		TitreVue.setHorizontalAlignment(JTextField.CENTER);
 		vueAcceuil.getContentPane().add(TitreVue, BorderLayout.NORTH);
 		
 		//Affichage principal

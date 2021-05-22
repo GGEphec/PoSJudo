@@ -8,6 +8,7 @@ package rapports;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import acceuil.AcceuilView;
+import acceuil.DBHelper;
 import fondDeCaisse.FondDeCaisseView;
 import miseEnSecurite.MiseEnSecuriteView;
 import parametrage.ParametrageView;
@@ -54,7 +56,10 @@ public class RapportsView {
 		TitreVue.setName("TitreAcceuil");
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
-		TitreVue.setText("Rapports");
+		TitreVue.setText("Rapports						Somme en caisse : " + DBHelper.getTotal() + "€");
+		Font font = new Font("SansSerif", Font.BOLD, 20);
+		TitreVue.setFont(font);
+		TitreVue.setHorizontalAlignment(JTextField.CENTER);
 		vueRapports.getContentPane().add(TitreVue, BorderLayout.NORTH);
 		
 		//Affichage principal

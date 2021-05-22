@@ -8,6 +8,7 @@ package miseEnSecurite;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import acceuil.AcceuilView;
+import acceuil.DBHelper;
 import fondDeCaisse.FondDeCaisseView;
 import parametrage.ParametrageView;
 import rapports.RapportsView;
@@ -63,7 +65,10 @@ public class MiseEnSecuriteView {
 		TitreVue.setSize(new Dimension(1258, 70));
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
-		TitreVue.setText("Mise en sécurité");
+		TitreVue.setText("Mise en sécurité						Somme en caisse : " + DBHelper.getTotal() + "€");
+		Font font = new Font("SansSerif", Font.BOLD, 20);
+		TitreVue.setFont(font);
+		TitreVue.setHorizontalAlignment(JTextField.CENTER);
 		vueMiseEnSecurite.getContentPane().add(TitreVue, BorderLayout.NORTH);
 		
 		//Affichage principal

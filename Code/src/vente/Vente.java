@@ -96,7 +96,7 @@ public class Vente {
 		for(Parametrage p : contenu) {
 			somme+= p.getPrix()*p.getVendu();
 		}
-		return somme;
+		return (double)Math.round(somme*100)/100;
 	}
 	
 	
@@ -126,7 +126,7 @@ public class Vente {
 				retour[i][0]=a.getVendu();
 				retour[i][1]=a.getDescription();
 				retour[i][2]=a.getPrix();
-				retour[i][3]=a.getPrix()*a.getVendu();
+				retour[i][3]=(double)Math.round((a.getPrix()*a.getVendu())*100)/100;
 				i++;
 			}
 			

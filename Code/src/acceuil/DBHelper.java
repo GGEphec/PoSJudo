@@ -15,23 +15,32 @@ import parametrage.Parametrage;
 public class DBHelper {
 //Variables d'instance
 	private static String db_prefix = "D:\\PosJudo\\Code\\mysql2\\posjudo";
-	
-	
+	//private static String db_prefix = "mysql2/posjudo";
+
+	/**
+	 * Main pour lancer la fonction runQuery
+	 * @param args
+	 */
 	public static void main(String[] args){
 		runQuery();
 	}
 
+	/**
+	 * Fonction permettant d'exécuter des requetes sur la DB pour les parametres ou tests manuels
+	 */
 	public static void runQuery() {
 		Connection con = null;
 		try {
 			Class.forName("org.hsqldb.jdbcDriver");
 			con = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", "");
 			
-			String select = "SELECT \"descriptionProduit\" FROM \"produits\";";
+			String select = "SELECT * from \"produits\";";
 			Statement stmt = con.createStatement();
 			ResultSet rset = stmt.executeQuery(select);
+			int id=0;
 			while (rset.next()) {
-				System.out.println("resultat" + rset.getString("descriptionProduit"));
+				id = rset.getInt("idProduit");
+				System.out.println(id);
 			}
 			stmt.close();
 		} catch (ClassNotFoundException ex) {
