@@ -28,7 +28,7 @@ public class MiseEnSecurite {
 	 */
 	public MiseEnSecurite() {
 		this.idMiseEnSecurite = DBHelper.getnextMiseEnSecurite()+1;
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		this.heureMiseEnSecurite = dtf.format(now);
 		this.responsables = "JCG";

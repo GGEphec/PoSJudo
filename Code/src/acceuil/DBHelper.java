@@ -13,6 +13,38 @@ import argent.Argent;
 import parametrage.Parametrage;
 
 public class DBHelper {
+//Variables d'instance
+	private static String db_prefix = "D:\\PosJudo\\Code\\mysql2\\posjudo";
+	
+	
+	public static void main(String[] args){
+		runQuery();
+	}
+
+	public static void runQuery() {
+		Connection con = null;
+		try {
+			Class.forName("org.hsqldb.jdbcDriver");
+			con = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", "");
+			
+			String select = "SELECT \"descriptionProduit\" FROM \"produits\";";
+			Statement stmt = con.createStatement();
+			ResultSet rset = stmt.executeQuery(select);
+			while (rset.next()) {
+				System.out.println("resultat" + rset.getString("descriptionProduit"));
+			}
+			stmt.close();
+		} catch (ClassNotFoundException ex) {
+			System.out.println("classnotfound" + ex.getMessage());
+			ex.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("sql" + e.getMessage());;
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	/**
 	 * Cette fonction va permettre de récupérer le dernier idCommande de la base de données
 	 * 
@@ -20,15 +52,20 @@ public class DBHelper {
 	 */
 	public static int nextCommande() {
 		int maxCommande = 0;
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSelect = "SELECT(MAX(idCommande)) AS 'maxIdCommande' FROM commandes;";
+		try {
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSelect = "SELECT(MAX(\"idCommande\")) AS \"maxIdCommande\" FROM \"commandes\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
 			while (rset.next()) {
 				maxCommande = rset.getInt("maxIdCommande");
 			}
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		return maxCommande;
 	}
@@ -41,9 +78,11 @@ public class DBHelper {
 	 */
 	public static List<Parametrage> getProduits() {
 		List<Parametrage> produit = new ArrayList<>();
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSelect = "SELECT * FROM produits;";
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSelect = "SELECT * FROM \"produits\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
 			while (rset.next()) {
 				int btn = rset.getInt("idProduit");
@@ -56,8 +95,11 @@ public class DBHelper {
 				Parametrage p = new Parametrage(btn, visible, prix, couleurR, couleurG, couleurB, description);
 				produit.add(p);
 			}
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		return produit;
 	}
@@ -71,21 +113,24 @@ public class DBHelper {
 	 * @param contenu le contenu de la commande à enregistrer
 	 */
 	public static void enregistrerCommande(int idCommande, String heureCommande, List<Parametrage> contenu) {
-		String sqlCommande1 = "INSERT INTO commandes(idCommande, heureCommande) VALUES ( " + idCommande + ", '" + heureCommande + "');";
-		String sqlCommande2 = "INSERT INTO contenuCommande VALUES ";
+		String sqlCommande1 = "INSERT INTO \"commandes\"(\"idCommande\", \"heureCommande\") VALUES ( " + idCommande + ", '" + heureCommande + "');";
+		String sqlCommande2 = "";
 		for(Parametrage p : contenu) {
 			if(p.getVendu()>0) {
-				sqlCommande2 +=( "(" + idCommande + ", " + p.getNumeroBoutton() + ", " + p.getVendu() + "),");
+				sqlCommande2 +=("INSERT INTO \"contenucommande\"(\"idCommande\", \"idProduit\", \"nombreProduit\") VALUES(" + idCommande + ", " + p.getNumeroBoutton() + ", " + p.getVendu() + "); ");
 			}
 		}
-		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
-		sqlCommande2 +=";";
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
 			stmt.execute(sqlCommande1);
 			stmt.execute(sqlCommande2);
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -97,15 +142,20 @@ public class DBHelper {
 	 */
 	public static int getnextMiseEnSecurite() {
 		int maxMiseEnSecurite = 0;
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSelect = "SELECT(MAX(idSortie)) AS 'maxIdMiseEnSecurite' FROM sorties;";
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSelect = "SELECT(MAX(\"idSortie\")) AS \"maxIdMiseEnSecurite\" FROM \"sorties\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
 			while (rset.next()) {
 				maxMiseEnSecurite = rset.getInt("maxIdMiseEnSecurite");
 			}
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		return maxMiseEnSecurite;
 	}
@@ -117,9 +167,11 @@ public class DBHelper {
 	 */
 	public static List<Argent> getArgent() {
 		List<Argent> argent = new ArrayList<>();
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSelect = "SELECT * FROM argent;";
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSelect = "SELECT * FROM \"argent\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
 			while (rset.next()) {
 				int id = rset.getInt("idArgent");
@@ -127,8 +179,11 @@ public class DBHelper {
 				Argent a = new Argent(id, valeur);
 				argent.add(a);
 			}
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		return argent;
 	}
@@ -143,22 +198,24 @@ public class DBHelper {
 	 * @param contenuMiseEnSecurite le contenu de la mise en sécurité à enregistrer
 	 */
 	public static void enregistrerMiseEnSecurite(int idMiseEnSecurite, String heureMiseEnSecurite, String responsables, List<Argent> contenuMiseEnSecurite) {
-		String sqlCommande1 = "INSERT INTO sorties(idSortie, heureSortie, responsables) VALUES ( " + idMiseEnSecurite + ", '" + heureMiseEnSecurite + "', '" + responsables + "');";
-		String sqlCommande2 = "INSERT INTO contenuSortie VALUES ";
+		String sqlCommande1 = "INSERT INTO \"sorties\"(\"idSortie\", \"heureSortie\", \"responsables\") VALUES ( " + idMiseEnSecurite + ", '" + heureMiseEnSecurite + "', '" + responsables + "');";
+		String sqlCommande2 = "";
 		for(Argent a : contenuMiseEnSecurite) {
 			if(a.getSorti()>0) {
-				sqlCommande2 +=( "(" + idMiseEnSecurite + ", " + a.getIdArgent() + ", " + a.getSorti() + "),");
+				sqlCommande2 +=( "INSERT INTO \"contenusortie\"(\"idSortie\", \"idArgent\", \"nombreArgent\") VALUES (" + idMiseEnSecurite + ", " + a.getIdArgent() + ", " + a.getSorti() + "); ");
 			}
 		}
-		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
-		sqlCommande2 +=";";
-
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
 			stmt.execute(sqlCommande1);
 			stmt.execute(sqlCommande2);
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -170,15 +227,20 @@ public class DBHelper {
 	 */
 	public static double getTotal() {
 		double argentEnregistre = 0;
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSelect = "SELECT argentCaisse FROM memoire;";
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSelect = "SELECT \"argentcaisse\" FROM \"memoire\";";
 			ResultSet rset = stmt.executeQuery(strSelect);
 			while (rset.next()) {
-				argentEnregistre = rset.getDouble("argentCaisse");
+				argentEnregistre = rset.getDouble("argentcaisse");
 			}
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		return argentEnregistre;
 	}
@@ -190,12 +252,17 @@ public class DBHelper {
 	 * @param d la nouvelle valeur du total en caisse
 	 */
 	public static void setTotal(double d) {
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-			Statement stmt = conn.createStatement();) {
-			String strSet = "UPDATE memoire SET argentcaisse = (" + d + ");";
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
+			String strSet = "UPDATE \"memoire\" SET \"argentcaisse\" = (" + d + ");";
 			stmt.execute(strSet);
+			stmt.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}		
 	}
 
@@ -209,23 +276,24 @@ public class DBHelper {
 	 * @param contenuFondDeCaisse Le contenu du fond de caisse à enregistrer
 	 */
 	public static void enregistrerFondDeCaisse(int idFondDeCaisse, String heureFondDeCaisse, String responsables, List<Argent> contenuFondDeCaisse) {
-		String sqlCommande1 = "INSERT INTO sorties(idSortie, heureSortie, responsables) VALUES ( " + idFondDeCaisse + ", '" + heureFondDeCaisse + "', '" + responsables + "');";
-		String sqlCommande2 = "INSERT INTO contenuSortie VALUES ";
+		String sqlCommande1 = "INSERT INTO \"sorties\"(\"idSortie\", \"heureSortie\", \"responsables\") VALUES ( " + idFondDeCaisse + ", '" + heureFondDeCaisse + "', '" + responsables + "');";
+		String sqlCommande2 = "";
 		for(Argent a : contenuFondDeCaisse) {
 			if(a.getSorti()>0) {
-				sqlCommande2 +=( "(" + idFondDeCaisse + ", " + a.getIdArgent() + ", " + a.getSorti() + "),");
+				sqlCommande2 +=( "INSERT INTO \"contenusortie\"(\"idSortie\", \"idArgent\", \"nombreArgent\") VALUES (" + idFondDeCaisse + ", " + a.getIdArgent() + ", " + a.getSorti() + "); ");
 			}
 		}
-		sqlCommande2 = sqlCommande2.substring(0, sqlCommande2.length() -1);
-		sqlCommande2 +=";";
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/posjudo", "posjudo", "87tx3"); 
-				Statement stmt = conn.createStatement();) {
+		try{
+			Class.forName("org.hsqldb.jdbcDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:" + db_prefix, "sa", ""); 
+			Statement stmt = conn.createStatement();
 				stmt.execute(sqlCommande1);
 				stmt.execute(sqlCommande2);
+				stmt.close();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 			}
 	}
-
-
 }

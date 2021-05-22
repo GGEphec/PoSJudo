@@ -46,7 +46,7 @@ public class AcceuilView {
 		TitreVue.setName("TitreAcceuil");
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
-		TitreVue.setText("Acceuil");
+		TitreVue.setText("				Acceuil 								Somme en caisse : " + DBHelper.getTotal() + "€");
 		vueAcceuil.getContentPane().add(TitreVue, BorderLayout.NORTH);
 		
 		//Affichage principal

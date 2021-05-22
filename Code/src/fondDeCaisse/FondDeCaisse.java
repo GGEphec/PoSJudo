@@ -28,7 +28,7 @@ public class FondDeCaisse {
 	 */
 	public FondDeCaisse() {
 		this.idFondDeCaisse = DBHelper.getnextMiseEnSecurite()+1;
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		this.heureFondDeCaisse = dtf.format(now);
 		this.responsables = "FondDeCaisse";

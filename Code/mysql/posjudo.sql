@@ -21,13 +21,7 @@ INSERT INTO `argent` (`idArgent`, `valeurArgente`) VALUES
 
 CREATE TABLE `commandes` (
   `idCommande` int(11) NOT NULL COMMENT 'L''id de la commande',
-  `heureCommande` date NOT NULL COMMENT 'L''heure de la commande'
-);
-
-CREATE TABLE `sorties` (
-  `idSortie` int(11) NOT NULL COMMENT 'L''id de la commande',
-  `heureSortie` date NOT NULL COMMENT 'L''heure de la commande',
-  'responsableSortie' varchar(100) NOT NULL COMMENT 'Personne responsables de la sortie'
+  `heureCommande` datetime NOT NULL COMMENT 'L''heure de la commande'
 );
 
 CREATE TABLE `contenucommande` (
@@ -92,8 +86,12 @@ INSERT INTO `produits` (`idProduit`, `visibleProduit`, `prixUnitaireProduit`, `c
 
 CREATE TABLE `sorties` (
   `idSortie` int(11) NOT NULL COMMENT 'L''id de la sortie',
-  `heureSortie` date NOT NULL COMMENT 'L''heure de la sortie',
+  `heureSortie` datetime NOT NULL COMMENT 'L''heure de la sortie',
   `responsables` text NOT NULL COMMENT 'Le nom des personnes responsables de la sortie'
+);
+
+CREATE TABLE `memoire` (
+  `argentcaisse` double COMMENT 'La somme en caisse'
 );
 
 

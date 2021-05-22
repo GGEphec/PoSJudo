@@ -40,13 +40,11 @@ public class VenteController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(boutton.getName().contains("btn")) { //Si c'est un boutton d'encodage de produit
-			//System.out.println(boutton.getName());
 			v.ajoutUnAchat(boutton.getName(), (v.getNbre()==0 ? 1 : v.getNbre()));
 			v.setNbre(0);
 		}
 		else if(boutton.getName().contains("pave")) { //Si c'est un boutton du pavé numérique
 			v.setNbre(v.getNbre()*10 + Integer.parseInt(boutton.getName().substring(4, 5)));
-			System.out.println(v.getNbre());
 		}
 		else if(boutton.getName().contains("validation")) { //Si c'est un boutton pour valider ou annuler
 			if(boutton.getName().contains("Vrai")) {

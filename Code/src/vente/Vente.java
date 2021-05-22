@@ -28,7 +28,7 @@ public class Vente {
 	 */
 	public Vente() {
 		this.idCommande = DBHelper.nextCommande()+1;
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		this.heureCommande = dtf.format(now);
 		this.contenu = DBHelper.getProduits();
