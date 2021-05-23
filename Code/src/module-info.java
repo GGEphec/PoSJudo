@@ -1,6 +1,6 @@
 /**
  * @author gaeta_2b6psqs
- * @version 2021-05-22
+ *
  */
 module PoSJudoAth {
 	exports fondDeCaisse;
@@ -13,5 +13,4 @@ module PoSJudoAth {
 
 	requires java.desktop;
 	requires java.sql;
-	//requires org.hsqldb;
 }

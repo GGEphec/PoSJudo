@@ -6,6 +6,7 @@
  */
 package parametrage;
 
+import vente.VenteView;
 
 public class Parametrage {
 //Variable d'instance
@@ -44,9 +45,16 @@ public class Parametrage {
 		this.vendu=0;
 	}
 	
-	
-	
-//Getters and Setters	
+	/**
+	 * Permet d'initaliser la vue parametrage
+	 */
+	public static void initialise() {
+		ParametrageView window = new ParametrageView();
+		window.vueParametrage.setVisible(true);
+	}
+
+
+	//Getters and Setters	
 	/**
 	 * @return the numeroBoutton
 	 */

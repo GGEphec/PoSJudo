@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
 import acceuil.AcceuilView;
 import acceuil.DBHelper;
 import miseEnSecurite.MiseEnSecuriteView;
@@ -45,8 +47,8 @@ public class FondDeCaisseView {
 		
 		//Création graphique
 		Border noir1px = new LineBorder(new Color(0,0,0));
-		Border transparent9px = new LineBorder(new Color(250, 250, 10), 9);
-		CompoundBorder bordure = new CompoundBorder(noir1px, transparent9px);
+		Border transparent9px = new LineBorder(new Color(105, 105, 105), 5);
+		new CompoundBorder(noir1px, transparent9px);
 		
 		vueFondDeCaisse = new JFrame();
 		vueFondDeCaisse.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -84,12 +86,12 @@ public class FondDeCaisseView {
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalFondDeCaisse.add(MenuLateral);
 				MenuLateral.setSize(new Dimension(90, 617));
-				MenuLateral.setBackground(new Color(0, 150, 150));
+				MenuLateral.setBackground(new Color(119, 136, 153));
 				MenuLateral.setBorder(transparent9px);
-				MenuLateral.setLayout(new GridLayout(7, 1, 0, 0));
+				MenuLateral.setLayout(new GridLayout(7, 1, 4, 4));
 				
 				//Boutons d'accès du menu latéral
-					JButton btnAcceuil = new JButton("Acceuil");
+					JButton btnAcceuil = new JButton("<html><p style=\"font-size:20px\">Accueil</p></html>");
 					btnAcceuil.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -98,7 +100,7 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnAcceuil);
 					
-					JButton btnVente = new JButton("Vente");
+					JButton btnVente = new JButton("<html><p style=\"font-size:20px\">Vente</p></html>");
 					btnVente.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -107,7 +109,7 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnVente);
 					
-					JButton btnProduits = new JButton("Produits");
+					JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage</p></html>");
 					btnProduits.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -116,7 +118,7 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnProduits);
 					
-					JButton btnCaisse = new JButton("Caisse");
+					JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fond de caisse</p></html>");
 					btnCaisse.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -125,7 +127,7 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnCaisse);
 					
-					JButton btnSecurite = new JButton("Sécurité");
+					JButton btnSecurite = new JButton("<html><p style=\"font-size:20px\">Mise en sécurité</p></html>");
 					btnSecurite.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -134,7 +136,7 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnSecurite);
 					
-					JButton btnRapports = new JButton("Rapports");
+					JButton btnRapports = new JButton("<html><p style=\"font-size:20px\">Rapports</p></html>");
 					btnRapports.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							vueFondDeCaisse.dispose();
@@ -143,7 +145,9 @@ public class FondDeCaisseView {
 					});
 					MenuLateral.add(btnRapports);
 					
-					JButton btnClose = new JButton("Quitter");
+					JButton btnClose = new JButton("<html><p style=\"font-size:20px\">Quitter</p></html>");
+					btnClose.setBackground(new Color(178, 34, 34));
+					btnClose.setForeground(Color.WHITE);
 					btnClose.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							DBHelper.shutdown();
@@ -157,25 +161,25 @@ public class FondDeCaisseView {
 					AffichagePrincipalFondDeCaisse.add(Boutons);
 					Boutons.setPreferredSize(new Dimension(550, 617));
 					Boutons.setSize(new Dimension(550, 617));
-					Boutons.setBackground(new Color(150, 0, 150));
+					Boutons.setBackground(new Color(61, 72, 73));
 					Boutons.setBorder(transparent9px);
-					Boutons.setLayout(new GridLayout(6, 6, 0, 0));
+					Boutons.setLayout(new GridLayout(6, 6, 4, 4));
 					JButton btn00 = new JButton("");
 					setInvisible(btn00);
 					Boutons.add(btn00);
 
 					
-					JButton btn01 = new JButton("200€");
+					JButton btn01 = new JButton("<html><p style=\"font-size:20px\">200€</p></html>");
 					btn01.setName("argent20000");
 					Boutons.add(btn01);
 					btn01.addActionListener(new FondDeCaisseController(btn01, fondCaisse, modelTable));
 					
-					JButton btn02 = new JButton("100€");
+					JButton btn02 = new JButton("<html><p style=\"font-size:20px\">100€</p></html>");
 					btn02.setName("argent10000");
 					Boutons.add(btn02);
 					btn02.addActionListener(new FondDeCaisseController(btn02, fondCaisse, modelTable));
 					
-					JButton btn03 = new JButton("50€");
+					JButton btn03 = new JButton("<html><p style=\"font-size:20px\">50€</p></html>");
 					btn03.setName("argent5000");
 					Boutons.add(btn03);
 					btn03.addActionListener(new FondDeCaisseController(btn03, fondCaisse, modelTable));
@@ -195,17 +199,17 @@ public class FondDeCaisseView {
 					setInvisible(btn10);
 					Boutons.add(btn10);
 					
-					JButton btn11 = new JButton("20€");
+					JButton btn11 = new JButton("<html><p style=\"font-size:20px\">20€</p></html>");
 					btn11.setName("argent2000");
 					Boutons.add(btn11);
 					btn11.addActionListener(new FondDeCaisseController(btn11, fondCaisse, modelTable));
 					
-					JButton btn12 = new JButton("10€");
+					JButton btn12 = new JButton("<html><p style=\"font-size:20px\">10€</p></html>");
 					btn12.setName("argent1000");
 					Boutons.add(btn12);
 					btn12.addActionListener(new FondDeCaisseController(btn12, fondCaisse, modelTable));
 					
-					JButton btn13 = new JButton("5€");
+					JButton btn13 = new JButton("<html><p style=\"font-size:20px\">5€</p></html>");
 					btn13.setName("argent500");
 					Boutons.add(btn13);
 					btn13.addActionListener(new FondDeCaisseController(btn13, fondCaisse, modelTable));
@@ -248,12 +252,12 @@ public class FondDeCaisseView {
 					setInvisible(btn30);
 					Boutons.add(btn30);
 					
-					JButton btn31 = new JButton("2€");
+					JButton btn31 = new JButton("<html><p style=\"font-size:20px\">2€</p></html>");
 					btn31.setName("argent200");
 					Boutons.add(btn31);
 					btn31.addActionListener(new FondDeCaisseController(btn31, fondCaisse, modelTable));
 					
-					JButton btn32 = new JButton("1€");
+					JButton btn32 = new JButton("<html><p style=\"font-size:20px\">1€</p></html>");
 					btn32.setName("argent100");
 					Boutons.add(btn32);
 					btn32.addActionListener(new FondDeCaisseController(btn32, fondCaisse, modelTable));
@@ -275,17 +279,17 @@ public class FondDeCaisseView {
 					setInvisible(btn40);
 					Boutons.add(btn40);
 					
-					JButton btn41 = new JButton("0,50€");
+					JButton btn41 = new JButton("<html><p style=\"font-size:20px\">0,50€</p></html>");
 					btn41.setName("argent50");
 					Boutons.add(btn41);
 					btn41.addActionListener(new FondDeCaisseController(btn41, fondCaisse, modelTable));
 					
-					JButton btn42 = new JButton("0,20€");
+					JButton btn42 = new JButton("<html><p style=\"font-size:20px\">0,20€</p></html>");
 					btn42.setName("argent20");
 					Boutons.add(btn42);
 					btn42.addActionListener(new FondDeCaisseController(btn42, fondCaisse, modelTable));
 					
-					JButton btn43 = new JButton("0,10€");
+					JButton btn43 = new JButton("<html><p style=\"font-size:20px\">0,10€</p></html>");
 					btn43.setName("argent10");
 					Boutons.add(btn43);
 					btn43.addActionListener(new FondDeCaisseController(btn43, fondCaisse, modelTable));
@@ -303,17 +307,17 @@ public class FondDeCaisseView {
 					setInvisible(btn50);
 					Boutons.add(btn50);
 					
-					JButton btn51 = new JButton("0,05€");
+					JButton btn51 = new JButton("<html><p style=\"font-size:20px\">0,05€</p></html>");
 					btn51.setName("argent5");
 					Boutons.add(btn51);
 					btn51.addActionListener(new FondDeCaisseController(btn51, fondCaisse, modelTable));
 					
-					JButton btn52 = new JButton("0,02€");
+					JButton btn52 = new JButton("<html><p style=\"font-size:20px\">0,02€</p></html>");
 					btn52.setName("argent2");
 					Boutons.add(btn52);
 					btn52.addActionListener(new FondDeCaisseController(btn52, fondCaisse, modelTable));
 					
-					JButton btn53 = new JButton("0,01€");
+					JButton btn53 = new JButton("<html><p style=\"font-size:20px\">0,01€</p></html>");
 					btn53.setName("argent1");
 					Boutons.add(btn53);
 					btn53.addActionListener(new FondDeCaisseController(btn53, fondCaisse, modelTable));
@@ -350,47 +354,47 @@ public class FondDeCaisseView {
 						encodageArgent.add(paveNumerique);
 						paveNumerique.setLayout(new GridLayout(4, 3, 0, 0));
 						
-						JButton pave7 = new JButton("7");
+						JButton pave7 = new JButton("<html><p style=\"font-size:20px\">7</p></html>");
 						pave7.setName("pave7");
 						paveNumerique.add(pave7);
 						pave7.addActionListener(new FondDeCaisseController(pave7, fondCaisse, modelTable));
 						
-						JButton pave8 = new JButton("8");
+						JButton pave8 = new JButton("<html><p style=\"font-size:20px\">8</p></html>");
 						pave8.setName("pave8");
 						paveNumerique.add(pave8);
 						pave8.addActionListener(new FondDeCaisseController(pave8, fondCaisse, modelTable));
 						
-						JButton pave9 = new JButton("9");
+						JButton pave9 = new JButton("<html><p style=\"font-size:20px\">9</p></html>");
 						pave9.setName("pave9");
 						paveNumerique.add(pave9);
 						pave9.addActionListener(new FondDeCaisseController(pave9, fondCaisse, modelTable));
 						
-						JButton pave4 = new JButton("4");
+						JButton pave4 = new JButton("<html><p style=\"font-size:20px\">4</p></html>");
 						pave4.setName("pave4");
 						paveNumerique.add(pave4);
 						pave4.addActionListener(new FondDeCaisseController(pave4, fondCaisse, modelTable));
 						
-						JButton pave5 = new JButton("5");
+						JButton pave5 = new JButton("<html><p style=\"font-size:20px\">5</p></html>");
 						pave5.setName("pave5");
 						paveNumerique.add(pave5);
 						pave5.addActionListener(new FondDeCaisseController(pave5, fondCaisse, modelTable));
 						
-						JButton pave6 = new JButton("6");
+						JButton pave6 = new JButton("<html><p style=\"font-size:20px\">6</p></html>");
 						pave6.setName("pave6");
 						paveNumerique.add(pave6);
 						pave6.addActionListener(new FondDeCaisseController(pave6, fondCaisse, modelTable));
 						
-						JButton pave1 = new JButton("1");
+						JButton pave1 = new JButton("<html><p style=\"font-size:20px\">1</p></html>");
 						pave1.setName("pave1");
 						paveNumerique.add(pave1);
 						pave1.addActionListener(new FondDeCaisseController(pave1, fondCaisse, modelTable));
 						
-						JButton pave2 = new JButton("2");
+						JButton pave2 = new JButton("<html><p style=\"font-size:20px\">2</p></html>");
 						pave2.setName("pave2");
 						paveNumerique.add(pave2);
 						pave2.addActionListener(new FondDeCaisseController(pave2, fondCaisse, modelTable));
 						
-						JButton pave3 = new JButton("3");
+						JButton pave3 = new JButton("<html><p style=\"font-size:20px\">3</p></html>");
 						pave3.setName("pave3");
 						paveNumerique.add(pave3);
 						pave3.addActionListener(new FondDeCaisseController(pave3, fondCaisse, modelTable));
@@ -399,7 +403,7 @@ public class FondDeCaisseView {
 						setInvisible(paveVide);
 						paveNumerique.add(paveVide);
 						
-						JButton pave0 = new JButton("0");
+						JButton pave0 = new JButton("<html><p style=\"font-size:20px\">0</p></html>");
 						pave0.setName("pave0");
 						paveNumerique.add(pave0);
 						pave0.addActionListener(new FondDeCaisseController(pave0, fondCaisse, modelTable));
@@ -413,12 +417,12 @@ public class FondDeCaisseView {
 						encodageArgent.add(validation);
 						validation.setLayout(new GridLayout(2, 1, 0, 0));
 						
-						JButton validationVrai = new JButton("Valider");
+						JButton validationVrai = new JButton("<html><p style=\"font-size:20px\">Valider</p></html>");
 						validationVrai.setName("validationVrai");
 						validation.add(validationVrai);
 						validationVrai.addActionListener(new FondDeCaisseController(validationVrai, fondCaisse, modelTable));
 						
-						JButton validationFaux = new JButton("Annuler");
+						JButton validationFaux = new JButton("<html><p style=\"font-size:20px\">Annuler</p></html>");
 						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
 						validationFaux.addActionListener(new FondDeCaisseController(validationFaux, fondCaisse, modelTable));

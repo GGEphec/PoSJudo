@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class VenteController implements ActionListener {
@@ -17,7 +16,6 @@ public class VenteController implements ActionListener {
 	private Vente v;
 	private JButton boutton;
 	private DefaultTableModel resume;
-	private JTable resumeCommande;
 
 //Constructeur
 	/**
@@ -28,12 +26,11 @@ public class VenteController implements ActionListener {
 	 * @param resume Le modèle du tableau qui contient le résumé de la vente
 	 * @param resumeCommande La table qui contient le résumé de la vente
 	 */
-	public VenteController(JButton btn, Vente venteActuelle, DefaultTableModel resume, JTable resumeCommande) {
+	public VenteController(JButton btn, Vente venteActuelle, DefaultTableModel resume) {
 		super();
 		this.boutton = btn;
 		this.v = venteActuelle;
 		this.resume=resume;
-		this.resumeCommande = resumeCommande;
 	}
 
 
