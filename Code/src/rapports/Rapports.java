@@ -55,6 +55,8 @@ public class Rapports {
 	/**
 	 * Cette fonction va lister les détails d'une mise en sécurité et les retourner sous forme d'un tableau affichable
 	 * 
+	 * @param idMeS L'id de la mise en sécurité dont on veut le résumé
+	 * 
 	 * @return Le tableau contenant les totaux d'une mise en sécurité
 	 */
 	//TODO a modifier
@@ -94,7 +96,8 @@ public class Rapports {
 	
 	/**
 	 * Cette fonction va lister les détails d'un fond de caisse et les retourner sous forme d'un tableau affichable
-	 * @param idFdC 
+	 * 
+	 * @param idFdC L'id du fond de caisse dont on veut le résumé
 	 * 
 	 * @return Le tableau contenant les totaux d'un fond de caisse
 	 */
@@ -135,6 +138,8 @@ public class Rapports {
 	
 	/**
 	 * Cette fonction va lister les détails d'un ticket et les retourner sous forme d'un tableau affichable
+	 * 
+	 * @param idTicket Le ticket dont on veut le résumé
 	 * 
 	 * @return Le tableau contenant les infos d'un ticket
 	 */

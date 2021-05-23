@@ -6,8 +6,6 @@
  */
 package parametrage;
 
-import vente.VenteView;
-
 public class Parametrage {
 //Variable d'instance
 	int numeroBoutton; //Le numéro du boutton pour le repérer dans le cadre

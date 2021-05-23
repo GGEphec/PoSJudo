@@ -24,7 +24,6 @@ public class VenteController implements ActionListener {
 	 * @param btn Le boutton qui vient d'être pressé
 	 * @param venteActuelle Le modèle qui subit les modifications
 	 * @param resume Le modèle du tableau qui contient le résumé de la vente
-	 * @param resumeCommande La table qui contient le résumé de la vente
 	 */
 	public VenteController(JButton btn, Vente venteActuelle, DefaultTableModel resume) {
 		super();

@@ -25,7 +25,7 @@ public class DBHelper {
 
 	/**
 	 * Main pour lancer la fonction runQuery
-	 * @param args
+	 * @param args rien
 	 */
 	public static void main(String[] args){
 		runQuery();
