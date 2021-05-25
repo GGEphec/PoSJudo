@@ -62,6 +62,7 @@ public class RapportsView {
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
 		TitreVue.setText("Rapports						Somme en caisse : " + DBHelper.getTotal() + "€");
+		TitreVue.setEditable(false);
 		Font font = new Font("SansSerif", Font.BOLD, 20);
 		TitreVue.setFont(font);
 		TitreVue.setHorizontalAlignment(JTextField.CENTER);
@@ -99,7 +100,7 @@ public class RapportsView {
 		});
 		MenuLateral.add(btnVente);
 
-		JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage</p></html>");
+		JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produit</p></html>");
 		btnProduits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vueRapports.dispose();
@@ -108,7 +109,7 @@ public class RapportsView {
 		});
 		MenuLateral.add(btnProduits);
 
-		JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fond de caisse</p></html>");
+		JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fonds de caisse</p></html>");
 		btnCaisse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vueRapports.dispose();

@@ -106,7 +106,7 @@ public class MiseEnSecuriteView {
 				});
 				MenuLateral.add(btnVente);
 				
-				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage</p></html>");
+				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produit</p></html>");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueMiseEnSecurite.dispose();
@@ -115,7 +115,7 @@ public class MiseEnSecuriteView {
 				});
 				MenuLateral.add(btnProduits);
 				
-				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fond de caisse</p></html>");
+				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fonds de caisse</p></html>");
 				btnCaisse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueMiseEnSecurite.dispose();

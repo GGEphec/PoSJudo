@@ -64,7 +64,7 @@ public class ParametrageView {
 		TitreVue.setSize(new Dimension(1258, 70));
 		TitreVue.setBackground(new Color(250, 250, 250));
 		TitreVue.setBorder(transparent9px);
-		TitreVue.setText("Paramétrages produits						Somme en caisse : " + DBHelper.getTotal() + "€");
+		TitreVue.setText("Paramétrage produits						Somme en caisse : " + DBHelper.getTotal() + "€");
 		Font font = new Font("SansSerif", Font.BOLD, 20);
 		TitreVue.setFont(font);
 		TitreVue.setHorizontalAlignment(JTextField.CENTER);
@@ -102,7 +102,7 @@ public class ParametrageView {
 				});
 				MenuLateral.add(btnVente);
 				
-				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage</p></html>");
+				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produit</p></html>");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueParametrage.dispose();
@@ -111,7 +111,7 @@ public class ParametrageView {
 				});
 				MenuLateral.add(btnProduits);
 				
-				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fond de caisse</p></html>");
+				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fonds de caisse</p></html>");
 				btnCaisse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueParametrage.dispose();
@@ -393,7 +393,7 @@ public class ParametrageView {
 				Resume.add(parametrage);
 				parametrage.setLayout(new GridLayout(7,2,0,0));
 					//ID
-					param[0] = new JTextField("  ID du boutton");
+					param[0] = new JTextField("  ID du bouton");
 					param[0].setEditable(false);
 					parametrage.add(param[0]);
 					param[1] = new JTextField("");
@@ -412,25 +412,25 @@ public class ParametrageView {
 					param[5] = new JTextField("");
 					parametrage.add(param[5]);
 					//CouleurR 
-					param[6]= new JTextField("  Composante R de la couleur du boutton");
+					param[6]= new JTextField("  Composante R de la couleur du bouton");
 					param[6].setEditable(false);
 					parametrage.add(param[6]);
 					param[7] = new JTextField("");
 					parametrage.add(param[7]);
 					//CouleurG
-					param[8] = new JTextField("  Composante G de la couleur du boutton");
+					param[8] = new JTextField("  Composante G de la couleur du bouton");
 					param[8].setEditable(false);
 					parametrage.add(param[8]);
 					param[9] = new JTextField("");
 					parametrage.add(param[9]);
 					//CouleurB
-					param[10] = new JTextField("  Composante B de la couleur du boutton");
+					param[10] = new JTextField("  Composante B de la couleur du bouton");
 					param[10].setEditable(false);
 					parametrage.add(param[10]);
 					param[11] = new JTextField("");
 					parametrage.add(param[11]);
 					//Visible
-					param[12] = new JTextField("  Boutton visible ?");
+					param[12] = new JTextField("  Bouton visible ?");
 					param[12].setEditable(false);
 					parametrage.add(param[12]);
 					param[13] = new JTextField("");
@@ -441,23 +441,91 @@ public class ParametrageView {
 					}
 					
 				
+				JPanel bas = new JPanel();
+				Resume.add(bas);
+				bas.setLayout(new GridLayout(1, 2, 2, 2));
 				
-				
-				
-				//JPanel valider/annuler
-				JPanel validation = new JPanel();
-				Resume.add(validation);
-				validation.setLayout(new GridLayout(2, 1, 0, 0));
-				
-				JButton validationVrai = new JButton("<html><p style=\"font-size:20px\">Valider</p></html>");
-				validationVrai.setName("validationVrai");
-				validation.add(validationVrai);
-				validationVrai.addActionListener(new ParametrageController(validationVrai, param));
-				
-				JButton validationFaux = new JButton("<html><p style=\"font-size:20px\">Annuler</p></html>");
-				validationFaux.setName("validationFaux");
-				validation.add(validationFaux);
-				validationFaux.addActionListener(new ParametrageController(validationFaux, param));
+					//JPanel couleur
+						JPanel couleur = new JPanel();
+						bas.add(couleur);
+						couleur.setLayout(new GridLayout(9, 1, 1, 1));
+						
+							JTextField couleur0 = new JTextField("Exemple de code RGB");
+							couleur0.setHorizontalAlignment(JTextField.CENTER);
+							couleur0.setFont(font);
+							couleur0.setEditable(false);
+							couleur.add(couleur0);
+						
+							JTextField couleur1 = new JTextField("Rouge : 255 0 0");
+							couleur1.setBackground(new Color(255, 0, 0));
+							couleur1.setHorizontalAlignment(JTextField.CENTER);
+							couleur1.setFont(font);
+							couleur1.setEditable(false);
+							couleur.add(couleur1);
+							
+							JTextField couleur2 = new JTextField("Bleu : 30 144 255");
+							couleur2.setBackground(new Color(30, 144, 255));
+							couleur2.setHorizontalAlignment(JTextField.CENTER);
+							couleur2.setFont(font);
+							couleur2.setEditable(false);
+							couleur.add(couleur2);
+							
+							JTextField couleur3 = new JTextField("Jaune : 255 255 0");
+							couleur3.setBackground(new Color(255, 255, 0));
+							couleur3.setHorizontalAlignment(JTextField.CENTER);
+							couleur3.setFont(font);
+							couleur3.setEditable(false);
+							couleur.add(couleur3);
+							
+							JTextField couleur4 = new JTextField("Orange : 255 165 0");
+							couleur4.setBackground(new Color(255, 165, 0));
+							couleur4.setHorizontalAlignment(JTextField.CENTER);
+							couleur4.setFont(font);
+							couleur4.setEditable(false);
+							couleur.add(couleur4);
+							
+							JTextField couleur5 = new JTextField("Vert : 34 139 34");
+							couleur5.setBackground(new Color(34, 139, 34));
+							couleur5.setHorizontalAlignment(JTextField.CENTER);
+							couleur5.setFont(font);
+							couleur5.setEditable(false);
+							couleur.add(couleur5);
+							
+							JTextField couleur6 = new JTextField("Brun : 160 82 45");
+							couleur6.setBackground(new Color(160, 82, 45));
+							couleur6.setHorizontalAlignment(JTextField.CENTER);
+							couleur6.setFont(font);
+							couleur6.setEditable(false);
+							couleur.add(couleur6);
+							
+							JTextField couleur7 = new JTextField("Mauve : 148 0 211");
+							couleur7.setBackground(new Color(148, 0, 211));
+							couleur7.setHorizontalAlignment(JTextField.CENTER);
+							couleur7.setFont(font);
+							couleur7.setEditable(false);
+							couleur.add(couleur7);
+							
+							JTextField couleur8 = new JTextField("Blanc : 255 255 255");
+							couleur8.setBackground(new Color(255, 255, 255));
+							couleur8.setHorizontalAlignment(JTextField.CENTER);
+							couleur8.setFont(font);
+							couleur8.setEditable(false);
+							couleur.add(couleur8);
+					
+					//JPanel valider/annuler
+					JPanel validation = new JPanel();
+					bas.add(validation);
+					validation.setLayout(new GridLayout(2, 1, 0, 0));
+					
+					JButton validationVrai = new JButton("<html><p style=\"font-size:20px\">Valider</p></html>");
+					validationVrai.setName("validationVrai");
+					validation.add(validationVrai);
+					validationVrai.addActionListener(new ParametrageController(validationVrai, param));
+					
+					JButton validationFaux = new JButton("<html><p style=\"font-size:20px\">Annuler</p></html>");
+					validationFaux.setName("validationFaux");
+					validation.add(validationFaux);
+					validationFaux.addActionListener(new ParametrageController(validationFaux, param));
 	}
 
 	/**
@@ -470,6 +538,7 @@ public class ParametrageView {
 			if(p.getNumeroBoutton()==id) {
 				btn.setText("<html><center><p style=\"font-size:13px\">" + p.getDescription() + "<br>" + p.getPrix() + "0€</p></center></html>");
 				btn.setBackground(new Color(p.getCouleurR(), p.getCouleurG(), p.getCouleurB()));
+				//System.out.println(p.getCouleurR() + " " + p.getCouleurG() + " " + p.getCouleurB());
 				if(!p.isVisible()) {
 					setInvisible(btn);
 				}

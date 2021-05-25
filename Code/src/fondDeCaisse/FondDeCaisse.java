@@ -110,7 +110,7 @@ public class FondDeCaisse {
 	 * @return Un double tableau représentant le résumé du fondDeCaisse
 	 */
 	public Object[][] affichage() {
-		int totalLigne = getRow(this.contenuFondDeCaisse)+5;
+		int totalLigne = contenuFondDeCaisse.size()+5;
 		Object[][] retour = new Object[totalLigne][4];
 		retour[0][0] = "Commande N° ";
 		retour[0][1] = this.idFondDeCaisse;
@@ -126,13 +126,11 @@ public class FondDeCaisse {
 		retour[2][3] = "Total";
 		int i=3;
 		for(Argent a : this.contenuFondDeCaisse) {
-			if(a.getSorti()>0) {
-				retour[i][0]=a.getSorti();
-				retour[i][1]=a.getValeurArgent() + "€";
-				retour[i][2]="";
-				retour[i][3]=(double)Math.round((a.getValeurArgent()*a.getSorti())*100)/100;
-				i++;
-			}
+			retour[i][0]=a.getSorti();
+			retour[i][1]=a.getValeurArgent() + "€";
+			retour[i][2]="";
+			retour[i][3]=(double)Math.round((a.getValeurArgent()*a.getSorti())*100)/100;
+			i++;
 			
 		}
 		retour[totalLigne-2][0] = "---------------------------------------------";
@@ -145,23 +143,6 @@ public class FondDeCaisse {
 		retour[totalLigne-1][3] = this.sommeFondDeCaisse();
 		
 		return retour;
-	}
-	
-	/**
-	 * Cette fonction va calculer le nombre de lignes que doit contenir le résumé du fondDeCaisse sur base du nombres d'objet Argent ayant des échanges non nul
-	 * 
-	 * @param contenuRow Le contenu du fond de caisse
-	 * @return Le nombre d'objet Argent dont la valeur échange est non nulle
-	 */
-	//TODO JUnitTests
-	private int getRow(List<Argent> contenuRow) {
-		int nbreLigne = 0;
-		for(Argent a : contenuRow) {
-			if(a.getSorti()>0) {
-				nbreLigne++;
-			}
-		}
-		return nbreLigne;
 	}
 	
 //Getters&Setters

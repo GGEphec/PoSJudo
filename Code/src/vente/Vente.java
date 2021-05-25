@@ -117,7 +117,7 @@ public class Vente {
 		retour[1][1] = "";
 		retour[1][2] = "";
 		retour[1][3] = "";
-		retour[2][0] = "Quantite";
+		retour[2][0] = "Quantité";
 		retour[2][1] = "Produit";
 		retour[2][2] = "Prix unitaire";
 		retour[2][3] = "Total";

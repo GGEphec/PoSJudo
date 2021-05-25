@@ -111,7 +111,7 @@ public class VenteView {
 				});
 				MenuLateral.add(btnVente);
 				
-				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage</p></html>");
+				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produit</p></html>");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueVente.dispose();
@@ -120,7 +120,7 @@ public class VenteView {
 				});
 				MenuLateral.add(btnProduits);
 				
-				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fond de caisse</p></html>");
+				JButton btnCaisse = new JButton("<html><p style=\"font-size:20px\">Fonds de caisse</p></html>");
 				btnCaisse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueVente.dispose();
