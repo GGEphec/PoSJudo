@@ -36,7 +36,21 @@ public class FondDeCaisse {
 		this.contenuFondDeCaisse = DBHelper.getArgent();
 	}
 
-//Méthodes
+	/**
+	 * Le constructeur d'un objet fondDeCaisse
+	 * @param id L'id du fonds de caisse
+	 * @param date La date et l'heure du fonds de caisse
+	 * @param responsables Les responsables du fonds de caisse
+	 * @param contenuFdC Le contenu du fonds de caisse
+	 */
+	public FondDeCaisse(int id, String date, String responsables, List<Argent> contenuFdC) {
+			this.idFondDeCaisse = id;
+			this.heureFondDeCaisse = date;
+			this.responsables = responsables;
+			this.contenuFondDeCaisse = contenuFdC;
+		}
+
+	//Méthodes
 	/**
 	 * Permet d'initialiser la vue fondDeCaisse
 	 */
@@ -112,7 +126,7 @@ public class FondDeCaisse {
 	public Object[][] affichage() {
 		int totalLigne = contenuFondDeCaisse.size()+5;
 		Object[][] retour = new Object[totalLigne][4];
-		retour[0][0] = "Commande N° ";
+		retour[0][0] = "Fonds de caisse N° ";
 		retour[0][1] = this.idFondDeCaisse;
 		retour[0][2] = "Heure : ";
 		retour[0][3] = this.heureFondDeCaisse;

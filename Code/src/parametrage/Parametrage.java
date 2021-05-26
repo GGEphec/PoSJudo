@@ -44,6 +44,30 @@ public class Parametrage {
 	}
 	
 	/**
+	 * Le constructeur d'un objet Parametrage
+	 * 
+	 * @param n le numéro du boutton
+	 * @param v la visibilité du boutton
+	 * @param p le prix unitaire
+	 * @param R la valeur Red de la couleur du boutton
+	 * @param G la valeur Green de la couleur du boutton
+	 * @param B la valeur Blue de la couleur du boutton
+	 * @param d la description du boutton
+	 * @param vendu le nombre de fois qu'il a été vendu
+	 */
+	public Parametrage(int n, boolean v, double p, int R, int G, int B, String d, int vendu) {
+		this.numeroBoutton = n;
+		this.nom = "btn"+n;
+		this.visible = v;
+		this.prix = p;
+		this.couleurR = R;
+		this.couleurG = G;
+		this.couleurB = B;
+		this.description = d;
+		this.vendu=vendu;
+	}
+
+	/**
 	 * Permet d'initaliser la vue parametrage
 	 */
 	public static void initialise() {
@@ -189,7 +213,6 @@ public class Parametrage {
 	 */
 	public String toString() {
 		return this.getDescription() + " " + this.getVendu();
-		//TODO compléter avec les autres éléments
 	}
 	
 	

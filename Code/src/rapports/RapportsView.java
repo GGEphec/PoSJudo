@@ -12,6 +12,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -167,36 +169,42 @@ public class RapportsView {
 		AffichagePrincipalRapports.add(choixRapport);
 		choixRapport.setLayout(new GridLayout(4,2));
 		
+		
 			JButton rapportVente = new JButton("Rapport vente");
 			rapportVente.setName("rapportVente");
 			choixRapport.add(rapportVente);
-			rapportVente.addActionListener(new RapportsController(rapportVente, modelRapport));
-			JTextField rien = new JTextField();
-			rien.setEditable(false);
-			choixRapport.add(rien);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDateTime now = LocalDateTime.now();
+			JTextField choixVente = new JTextField();
+			choixVente.setText(dtf.format(now));
+			choixRapport.add(choixVente);
 			
 			JButton rapportMiseEnSecu = new JButton("Rapport mise en sécurité");
 			rapportMiseEnSecu.setName("rapportMiseEnSecurite");
 			choixRapport.add(rapportMiseEnSecu);
-			rapportMiseEnSecu.addActionListener(new RapportsController(rapportMiseEnSecu, modelRapport));
 			JTextField choixMeS = new JTextField();
+			choixMeS.setText(Integer.toString(DBHelper.getMaxMeS()));
 			choixRapport.add(choixMeS);
 			
 			JButton rapportFondDeCaisse = new JButton("Rapport fond de caisse");
 			rapportFondDeCaisse.setName("rapportFondDeCaisse");
 			choixRapport.add(rapportFondDeCaisse);
-			rapportFondDeCaisse.addActionListener(new RapportsController(rapportFondDeCaisse, modelRapport));
 			JTextField choixFdC = new JTextField();
+			choixFdC.setText(Integer.toString(DBHelper.getMaxFdC()));
 			choixRapport.add(choixFdC);
 			
 			JButton rapportTicket = new JButton("Ticket N° ");
 			rapportTicket.setName("ticket");
 			choixRapport.add(rapportTicket);
-			rapportTicket.addActionListener(new RapportsController(rapportTicket, modelRapport));
 			JTextField choixTicket = new JTextField();
+			choixTicket.setText(Integer.toString(DBHelper.nextCommande()));
 			choixRapport.add(choixTicket);
 			
-
+			
+			rapportVente.addActionListener(new RapportsController(rapportVente, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
+			rapportMiseEnSecu.addActionListener(new RapportsController(rapportMiseEnSecu, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
+			rapportFondDeCaisse.addActionListener(new RapportsController(rapportFondDeCaisse, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
+			rapportTicket.addActionListener(new RapportsController(rapportTicket, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
 	}
 
 }

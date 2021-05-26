@@ -36,6 +36,22 @@ public class MiseEnSecurite {
 		this.contenuMiseEnSecurite = DBHelper.getArgent();
 	}
 	
+	
+	/**
+	 * Le constructeur d'un objet miseEnSecurite
+	 * @param id L'id de la mise en sécurité
+	 * @param timestamp L'heure de la mise en sécurité
+	 * @param responsable Les responsables de la mise en sécurité
+	 * @param contenu Le contenu de la mise en sécurité
+	 */
+	public MiseEnSecurite(int id, String timestamp, String responsable, List<Argent> contenu) {
+		this.idMiseEnSecurite = id;
+		this.heureMiseEnSecurite = timestamp;
+		this.responsables = responsable;
+		this.contenuMiseEnSecurite = contenu;
+	}
+	
+	
 //Méthodes
 	/**
 	 * Permet d'initialiser la vue miseEnSecurite
@@ -109,7 +125,7 @@ public class MiseEnSecurite {
 	public Object[][] affichage() {
 		int totalLigne = contenuMiseEnSecurite.size()+5;
 		Object[][] retour = new Object[totalLigne][4];
-		retour[0][0] = "Commande N° ";
+		retour[0][0] = "Mise en sécurité N° ";
 		retour[0][1] = this.idMiseEnSecurite;
 		retour[0][2] = "Heure : ";
 		retour[0][3] = this.heureMiseEnSecurite;
@@ -144,6 +160,72 @@ public class MiseEnSecurite {
 	
 	
 //Getters&Setters
+	
+	
+	/**
+	 * @return the idMiseEnSecurite
+	 */
+	public int getIdMiseEnSecurite() {
+		return idMiseEnSecurite;
+	}
+
+
+	/**
+	 * @param idMiseEnSecurite the idMiseEnSecurite to set
+	 */
+	public void setIdMiseEnSecurite(int idMiseEnSecurite) {
+		this.idMiseEnSecurite = idMiseEnSecurite;
+	}
+
+
+	/**
+	 * @return the heureMiseEnSecurite
+	 */
+	public String getHeureMiseEnSecurite() {
+		return heureMiseEnSecurite;
+	}
+
+
+	/**
+	 * @param heureMiseEnSecurite the heureMiseEnSecurite to set
+	 */
+	public void setHeureMiseEnSecurite(String heureMiseEnSecurite) {
+		this.heureMiseEnSecurite = heureMiseEnSecurite;
+	}
+
+
+	/**
+	 * @return the responsables
+	 */
+	public String getResponsables() {
+		return responsables;
+	}
+
+
+	/**
+	 * @param responsables the responsables to set
+	 */
+	public void setResponsables(String responsables) {
+		this.responsables = responsables;
+	}
+
+
+	/**
+	 * @return the contenuMiseEnSecurite
+	 */
+	public List<Argent> getContenuMiseEnSecurite() {
+		return contenuMiseEnSecurite;
+	}
+
+
+	/**
+	 * @param contenuMiseEnSecurite the contenuMiseEnSecurite to set
+	 */
+	public void setContenuMiseEnSecurite(List<Argent> contenuMiseEnSecurite) {
+		this.contenuMiseEnSecurite = contenuMiseEnSecurite;
+	}
+
+
 	/**
 	 * @return the nbre
 	 */

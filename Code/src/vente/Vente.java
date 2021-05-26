@@ -35,7 +35,20 @@ public class Vente {
 		this.contenu = DBHelper.getProduits();
 	}
 
-//Méthodes
+	/**
+	 * Le constructeur d'un objet Vente
+	 * 
+	 * @param id L'id de la vente
+	 * @param heure L'heure de la vente
+	 * @param contenuCommande Le contenu de la commande
+	 */
+	public Vente(int id, String heure, List<Parametrage> contenuCommande) {
+			this.idCommande = id;
+			this.heureCommande = heure;
+			this.contenu = contenuCommande;
+		}
+
+	//Méthodes
 	/**
 	 * Permet d'initaliser la vue vente
 	 */

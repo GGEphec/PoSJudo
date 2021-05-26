@@ -10,12 +10,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -144,27 +149,58 @@ public class AcceuilView {
 					});
 					MenuLateral.add(btnClose);
 					
+					
 			//Panneau principal qui va changer en fonction de la vue
 				JPanel info = new JPanel();
 				info.setPreferredSize(new Dimension(1100, 617));
 				info.setSize(new Dimension(1100, 617));
-				info.setBackground(new Color(150, 150, 0));
-				info.setBorder(transparent9px);
-				info.setLayout(new GridLayout(1,1,0,0));
+				info.setBackground(new Color(119, 136, 153));
+				//info.setBorder(transparent9px);
+				info.setLayout(new GridLayout(1, 1, 0, 0));
 				AffichagePrincipalAcceuil.add(info);
-				JButton manuel = new JButton("<html><center><p style=\"font-size:25px\">Manuel Utilisateur</p></center><br>"
-						+ "<br>"
-						+ "<br>"
-						+ "<center><p style=\"font-size:17px\">Vous êtes sur l’écran principal de l’application !</p></center><br><br>"
-						+ "<p style=\"font-size:12px\">•  Si cela n’a pas été fait, il convient d’abord de paramétrer les produits, via le bouton « Paramétrage Produits »</p><br>"
-						+ "<p style=\"font-size:12px\">•  Il faut ensuite introduire les billets et pièces constituant le fonds de caisse via le bouton « Fonds de Caisse »</p><br>"
-						+ "<p style=\"font-size:12px\">•  Après ces deux opérations, vous pouvez enregistrer vos commandes via le bouton « Vente »</p><br>"
-						+ "<p style=\"font-size:12px\">•  Si vous estimez que la somme en caisse devient trop importante, vous faites une mise en sécurité via le bouton « Mise en Sécurité »</p><br>"
-						+ "<p style=\"font-size:12px\">•  Si vous désirez imprimer un ticket ou un rapport, vous disposez du bouton « Rapports »</p><br>"
-						+ "<p style=\"font-size:12px\">•  S’il n’y a plus de clients pendant un moment, vous pouvez appuyer sur le bouton « Quitter », qui fera automatiquement une copie de sécurité de vos données !</p><br><br>"
-						+ "<center><p style=\"font-size:16px\">Bon travail !</p><br>"
-						+ "</html>");
-				manuel.setBackground(new Color(211, 211, 211));
-				info.add(manuel);
+//				
+//				//Première tentative image, très long à charger
+//					BufferedImage fondEcran = null;
+//					try {
+//						fondEcran = ImageIO.read(new File(AcceuilView.class.getResource("Image1.png").getFile()));
+//					} catch (IOException e1) {
+//						e1.printStackTrace();
+//					}
+//					
+//					JLabel fond = new JLabel(new ImageIcon(fondEcran));
+//					info.add(fond);	
+//					
+					
+					
+				//Seconde tentative image assez rapide
+					URL urlFond = this.getClass().getResource("Image3.png");
+					Toolkit tk = Toolkit.getDefaultToolkit();
+					Image imageFond = tk.getImage(urlFond).getScaledInstance(info.getWidth(), info.getHeight(), Image.SCALE_SMOOTH);
+					
+					JLabel fond = new JLabel(new ImageIcon(imageFond));
+					info.add(fond);		
+				
+//				
+//				//Mode d'emploi 
+//				JButton manuel = new JButton("<html><center><p style=\"font-size:25px\">Manuel Utilisateur</p></center><br>"
+//						+ "<br>"
+//						+ "<br>"
+//						+ "<center><p style=\"font-size:17px\">Vous êtes sur l’écran principal de l’application !</p></center><br><br>"
+//						+ "<p style=\"font-size:12px\">•  Si cela n’a pas été fait, il convient d’abord de paramétrer les produits, via le bouton « Paramétrage Produits »</p><br>"
+//						+ "<p style=\"font-size:12px\">•  Il faut ensuite introduire les billets et pièces constituant le fonds de caisse via le bouton « Fonds de Caisse »</p><br>"
+//						+ "<p style=\"font-size:12px\">•  Après ces deux opérations, vous pouvez enregistrer vos commandes via le bouton « Vente »</p><br>"
+//						+ "<p style=\"font-size:12px\">•  Si vous estimez que la somme en caisse devient trop importante, vous faites une mise en sécurité via le bouton « Mise en Sécurité »</p><br>"
+//						+ "<p style=\"font-size:12px\">•  Si vous désirez imprimer un ticket ou un rapport, vous disposez du bouton « Rapports »</p><br>"
+//						+ "<p style=\"font-size:12px\">•  S’il n’y a plus de clients pendant un moment, vous pouvez appuyer sur le bouton « Quitter », qui fera automatiquement une copie de sécurité de vos données !</p><br><br>"
+//						+ "<center><p style=\"font-size:16px\">Bon travail !</p><br>"
+//						+ "</html>");
+//				manuel.setBackground(new Color(211, 211, 211));
+//				info.add(manuel);
+//				
+//				
+//				
+				
+
+				
 	}
 }

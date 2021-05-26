@@ -24,6 +24,19 @@ public class Argent {
 		this.sorti = 0;
 	}
 
+	/**
+	 * Constructeur de l'objet Argent
+	 * 
+	 * @param id L'id de l'argent à construire
+	 * @param valeur La valeur de l'argent à construire
+	 * @param sorti Le nombre de fois que l'argent a été sorti
+	 */
+	public Argent(int id, double valeur, int sorti) {
+		this.idArgent = id;
+		this.valeurArgent = valeur;
+		this.sorti = sorti;
+	}
+	
 	
 //Getters&Setters
 	/**
