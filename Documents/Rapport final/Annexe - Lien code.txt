@@ -1,0 +1,2 @@
+Le code source de l'application peut être récupéré sur le repository git suivant : 
+https://github.com/GGEphec/PoSJudo
