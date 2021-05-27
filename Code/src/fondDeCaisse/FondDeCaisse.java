@@ -108,8 +108,7 @@ public class FondDeCaisse {
 	 * 
 	 * @return La somme du fondDeCaisse
 	 */
-	//TODO JUnitTests
-	private double sommeFondDeCaisse() {
+	double sommeFondDeCaisse() {
 		double somme=0;
 		for(Argent i : contenuFondDeCaisse) {
 			somme += (i.getValeurArgent()*i.getSorti());

@@ -104,8 +104,7 @@ public class Vente {
 	 * 
 	 * @return La somme de la vente
 	 */
-	//TODO JUnitTests
-	private double sommeCommande() {
+	double sommeCommande() {
 		double somme=0;
 		for(Parametrage p : contenu) {
 			somme+= p.getPrix()*p.getVendu();
@@ -163,8 +162,7 @@ public class Vente {
 	 * 
 	 * @return La somme des tickets de la vente
 	 */
-	//TODO JUnitTests
-	private int getTotalTicket() {
+	int getTotalTicket() {
 		int totalTicket=0;
 		for(Parametrage p : contenu) {
 			totalTicket+= p.getVendu();
@@ -179,8 +177,7 @@ public class Vente {
 	 * @param contenuRow Le contenu de la vente
 	 * @return Le nombre d'objet Parametrage dont la valeur vendu est non nulle
 	 */
-	//TODO JUnitTests
-	private int getRow(List<Parametrage> contenuRow) {
+	int getRow(List<Parametrage> contenuRow) {
 		int nbreLigne = 0;
 		for(Parametrage a : contenuRow) {
 			if(a.getVendu()>0) {

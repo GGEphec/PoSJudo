@@ -186,7 +186,7 @@ public class RapportsView {
 			choixMeS.setText(Integer.toString(DBHelper.getMaxMeS()));
 			choixRapport.add(choixMeS);
 			
-			JButton rapportFondDeCaisse = new JButton("Rapport fond de caisse");
+			JButton rapportFondDeCaisse = new JButton("Rapport fonds de caisse");
 			rapportFondDeCaisse.setName("rapportFondDeCaisse");
 			choixRapport.add(rapportFondDeCaisse);
 			JTextField choixFdC = new JTextField();
