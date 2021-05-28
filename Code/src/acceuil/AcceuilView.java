@@ -58,7 +58,7 @@ public class AcceuilView {
 
 		//Titre de la vue
 		JTextField TitreVue = new JTextField();
-		TitreVue.setEditable(false);
+
 		TitreVue.setPreferredSize(new Dimension(1258, 70));
 		TitreVue.setSize(new Dimension(1258, 70));
 		TitreVue.setName("TitreAcceuil");
@@ -68,6 +68,7 @@ public class AcceuilView {
 		Font font = new Font("SansSerif", Font.BOLD, 20);
 		TitreVue.setFont(font);
 		TitreVue.setHorizontalAlignment(JTextField.CENTER);
+		TitreVue.setEditable(false);
 		vueAcceuil.getContentPane().add(TitreVue, BorderLayout.NORTH);
 		
 		//Affichage principal

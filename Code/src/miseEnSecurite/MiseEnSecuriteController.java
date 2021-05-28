@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class MiseEnSecuriteController implements ActionListener {
@@ -16,6 +17,7 @@ public class MiseEnSecuriteController implements ActionListener {
 	private MiseEnSecurite mes;
 	private JButton boutton;
 	private DefaultTableModel resumeMiseEnSecurite;
+	private JTextField responsables;
 
 //Constructeur
 	/**
@@ -24,12 +26,14 @@ public class MiseEnSecuriteController implements ActionListener {
 	 * @param btn Le boutton qui vient d'être pressé
 	 * @param miseEnSecurite Le modèle qui subit les modifications
 	 * @param resumeMiseEnSecurite Le modèle du tableau qui contient le résumé de la mise en sécurité
+	 * @param responsablesNom 
 	 */
-	public MiseEnSecuriteController(JButton btn, MiseEnSecurite miseEnSecurite, DefaultTableModel resumeMiseEnSecurite) {
+	public MiseEnSecuriteController(JButton btn, MiseEnSecurite miseEnSecurite, DefaultTableModel resumeMiseEnSecurite, JTextField responsablesNom) {
 		super();
 		this.boutton = btn;
 		this.mes = miseEnSecurite;
 		this.resumeMiseEnSecurite = resumeMiseEnSecurite;
+		this.responsables = responsablesNom;
 	}
 
 	@Override
@@ -46,6 +50,7 @@ public class MiseEnSecuriteController implements ActionListener {
 		}
 		else if(boutton.getName().contains("validation")) { //Si c'est un boutton pour valider ou annuler
 			if(boutton.getName().contains("Vrai")) {
+				mes.setResponsables(responsables.getText());
 				mes.finaliserMiseEnSecurite();
 			}
 			else if(boutton.getName().contains("Faux")) {

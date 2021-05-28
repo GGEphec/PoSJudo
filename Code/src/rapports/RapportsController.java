@@ -48,6 +48,7 @@ public class RapportsController implements ActionListener{
 		if(boutton.getName().contains("Vente")) {
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageVente(choixVente.getText()), test);
+			//Print.print(RapportsView.info);
 		}
 		else if(boutton.getName().contains("MiseEnSecu")) {
 			String[] test = {"test", "test", "test", "test"};

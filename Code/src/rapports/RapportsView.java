@@ -36,6 +36,7 @@ public class RapportsView {
 //Variables d'instances
 	private JFrame vueRapports;
 	DefaultTableModel modelRapport  = new DefaultTableModel(0,4);
+	static JPanel info;
 
 	/**
 	 * Création de la vue rapport
@@ -150,7 +151,7 @@ public class RapportsView {
 		MenuLateral.add(btnClose);
 
 		// Panneau principal qui va changer en fonction de la vue
-		JPanel info = new JPanel();
+		info = new JPanel();
 		info.setPreferredSize(new Dimension(850, 617));
 		info.setSize(new Dimension(850, 617));
 		info.setBackground(new Color(61, 72, 73));

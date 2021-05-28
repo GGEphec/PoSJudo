@@ -32,7 +32,7 @@ public class MiseEnSecurite {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		this.heureMiseEnSecurite = dtf.format(now);
-		this.responsables = "JCG";
+		this.responsables = "JCG et Nath";
 		this.contenuMiseEnSecurite = DBHelper.getArgent();
 	}
 	
@@ -123,21 +123,25 @@ public class MiseEnSecurite {
 	 * @return Un double tableau représentant le résumé de la miseEnSecurite
 	 */
 	public Object[][] affichage() {
-		int totalLigne = contenuMiseEnSecurite.size()+5;
+		int totalLigne = contenuMiseEnSecurite.size()+6;
 		Object[][] retour = new Object[totalLigne][4];
 		retour[0][0] = "Mise en sécurité N° ";
 		retour[0][1] = this.idMiseEnSecurite;
 		retour[0][2] = "Heure : ";
 		retour[0][3] = this.heureMiseEnSecurite;
-		retour[1][0] = "";
+		retour[1][0] = "Responsables : ";
 		retour[1][1] = "";
-		retour[1][2] = "";
+		retour[1][2] = this.getResponsables();
 		retour[1][3] = "";
-		retour[2][0] = "Quantite";
-		retour[2][1] = "Produit";
-		retour[2][2] = "Prix unitaire";
-		retour[2][3] = "Total";
-		int i=3;
+		retour[2][0] = "";
+		retour[2][1] = "";
+		retour[2][2] = "";
+		retour[2][3] = "";
+		retour[3][0] = "Quantite";
+		retour[3][1] = "Argent";
+		retour[3][2] = "Valeur";
+		retour[3][3] = "Total";
+		int i=4;
 		for(Argent a : this.contenuMiseEnSecurite) {
 			retour[i][0]=a.getSorti();
 			retour[i][1]=a.getValeurArgent() + "€";

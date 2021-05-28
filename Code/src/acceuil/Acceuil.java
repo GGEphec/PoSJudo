@@ -7,6 +7,8 @@
 package acceuil;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Acceuil {
 
@@ -33,7 +35,11 @@ public class Acceuil {
 	private static boolean creationFichierDB() {
 		String db = "";
 		if(System.getProperty("os.name").toLowerCase().contains("win")) {
-			db = "C:\\USers\\Public\\posjudo\\DB.";
+			db = "C:\\Users\\Public\\posjudo\\DB.";
+			File dir = new File("C:\\Users\\Public\\posjudo");
+			if(!dir.exists()) { //On vérifie si le répertoire existe déjà
+				dir.mkdir();
+			}
 		}
 		else {
 			db = "\\opt\\posjudo\\DB.";
@@ -116,27 +122,27 @@ public class Acceuil {
 						+ "INSERT INTO \"produits\" VALUES(15,1,1.5E0,255,0,0,'Coca light')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(16,1,1.5E0,255,0,0,'Limonade')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(21,0,0.0E0,0,0,0,'')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(22,1,2.0E0,0,0,255,'Ice tea')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(22,1,2.0E0,30,144,255,'Ice tea')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(23,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(24,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(25,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(26,1,1.5E0,255,0,0,'Jus de fruits')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(31,1,2.0E0,0,0,255,'Ticket Bleu')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(32,1,2.0E0,0,0,255,'Kriek')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(33,1,2.0E0,0,0,255,'Blanche')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(34,1,2.0E0,0,0,255,'Vin au verre')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(31,1,2.0E0,30,144,255,'Ticket Bleu')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(32,1,2.0E0,30,144,255,'Kriek')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(33,1,2.0E0,30,144,255,'Blanche')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(34,1,2.0E0,30,144,255,'Vin au verre')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(35,1,1.5E0,255,0,0,'Pils')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(36,1,2.5E0,0,255,255,'Gouyasse')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(36,1,2.5E0,255,255,0,'Gouyasse')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(41,1,3.0E0,255,165,0,'Ticket orange')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(42,1,3.0E0,255,165,0,'Chimay bleue')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(43,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(44,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(45,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(46,0,0.0E0,0,0,0,'')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(51,1,2.5E0,0,255,255,'Ticket jaune')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(52,1,2.5E0,0,255,255,'Petit d\\u00e9jeuner')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(53,1,2.5E0,0,255,255,'Sandwich')\r\n"
-						+ "INSERT INTO \"produits\" VALUES(54,1,2.5E0,0,255,255,'Hot Dog')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(51,1,2.5E0,255,255,0,'Ticket jaune')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(52,1,2.5E0,255,255,0,'Petit d\\u00e9jeuner')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(53,1,2.5E0,255,255,0,'Sandwich')\r\n"
+						+ "INSERT INTO \"produits\" VALUES(54,1,2.5E0,255,255,0,'Hot Dog')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(55,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(56,0,0.0E0,0,0,0,'')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(61,0,0.0E0,0,0,0,'')\r\n"
@@ -145,7 +151,7 @@ public class Acceuil {
 						+ "INSERT INTO \"produits\" VALUES(64,1,1.5E0,255,0,0,'Couque')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(65,1,1.5E0,255,0,0,'Chips')\r\n"
 						+ "INSERT INTO \"produits\" VALUES(66,1,1.5E0,255,0,0,'Bonbons')\r\n"
-						+ "INSERT INTO \"memoire\" VALUES(20.0E0)\r\n");
+						+ "INSERT INTO \"memoire\" VALUES(0.0E0)\r\n");
 				ecrire.close();
 				
 			}
@@ -160,6 +166,35 @@ public class Acceuil {
 			e.printStackTrace();
 		}
 		return true;
+		
+	}
+	
+	/**
+	 * Cette fonction permet de faire une copie de la base de données avec un timestamp
+	 * @param chemin Le chemin vers la base de données
+	 */
+	public static void quit(String chemin) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+		LocalDateTime now = LocalDateTime.now();
+		String timestamp = dtf.format(now);
+		
+		InputStream source = null;
+		OutputStream bckp = null;
+		
+		try {
+			source = new FileInputStream(chemin+".script");
+			bckp = new FileOutputStream(chemin+"bckp"+timestamp+".script");
+			
+			byte[] buffer = new byte[1024];
+			int longueur;
+			while((longueur = source.read(buffer)) > 0) {
+				bckp.write(buffer, 0, longueur);
+			}
+			source.close();
+			bckp.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
