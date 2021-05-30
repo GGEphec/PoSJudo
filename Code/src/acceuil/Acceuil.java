@@ -30,7 +30,7 @@ public class Acceuil {
 	/**
 	 * Création des fichiers pour la DB si non existant
 	 * Vérification que la DB ne soit pas bloquée si déjà existante
-	 * @return 
+	 * @return Retourne true si le fichier a été créé, false sinon
 	 */
 	private static boolean creationFichierDB() {
 		String db = "";

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="acceuil.Acceuil" project="PoSJudoAth" file="/PoSJudoAth/src/acceuil/Acceuil.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="160" x="125" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="acceuil.AcceuilView" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/acceuil/AcceuilView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="121" x="1032" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="acceuil.DBHelper" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/acceuil/DBHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="322" x="369" y="1380"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="argent.Argent" project="PoSJudoAth" file="/PoSJudoAth/src/argent/Argent.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="168" x="2109" y="1380"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="fondDeCaisse.FondDeCaisse" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/fondDeCaisse/FondDeCaisse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="242" x="1764" y="881"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="fondDeCaisse.FondDeCaisseController" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/fondDeCaisse/FondDeCaisseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="349" x="1415" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="fondDeCaisse.FondDeCaisseTest" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/fondDeCaisse/FondDeCaisseTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="129" x="1804" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="fondDeCaisse.FondDeCaisseView" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/fondDeCaisse/FondDeCaisseView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="172" x="409" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="miseEnSecurite.MiseEnSecurite" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/miseEnSecurite/MiseEnSecurite.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="248" x="2109" y="881"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="miseEnSecurite.MiseEnSecuriteController" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/miseEnSecurite/MiseEnSecuriteController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="407" x="1973" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="miseEnSecurite.MiseEnSecuriteTest" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/miseEnSecurite/MiseEnSecuriteTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="137" x="2420" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="miseEnSecurite.MiseEnSecuriteView" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/miseEnSecurite/MiseEnSecuriteView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="172" x="820" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="parametrage.Parametrage" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/parametrage/Parametrage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="621" width="269" x="111" y="1915"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="parametrage.ParametrageController" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/parametrage/ParametrageController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="233" x="663" y="881"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="parametrage.ParametrageView" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/parametrage/ParametrageView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="157" x="642" y="423"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="rapports.Rapports" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/rapports/Rapports.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="182" x="1193" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="rapports.RapportsController" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/rapports/RapportsController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="450" x="902" y="423"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="rapports.RapportsView" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/rapports/RapportsView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="185" x="635" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="vente.Vente" project="PoSJudoAth" file="/PoSJudoAth/src/vente/Vente.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="197" x="151" y="881"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="vente.VenteController" project="PoSJudoAth" 
+    file="/PoSJudoAth/src/vente/VenteController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="265" x="62" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="vente.VenteTest" project="PoSJudoAth" file="/PoSJudoAth/src/vente/VenteTest.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="87" x="90" y="670"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="vente.VenteView" project="PoSJudoAth" file="/PoSJudoAth/src/vente/VenteView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="172" x="409" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="23">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="24" name="atester1"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="27" name="fondCaisse"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="29">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="30">    
+    <bendpoint x="662" y="670"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="31">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="33">    
+    <bendpoint x="99" y="881"/>    
+    <bendpoint x="99" y="1380"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="34" name="contenu3"/>      
+      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="36">    
+    <bendpoint x="829" y="423"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="37">    
+    <bendpoint x="357" y="248"/>    
+    <bendpoint x="357" y="423"/>    
+    <bendpoint x="357" y="670"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="38">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="39" name="contenuMiseEnSecurite"/>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="41">    
+    <bendpoint x="871" y="423"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="42">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="43" name="contenuFondDeCaisse"/>      
+      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="45">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="46">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="47" name="atester2"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="50" name="atester3"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="54">    
+    <bendpoint x="789" y="670"/>    
+    <bendpoint x="926" y="881"/>    
+    <bendpoint x="926" y="1380"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="55" name="liste"/>      
+      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="57">    
+    <bendpoint x="632" y="670"/>    
+    <bendpoint x="632" y="881"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="58">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="59" name="mes"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="61">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="62">    
+    <bendpoint x="2078" y="881"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="63" name="contenu2"/>      
+      <multiplicity id="64" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="65">    
+    <bendpoint x="531" y="423"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="66">    
+    <bendpoint x="535" y="248"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="68">    
+    <bendpoint x="378" y="248"/>    
+    <bendpoint x="378" y="423"/>    
+    <bendpoint x="378" y="670"/>    
+    <bendpoint x="378" y="881"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="69">    
+    <bendpoint x="141" y="1380"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="70" name="contenu"/>      
+      <multiplicity id="71" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="72">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <association id="73">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="74" name="atester3"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <bendpoint x="2408" y="881"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="77" name="contenu2"/>      
+      <multiplicity id="78" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <bendpoint x="2429" y="881"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="80" name="contenu1"/>      
+      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="82">    
+    <bendpoint x="418" y="248"/>    
+    <bendpoint x="418" y="423"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="83">    
+    <bendpoint x="2057" y="881"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="84" name="contenu1"/>      
+      <multiplicity id="85" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <bendpoint x="2036" y="881"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="87" name="contenu3"/>      
+      <multiplicity id="88" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="89">    
+    <bendpoint x="1382" y="248"/>    
+    <bendpoint x="1382" y="423"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="90">    
+    <bendpoint x="2387" y="881"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="91" name="contenu3"/>      
+      <multiplicity id="92" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="93">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="94">    
+    <bendpoint x="120" y="881"/>    
+    <bendpoint x="120" y="1380"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="95" name="contenu1"/>      
+      <multiplicity id="96" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="97">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="98">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="99" name="atester2"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="101">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="102">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="103" name="atester3"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="106" name="atester2"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="108">    
+    <bendpoint x="850" y="248"/>    
+    <bendpoint x="850" y="423"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <association id="109">    
+    <bendpoint x="721" y="1380"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="110" name="a"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="112">    
+    <bendpoint x="947" y="881"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="113">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="114" name="atester1"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="116">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="117">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <association id="118">    
+    <bendpoint x="78" y="881"/>    
+    <bendpoint x="78" y="1380"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="119" name="contenu2"/>      
+      <multiplicity id="120" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <bendpoint x="31" y="248"/>    
+    <bendpoint x="31" y="423"/>    
+    <bendpoint x="31" y="670"/>    
+    <bendpoint x="31" y="881"/>    
+    <bendpoint x="31" y="1380"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="122" name="liste"/>      
+      <multiplicity id="123" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="125" name="atester1"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <bendpoint x="207" y="423"/>    
+    <bendpoint x="207" y="670"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="128" name="v"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="130">    
+    <bendpoint x="611" y="423"/>    
+    <bendpoint x="611" y="670"/>    
+    <bendpoint x="611" y="881"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

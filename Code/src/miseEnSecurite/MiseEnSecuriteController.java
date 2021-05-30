@@ -26,7 +26,7 @@ public class MiseEnSecuriteController implements ActionListener {
 	 * @param btn Le boutton qui vient d'être pressé
 	 * @param miseEnSecurite Le modèle qui subit les modifications
 	 * @param resumeMiseEnSecurite Le modèle du tableau qui contient le résumé de la mise en sécurité
-	 * @param responsablesNom 
+	 * @param responsablesNom Le nom des responsables de la mise en sécurité
 	 */
 	public MiseEnSecuriteController(JButton btn, MiseEnSecurite miseEnSecurite, DefaultTableModel resumeMiseEnSecurite, JTextField responsablesNom) {
 		super();

@@ -53,15 +53,18 @@ public class RapportsController implements ActionListener{
 		else if(boutton.getName().contains("MiseEnSecu")) {
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageMeS(Integer.parseInt(choixMeS.getText())), test);
+			//Print.print(RapportsView.info);
 		}
 		else if(boutton.getName().contains("FondDeCaisse")){
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageFdC(Integer.parseInt(choixFdC.getText())), test);
+			//Print.print(RapportsView.info);
 			
 		}
 		else if(boutton.getName().contains("ticket")){
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageTicket(Integer.parseInt(choixTicket.getText())), test);
+			//Print.print(RapportsView.info);
 		}
 		
 	}

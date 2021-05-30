@@ -45,7 +45,7 @@ public class Print{
 		        if (pageIndex != 0) {
 		            return NO_SUCH_PAGE;
 		        }
-		        graphics.drawImage(imageFinale, 75, 75, panneau.getPreferredSize().width, panneau.getPreferredSize().height, null);
+		        graphics.drawImage(imageFinale, 75, 75, 1100, 800, null);
 		        return PAGE_EXISTS;
 				}
 			});

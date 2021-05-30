@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"PoSJudoAth","l":"miseEnSecurite"}]
+packageSearchIndex = [{"m":"PoSJudoAth","l":"acceuil"},{"l":"All Packages","url":"allpackages-index.html"},{"m":"PoSJudoAth","l":"argent"},{"m":"PoSJudoAth","l":"fondDeCaisse"},{"m":"PoSJudoAth","l":"miseEnSecurite"},{"m":"PoSJudoAth","l":"parametrage"},{"m":"PoSJudoAth","l":"rapports"},{"m":"PoSJudoAth","l":"vente"}]
