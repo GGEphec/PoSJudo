@@ -111,7 +111,7 @@ public class VenteView {
 				});
 				MenuLateral.add(btnVente);
 				
-				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produit</p></html>");
+				JButton btnProduits = new JButton("<html><p style=\"font-size:20px\">Paramétrage produits</p></html>");
 				btnProduits.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						vueVente.dispose();
