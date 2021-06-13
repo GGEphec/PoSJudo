@@ -36,7 +36,6 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 
-import com.spire.pdf.*;
 
 /**
  * @author gaeta_2b6psqs

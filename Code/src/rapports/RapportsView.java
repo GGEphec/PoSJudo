@@ -82,7 +82,7 @@ public class RapportsView {
 		// Panneau du menu latéral commun à toutes les vues
 		JPanel MenuLateral = new JPanel();
 		AffichagePrincipalRapports.add(MenuLateral);
-		MenuLateral.setSize(new Dimension(90, 617));
+		MenuLateral.setSize(new Dimension(1, 617));
 		MenuLateral.setBackground(new Color(119, 136, 153));
 		MenuLateral.setBorder(transparent9px);
 		MenuLateral.setLayout(new GridLayout(7, 1, 4, 4));
@@ -155,8 +155,8 @@ public class RapportsView {
 
 		// Panneau principal qui va changer en fonction de la vue
 		info = new JPanel();
-		info.setPreferredSize(new Dimension(850, 617));
-		info.setSize(new Dimension(850, 617));
+		info.setPreferredSize(new Dimension(1050, 617));
+		info.setSize(new Dimension(1050, 617));
 		info.setBackground(new Color(61, 72, 73));
 		info.setBorder(transparent9px);
 		AffichagePrincipalRapports.add(info);
@@ -168,8 +168,8 @@ public class RapportsView {
 		info.add(rapport);
 		
 		JPanel choixRapport = new JPanel();
-		choixRapport.setPreferredSize(new Dimension(250, 617));
-		choixRapport.setSize(new Dimension(250, 617));
+		choixRapport.setPreferredSize(new Dimension(350, 617));
+		choixRapport.setSize(new Dimension(350, 617));
 		choixRapport.setBackground(new Color(150, 150, 0));
 		choixRapport.setBorder(transparent9px);
 		AffichagePrincipalRapports.add(choixRapport);

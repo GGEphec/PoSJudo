@@ -79,7 +79,7 @@ public class AcceuilView {
 			//Panneau du menu latéral commun à toutes les vues
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalAcceuil.add(MenuLateral);
-				MenuLateral.setSize(new Dimension(90, 617));
+				MenuLateral.setSize(new Dimension(1, 617));
 				MenuLateral.setBackground(new Color(119, 136, 153));
 				MenuLateral.setBorder(transparent9px);
 				MenuLateral.setLayout(new GridLayout(7, 1, 4, 4));
@@ -153,8 +153,8 @@ public class AcceuilView {
 					
 			//Panneau principal qui va changer en fonction de la vue
 				JPanel info = new JPanel();
-				info.setPreferredSize(new Dimension(1100, 617));
-				info.setSize(new Dimension(1100, 617));
+				info.setPreferredSize(new Dimension(1400, 617));
+				info.setSize(new Dimension(1400, 617));
 				info.setBackground(new Color(119, 136, 153));
 				//info.setBorder(transparent9px);
 				info.setLayout(new GridLayout(1, 1, 0, 0));

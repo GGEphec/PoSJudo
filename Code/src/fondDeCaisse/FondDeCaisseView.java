@@ -85,7 +85,7 @@ public class FondDeCaisseView {
 			//Panneau du menu latéral commun à toutes les vues
 				JPanel MenuLateral = new JPanel();
 				AffichagePrincipalFondDeCaisse.add(MenuLateral);
-				MenuLateral.setSize(new Dimension(90, 617));
+				MenuLateral.setSize(new Dimension(1, 617));
 				MenuLateral.setBackground(new Color(119, 136, 153));
 				MenuLateral.setBorder(transparent9px);
 				MenuLateral.setLayout(new GridLayout(7, 1, 4, 4));
@@ -159,8 +159,8 @@ public class FondDeCaisseView {
 					//Panneau des boutons pour introduire
 					JPanel Boutons = new JPanel();
 					AffichagePrincipalFondDeCaisse.add(Boutons);
-					Boutons.setPreferredSize(new Dimension(550, 617));
-					Boutons.setSize(new Dimension(550, 617));
+					Boutons.setPreferredSize(new Dimension(700, 617));
+					Boutons.setSize(new Dimension(700, 617));
 					Boutons.setBackground(new Color(61, 72, 73));
 					Boutons.setBorder(transparent9px);
 					Boutons.setLayout(new GridLayout(6, 6, 4, 4));
@@ -334,8 +334,8 @@ public class FondDeCaisseView {
 			//Panneau de résumé de ce qui a été introduit
 				JPanel Resume = new JPanel();
 				AffichagePrincipalFondDeCaisse.add(Resume);
-				Resume.setPreferredSize(new Dimension(550, 617));
-				Resume.setSize(new Dimension(550, 617));
+				Resume.setPreferredSize(new Dimension(700, 617));
+				Resume.setSize(new Dimension(700, 617));
 				Resume.setBackground(new Color(150, 150, 0));
 				Resume.setBorder(transparent9px);
 				Resume.setLayout(new GridLayout(2, 1, 0, 0));

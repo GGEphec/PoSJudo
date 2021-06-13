@@ -15,5 +15,4 @@ module PoSJudoAth {
 	requires java.sql;
 	requires org.junit.jupiter.api;
 	requires com.github.librepdf.openpdf;
-	requires Spire.Pdf;
 }
