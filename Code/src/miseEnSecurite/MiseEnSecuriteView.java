@@ -35,8 +35,8 @@ public class MiseEnSecuriteView {
 //Variables d'instance
 	JFrame vueMiseEnSecurite;
 	private JTable resumeMiseEnSecurite;
-	DefaultTableModel modelTable = new DefaultTableModel(0,4);
-	JTextField responsablesNom;
+	DefaultTableModel modelTable = new DefaultTableModel(0,3);
+	JTextField responsablesNom = new JTextField();
 	
 
 	/**
@@ -341,6 +341,8 @@ public class MiseEnSecuriteView {
 				
 				//Affichage du résumé de la commande
 					resumeMiseEnSecurite = new JTable(modelTable);
+					resumeMiseEnSecurite.setRowHeight(18);
+					resumeMiseEnSecurite.setFont(new Font("Verdana", Font.PLAIN, 17));
 					Resume.add(resumeMiseEnSecurite);
 				
 				//Panneau du bas pour introduire les chiffres et valider
@@ -398,9 +400,10 @@ public class MiseEnSecuriteView {
 						paveNumerique.add(pave3);
 						pave3.addActionListener(new MiseEnSecuriteController(pave3, miseEnSecurite, modelTable, responsablesNom));
 						
-						JButton paveVide = new JButton("");
-						setInvisible(paveVide);
+						JButton paveVide = new JButton("<html><p style=\"font-size:20px\">-1</p></html>");
+						paveVide.setName("moins");
 						paveNumerique.add(paveVide);
+						paveVide.addActionListener(new MiseEnSecuriteController(paveVide, miseEnSecurite, modelTable, responsablesNom));
 						
 						JButton pave0 = new JButton("<html><p style=\"font-size:20px\">0</p></html>");
 						pave0.setName("pave0");
@@ -414,7 +417,7 @@ public class MiseEnSecuriteView {
 					//Panneau de validation
 						JPanel validation = new JPanel();
 						encodageArgent.add(validation);
-						validation.setLayout(new GridLayout(3, 1, 0, 0));
+						validation.setLayout(new GridLayout(4, 1, 0, 0));
 						
 						JPanel responsables = new JPanel();
 						validation.add(responsables);
@@ -424,7 +427,7 @@ public class MiseEnSecuriteView {
 							Font font2 = new Font("SansSerif", Font.BOLD, 15);
 							responsablesLabel.setFont(font2);
 							responsables.add(responsablesLabel);
-							responsablesNom = new JTextField();
+							//responsablesNom = new JTextField();
 							responsablesNom.setFont(font2);
 							responsablesNom.setText("JCG et Nath");
 							responsables.add(responsablesNom);
@@ -439,6 +442,11 @@ public class MiseEnSecuriteView {
 						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
 						validationFaux.addActionListener(new MiseEnSecuriteController(validationFaux, miseEnSecurite, modelTable, responsablesNom));
+						
+						JButton rapport = new JButton("<html><p style=\"font-size:20px\">Export PDF</p></html>");
+						rapport.setName("rapport");
+						validation.add(rapport);
+						rapport.addActionListener(new MiseEnSecuriteController(rapport, miseEnSecurite, modelTable, responsablesNom));
 
 	}
 

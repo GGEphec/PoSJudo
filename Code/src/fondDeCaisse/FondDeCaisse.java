@@ -21,6 +21,7 @@ public class FondDeCaisse {
 	private List<Argent> contenuFondDeCaisse; //Le contenu du fond de caisse
 	
 	private int nbre; //Variable temporaire pour déterminer le nombre encodé sur le pavé numérique
+	private boolean moins=false;
 	
 //Constructeur
 	/**
@@ -77,6 +78,21 @@ public class FondDeCaisse {
 	
 	
 	/**
+	 * Cette fonction va permettre de retirer une entrée de billets/pièces dans le contenu du fondDeCaisse
+	 * 
+	 * @param idBouton L'id du bouton qui a été pressé, équivaut à l'id de l'Argent
+	 */
+	public void retireEntree(String idBouton) {
+		int idBtn = Integer.parseInt(idBouton.substring(6,  idBouton.length()));
+		for(Argent f : contenuFondDeCaisse) {
+			if(f.getIdArgent() == idBtn) {
+				f.setSorti(f.getSorti()-1);
+			}
+		}
+	}
+	
+	
+	/**
 	 * Cette fonction va permettre de finaliser le fond de caisse en enregistrant les données dans la base de données au moyen de DBHelper
 	 * Puis la fonction va raffraichir la vue
 	 */
@@ -124,36 +140,30 @@ public class FondDeCaisse {
 	 */
 	public Object[][] affichage() {
 		int totalLigne = contenuFondDeCaisse.size()+5;
-		Object[][] retour = new Object[totalLigne][4];
-		retour[0][0] = "Fonds de caisse N° ";
-		retour[0][1] = this.idFondDeCaisse;
-		retour[0][2] = "Heure : ";
-		retour[0][3] = this.heureFondDeCaisse;
+		Object[][] retour = new Object[totalLigne][3];
+		retour[0][0] = "Fonds de caisse N°"+this.idFondDeCaisse;
+		retour[0][1] = "Heure : " + this.heureFondDeCaisse.substring(11, 19);
+		retour[0][2] = this.heureFondDeCaisse.substring(0, 10);
 		retour[1][0] = "";
 		retour[1][1] = "";
 		retour[1][2] = "";
-		retour[1][3] = "";
 		retour[2][0] = "Quantite";
-		retour[2][1] = "Produit";
-		retour[2][2] = "Prix unitaire";
-		retour[2][3] = "Total";
+		retour[2][1] = "Argent";
+		retour[2][2] = "Total";
 		int i=3;
 		for(Argent a : this.contenuFondDeCaisse) {
-			retour[i][0]=a.getSorti();
-			retour[i][1]=a.getValeurArgent() + "€";
-			retour[i][2]="";
-			retour[i][3]=(double)Math.round((a.getValeurArgent()*a.getSorti())*100)/100;
+			retour[i][0]=" " + a.getSorti();
+			retour[i][1]=" " + a.getValeurArgent() + "€";
+			retour[i][2]=" "+(double)Math.round((a.getValeurArgent()*a.getSorti())*100)/100;
 			i++;
 			
 		}
-		retour[totalLigne-2][0] = "---------------------------------------------";
-		retour[totalLigne-2][1] = "---------------------------------------------";
-		retour[totalLigne-2][2] = "---------------------------------------------";
-		retour[totalLigne-2][3] = "---------------------------------------------";
+		retour[totalLigne-2][0] = "-------------------";
+		retour[totalLigne-2][1] = "-------------------";
+		retour[totalLigne-2][2] = "-------------------";
 		retour[totalLigne-1][0] = "";
 		retour[totalLigne-1][1] = "Total : ";
-		retour[totalLigne-1][2] = "";
-		retour[totalLigne-1][3] = this.sommeFondDeCaisse();
+		retour[totalLigne-1][2] = this.sommeFondDeCaisse() + " €";
 		
 		return retour;
 	}
@@ -172,5 +182,77 @@ public class FondDeCaisse {
 	public void setNbre(int nbre) {
 		this.nbre = nbre;
 	}
+
+	/**
+	 * @return the idFondDeCaisse
+	 */
+	public int getIdFondDeCaisse() {
+		return idFondDeCaisse;
+	}
+
+	/**
+	 * @param idFondDeCaisse the idFondDeCaisse to set
+	 */
+	public void setIdFondDeCaisse(int idFondDeCaisse) {
+		this.idFondDeCaisse = idFondDeCaisse;
+	}
+
+	/**
+	 * @return the heureFondDeCaisse
+	 */
+	public String getHeureFondDeCaisse() {
+		return heureFondDeCaisse;
+	}
+
+	/**
+	 * @param heureFondDeCaisse the heureFondDeCaisse to set
+	 */
+	public void setHeureFondDeCaisse(String heureFondDeCaisse) {
+		this.heureFondDeCaisse = heureFondDeCaisse;
+	}
+
+	/**
+	 * @return the responsables
+	 */
+	public String getResponsables() {
+		return responsables;
+	}
+
+	/**
+	 * @param responsables the responsables to set
+	 */
+	public void setResponsables(String responsables) {
+		this.responsables = responsables;
+	}
+
+	/**
+	 * @return the contenuFondDeCaisse
+	 */
+	public List<Argent> getContenuFondDeCaisse() {
+		return contenuFondDeCaisse;
+	}
+
+	/**
+	 * @param contenuFondDeCaisse the contenuFondDeCaisse to set
+	 */
+	public void setContenuFondDeCaisse(List<Argent> contenuFondDeCaisse) {
+		this.contenuFondDeCaisse = contenuFondDeCaisse;
+	}
+
+	/**
+	 * @return the moins
+	 */
+	public boolean isMoins() {
+		return moins;
+	}
+
+	/**
+	 * @param moins the moins to set
+	 */
+	public void setMoins(boolean moins) {
+		this.moins = moins;
+	}
+	
+	
 
 }

@@ -33,11 +33,14 @@ import parametrage.ParametrageView;
 import vente.VenteView;
 
 public class RapportsView {
-//Variables d'instances
-	private JFrame vueRapports;
-	DefaultTableModel modelRapport  = new DefaultTableModel(0,4);
-	static JPanel info;
 
+	//Variables d'instances
+	private JFrame vueRapports;
+	DefaultTableModel modelRapport  = new DefaultTableModel(0,3);
+	static JPanel info;
+	public static JTextField choixImpression;
+	
+	
 	/**
 	 * Création de la vue rapport
 	 */
@@ -160,6 +163,8 @@ public class RapportsView {
 		info.setLayout(new GridLayout(1,2,0,0));
 
 		JTable rapport = new JTable(modelRapport);
+		rapport.setRowHeight(18);
+		rapport.setFont(new Font("Verdana", Font.PLAIN, 17));
 		info.add(rapport);
 		
 		JPanel choixRapport = new JPanel();
@@ -168,44 +173,56 @@ public class RapportsView {
 		choixRapport.setBackground(new Color(150, 150, 0));
 		choixRapport.setBorder(transparent9px);
 		AffichagePrincipalRapports.add(choixRapport);
-		choixRapport.setLayout(new GridLayout(4,2));
+		choixRapport.setLayout(new GridLayout(5,2));
 		
 		
-			JButton rapportVente = new JButton("Rapport vente");
+			JButton rapportVente = new JButton("<html><p style=\"font-size:16px\">Rapport vente</p></html>");
 			rapportVente.setName("rapportVente");
 			choixRapport.add(rapportVente);
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			LocalDateTime now = LocalDateTime.now();
 			JTextField choixVente = new JTextField();
+			choixVente.setFont(new Font("Verdana", Font.PLAIN, 17));
 			choixVente.setText(dtf.format(now));
 			choixRapport.add(choixVente);
 			
-			JButton rapportMiseEnSecu = new JButton("Rapport mise en sécurité");
+			JButton rapportMiseEnSecu = new JButton("<html><p style=\"font-size:16px\">Rapport mise en sécurité</p></html>");
 			rapportMiseEnSecu.setName("rapportMiseEnSecurite");
 			choixRapport.add(rapportMiseEnSecu);
 			JTextField choixMeS = new JTextField();
+			choixMeS.setFont(new Font("Verdana", Font.PLAIN, 17));
 			choixMeS.setText(Integer.toString(DBHelper.getMaxMeS()));
 			choixRapport.add(choixMeS);
 			
-			JButton rapportFondDeCaisse = new JButton("Rapport fonds de caisse");
+			JButton rapportFondDeCaisse = new JButton("<html><p style=\"font-size:16px\">Rapport fonds de caisse</p></html>");
 			rapportFondDeCaisse.setName("rapportFondDeCaisse");
 			choixRapport.add(rapportFondDeCaisse);
 			JTextField choixFdC = new JTextField();
+			choixFdC.setFont(new Font("Verdana", Font.PLAIN, 17));
 			choixFdC.setText(Integer.toString(DBHelper.getMaxFdC()));
 			choixRapport.add(choixFdC);
 			
-			JButton rapportTicket = new JButton("Ticket N° ");
+			JButton rapportTicket = new JButton("<html><p style=\"font-size:16px\">Ticket N°</p></html>");
 			rapportTicket.setName("ticket");
 			choixRapport.add(rapportTicket);
 			JTextField choixTicket = new JTextField();
+			choixTicket.setFont(new Font("Verdana", Font.PLAIN, 17));
 			choixTicket.setText(Integer.toString(DBHelper.nextCommande()));
 			choixRapport.add(choixTicket);
 			
+			JButton rapportImpression = new JButton("<html><p style=\"font-size:16px\">Export PDF</p></html>");
+			rapportImpression.setName("PDF");
+			choixRapport.add(rapportImpression);
+			choixImpression = new JTextField();
+			choixImpression.setFont(new Font("Verdana", Font.PLAIN, 16));
+			choixImpression.setEditable(false);
+			choixRapport.add(choixImpression);
 			
 			rapportVente.addActionListener(new RapportsController(rapportVente, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
 			rapportMiseEnSecu.addActionListener(new RapportsController(rapportMiseEnSecu, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
 			rapportFondDeCaisse.addActionListener(new RapportsController(rapportFondDeCaisse, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
 			rapportTicket.addActionListener(new RapportsController(rapportTicket, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
+			rapportImpression.addActionListener(new RapportsController(rapportImpression, modelRapport, choixVente, choixMeS, choixFdC, choixTicket));
 	}
 
 }

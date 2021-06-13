@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import rapports.Print;
+
 public class MiseEnSecuriteController implements ActionListener {
 //Variables d'instance
 	private MiseEnSecurite mes;
@@ -39,11 +41,17 @@ public class MiseEnSecuriteController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(boutton.getName().contains("argent")) { //Si c'est un boutton d'encodage d'argent
-			if(mes.getNbre()==0) {
-				mes.setNbre(1);
+			if(mes.isMoins()) {
+				mes.retireSortie(boutton.getName());
 			}
-			mes.ajoutSortie(boutton.getName(), mes.getNbre());
-			mes.setNbre(0);
+			else {
+				if(mes.getNbre()==0) {
+					mes.setNbre(1);
+				}
+				mes.setResponsables(responsables.getText());
+				mes.ajoutSortie(boutton.getName(), mes.getNbre());
+				mes.setNbre(0);
+			}
 		}
 		else if(boutton.getName().contains("pave")) { //Si c'est un boutton du pavé numérique
 			mes.setNbre(mes.getNbre()*10 + Integer.parseInt(boutton.getName().substring(4, 5)));
@@ -57,7 +65,16 @@ public class MiseEnSecuriteController implements ActionListener {
 				mes.annulerMiseEnSecurite();
 			}
 		}
-		String[] item = {"test", "test", "test", "test"};
+		else if(boutton.getName().contains("rapport")) {
+			mes.setResponsables(responsables.getText());
+			Print.print(mes.affichage(), "Mise en sécurité"+mes.getIdMiseEnSecurite());
+		}
+		else if(boutton.getName().contains("moin")) {
+			mes.setMoins(true);
+		}
+		
+		
+		String[] item = {"test", "test", "test"};
 		resumeMiseEnSecurite.setDataVector(mes.affichage(), item);
 	}
 	

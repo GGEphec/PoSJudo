@@ -35,7 +35,7 @@ public class FondDeCaisseView {
 //Variables d'instance
 	JFrame vueFondDeCaisse;
 	private JTable resumeFondDeCaisse;
-	DefaultTableModel modelTable = new DefaultTableModel(0,4);
+	DefaultTableModel modelTable = new DefaultTableModel(0,3);
 
 
 	/**
@@ -342,6 +342,8 @@ public class FondDeCaisseView {
 				
 				//Affichage du résumé de la commande
 					resumeFondDeCaisse = new JTable(modelTable);
+					resumeFondDeCaisse.setRowHeight(18);
+					resumeFondDeCaisse.setFont(new Font("Verdana", Font.PLAIN, 17));
 					Resume.add(resumeFondDeCaisse);
 				
 				//Panneau du bas pour introduire les chiffres et valider
@@ -399,9 +401,10 @@ public class FondDeCaisseView {
 						paveNumerique.add(pave3);
 						pave3.addActionListener(new FondDeCaisseController(pave3, fondCaisse, modelTable));
 						
-						JButton paveVide = new JButton("");
-						setInvisible(paveVide);
+						JButton paveVide = new JButton("<html><p style=\"font-size:20px\">-1</p></html>");
+						paveVide.setName("moins");
 						paveNumerique.add(paveVide);
+						paveVide.addActionListener(new FondDeCaisseController(paveVide, fondCaisse, modelTable));
 						
 						JButton pave0 = new JButton("<html><p style=\"font-size:20px\">0</p></html>");
 						pave0.setName("pave0");
@@ -415,7 +418,7 @@ public class FondDeCaisseView {
 					//Panneau de validation
 						JPanel validation = new JPanel();
 						encodageArgent.add(validation);
-						validation.setLayout(new GridLayout(2, 1, 0, 0));
+						validation.setLayout(new GridLayout(3, 1, 0, 0));
 						
 						JButton validationVrai = new JButton("<html><p style=\"font-size:20px\">Valider</p></html>");
 						validationVrai.setName("validationVrai");
@@ -426,6 +429,11 @@ public class FondDeCaisseView {
 						validationFaux.setName("validationFaux");
 						validation.add(validationFaux);
 						validationFaux.addActionListener(new FondDeCaisseController(validationFaux, fondCaisse, modelTable));
+						
+						JButton rapport = new JButton("<html><p style=\"font-size:20px\">Export PDF</p></html>");
+						rapport.setName("rapport");
+						validation.add(rapport);
+						rapport.addActionListener(new FondDeCaisseController(rapport, fondCaisse, modelTable));
 	}
 					
 	/**

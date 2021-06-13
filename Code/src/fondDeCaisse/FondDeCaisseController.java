@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
+import rapports.Print;
+
 
 public class FondDeCaisseController implements ActionListener {
 //Variable d'instance
@@ -37,11 +39,17 @@ public class FondDeCaisseController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(boutton.getName().contains("argent")) { //Si c'est un bouton d'encodage d'argent
-			if(fondCaisse.getNbre()==0) {
-				fondCaisse.setNbre(1);
+			if(fondCaisse.isMoins()) {
+				fondCaisse.retireEntree(boutton.getName());
+				fondCaisse.setMoins(false);
 			}
-			fondCaisse.ajoutEntree(boutton.getName(), fondCaisse.getNbre());
-			fondCaisse.setNbre(0);
+			else {
+				if(fondCaisse.getNbre()==0) {
+					fondCaisse.setNbre(1);
+				}
+				fondCaisse.ajoutEntree(boutton.getName(), fondCaisse.getNbre());
+				fondCaisse.setNbre(0);
+			}
 		}
 		else if(boutton.getName().contains("pave")) { //Si c'est un bouton du pavé numérique
 			fondCaisse.setNbre(fondCaisse.getNbre()*10 + Integer.parseInt(boutton.getName().substring(4, 5)));
@@ -55,7 +63,15 @@ public class FondDeCaisseController implements ActionListener {
 				fondCaisse.annulerFondDeCaisse();
 			}
 		}
-		String[] item = {"test", "test", "test", "test"};
+		else if(boutton.getName().contains("rapport")) {
+			Print.print(fondCaisse.affichage(), "Fonds de Caisse"+fondCaisse.getIdFondDeCaisse());
+		}
+		else if(boutton.getName().contains("moins")) {
+			fondCaisse.setMoins(true);
+		}
+		
+		
+		String[] item = {"test", "test", "test"};
 		resumeFondCaisse.setDataVector(fondCaisse.affichage(), item);
 	}
 

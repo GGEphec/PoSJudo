@@ -32,7 +32,7 @@ public class Rapports {
 		vente[0][0] = "Produit";
 		vente[0][1] = "Prix unitaire";
 		vente[0][2] = "Total vendu";
-		vente[0][3] = "Somme vendu";
+		vente[0][3] = "Somme vendue";
 		vente[1][0] = "";
 		vente[1][1] = "";
 		vente[1][2] = "";

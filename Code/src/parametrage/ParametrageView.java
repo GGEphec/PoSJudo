@@ -393,49 +393,49 @@ public class ParametrageView {
 				Resume.add(parametrage);
 				parametrage.setLayout(new GridLayout(7,2,0,0));
 					//ID
-					param[0] = new JTextField("  ID du bouton");
+					param[0] = new JTextField(" ID du bouton");
 					param[0].setEditable(false);
 					parametrage.add(param[0]);
 					param[1] = new JTextField("");
 					param[1].setEditable(false);
 					parametrage.add(param[1]);
 					//Nom
-					param[2]= new JTextField("  Nom du produit");
+					param[2]= new JTextField(" Nom du produit");
 					param[2].setEditable(false);
 					parametrage.add(param[2]);
 					param[3] = new JTextField("");
 					parametrage.add(param[3]);
 					//Prix
-					param[4] = new JTextField("  Prix du produit");
+					param[4] = new JTextField(" Prix du produit");
 					param[4].setEditable(false);
 					parametrage.add(param[4]);
 					param[5] = new JTextField("");
 					parametrage.add(param[5]);
 					//CouleurR 
-					param[6]= new JTextField("  Composante R de la couleur du bouton");
+					param[6]= new JTextField(" Composante R de la couleur du bouton");
 					param[6].setEditable(false);
 					parametrage.add(param[6]);
 					param[7] = new JTextField("");
 					parametrage.add(param[7]);
 					//CouleurG
-					param[8] = new JTextField("  Composante G de la couleur du bouton");
+					param[8] = new JTextField(" Composante G de la couleur du bouton");
 					param[8].setEditable(false);
 					parametrage.add(param[8]);
 					param[9] = new JTextField("");
 					parametrage.add(param[9]);
 					//CouleurB
-					param[10] = new JTextField("  Composante B de la couleur du bouton");
+					param[10] = new JTextField(" Composante B de la couleur du bouton");
 					param[10].setEditable(false);
 					parametrage.add(param[10]);
 					param[11] = new JTextField("");
 					parametrage.add(param[11]);
 					//Visible
-					param[12] = new JTextField("  Bouton visible ?");
+					param[12] = new JTextField(" Bouton visible ?");
 					param[12].setEditable(false);
 					parametrage.add(param[12]);
 					param[13] = new JTextField("");
 					parametrage.add(param[13]);
-					Font font2 = new Font("SansSerif", 0, 15);
+					Font font2 = new Font("Verdana", 0, 16);
 					for(JTextField a : param) {
 						a.setFont(font2);
 					}

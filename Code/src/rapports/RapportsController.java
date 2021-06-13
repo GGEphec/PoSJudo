@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +23,9 @@ public class RapportsController implements ActionListener{
 	JTextField choixMeS;
 	JTextField choixFdC;
 	JTextField choixTicket;
+	
+	private static String choix;
+	private static String choixN;
 	
 	/**
 	 * Construit le controlleur de la vue Rapport, il prend en paramètre le bouton appuyer, la table dans laquelle il faut écrire le rapport et les quatres champs dans lesquel on peut spécifier le rapport souhaité
@@ -48,23 +52,51 @@ public class RapportsController implements ActionListener{
 		if(boutton.getName().contains("Vente")) {
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageVente(choixVente.getText()), test);
-			//Print.print(RapportsView.info);
+			choix = "vente";
+			choixN = choixVente.getText();
+			RapportsView.choixImpression.setText("Vente du " + choixN);
 		}
 		else if(boutton.getName().contains("MiseEnSecu")) {
-			String[] test = {"test", "test", "test", "test"};
+			String[] test = {"test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageMeS(Integer.parseInt(choixMeS.getText())), test);
-			//Print.print(RapportsView.info);
+			choix = "MeS";
+			choixN = choixMeS.getText();
+			RapportsView.choixImpression.setText("Mise en sécurité N°"+choixN);
 		}
 		else if(boutton.getName().contains("FondDeCaisse")){
-			String[] test = {"test", "test", "test", "test"};
+			String[] test = {"test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageFdC(Integer.parseInt(choixFdC.getText())), test);
-			//Print.print(RapportsView.info);
+			choix = "FdC";
+			choixN = choixFdC.getText();
+			RapportsView.choixImpression.setText("Fonds de caisse N°" + choixN);
 			
 		}
 		else if(boutton.getName().contains("ticket")){
 			String[] test = {"test", "test", "test", "test"};
 			modeleRapport.setDataVector(Rapports.affichageTicket(Integer.parseInt(choixTicket.getText())), test);
-			//Print.print(RapportsView.info);
+			choix = "ticket";
+			choixN = choixTicket.getText();
+			RapportsView.choixImpression.setText("Ticket N°" + choixN);
+		}
+		else if(boutton.getName().contains("PDF")) {
+			if(choix.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Pas de valeur retenue");
+			}
+			else {
+				if(choix.contains("vente")) {
+					Print.print(Rapports.affichageVente(choixN), "vente"+choixN);
+				}
+				else if(choix.contains("MeS")) {
+					Print.print(Rapports.affichageMeS(Integer.parseInt(choixN)), "MeS"+choixN);
+				}
+				else if(choix.contains("FdC")) {
+					Print.print(Rapports.affichageFdC(Integer.parseInt(choixN)), "FdC"+choixN);
+				}
+				else if(choix.contains("ticket")) {
+					Print.print(Rapports.affichageTicket(Integer.parseInt(choixN)), "ticket"+choixN);
+				}
+			}
+			
 		}
 		
 	}

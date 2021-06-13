@@ -21,7 +21,8 @@ public class Vente {
 	private List<Parametrage> contenu; //Le contenu de la vente
 	
 	private int nbre; //Variable temporaire pour déterminer le nombre encodé sur le pavé numérique
-
+	private boolean moins=false;
+	
 //Constructeur
 	/**
 	 * Le constructeur d'un objet Vente
@@ -72,6 +73,20 @@ public class Vente {
 		}
 	}
 	
+	/**
+	 * Cette fonction va pemettre de retirer une demande de ticket dans le contenu de la commande si le contenu existe déjà
+	 * 
+	 * @param nomBouton Le nom du boutton qui a été pressé
+	 */
+	public void retireUnAchat(String nomBouton) {
+		for(Parametrage p : contenu) {
+			if(p.getNom().equals(nomBouton)){
+				p.setVendu(p.getVendu()-1);
+			}
+		}
+	}
+	
+	
 	
 	/**
 	 * Cette fonction va permettre de finaliser la vente en enregistrant les données dans la base de données au moyen de DBHelper
@@ -121,10 +136,10 @@ public class Vente {
 	public Object[][] affichage() {
 		int totalLigne = getRow(this.contenu)+5;
 		Object[][] retour = new Object[totalLigne][4];
-		retour[0][0] = "Commande N° ";
-		retour[0][1] = this.idCommande;
-		retour[0][2] = "Heure : ";
-		retour[0][3] = this.heureCommande;
+		retour[0][0] = "Commande N°"+this.idCommande;
+		retour[0][1] = "";
+		retour[0][2] = "Date : "+this.heureCommande.substring(0,10);
+		retour[0][3] = "Heure : "+this.heureCommande.substring(11, 19);
 		retour[1][0] = "";
 		retour[1][1] = "";
 		retour[1][2] = "";
@@ -136,22 +151,22 @@ public class Vente {
 		int i=3;
 		for(Parametrage a : this.contenu) {
 			if(a.getVendu()>0) {
-				retour[i][0]=a.getVendu();
-				retour[i][1]=a.getDescription();
-				retour[i][2]=a.getPrix();
+				retour[i][0]=" "+a.getVendu();
+				retour[i][1]=" "+a.getDescription();
+				retour[i][2]=" "+a.getPrix();
 				retour[i][3]=(double)Math.round((a.getPrix()*a.getVendu())*100)/100;
 				i++;
 			}
 			
 		}
-		retour[totalLigne-2][0] = "---------------------------------------------";
-		retour[totalLigne-2][1] = "---------------------------------------------";
-		retour[totalLigne-2][2] = "---------------------------------------------";
-		retour[totalLigne-2][3] = "---------------------------------------------";
-		retour[totalLigne-1][0] = this.getTotalTicket();
+		retour[totalLigne-2][0] = "-------------------";
+		retour[totalLigne-2][1] = "-------------------";
+		retour[totalLigne-2][2] = "-------------------";
+		retour[totalLigne-2][3] = "-------------------";
+		retour[totalLigne-1][0] = this.getTotalTicket() + " ticket(s)";
 		retour[totalLigne-1][1] = "Total : ";
 		retour[totalLigne-1][2] = "";
-		retour[totalLigne-1][3] = this.sommeCommande();
+		retour[totalLigne-1][3] = this.sommeCommande()+" €";
 		
 		return retour;
 	}
@@ -202,4 +217,61 @@ public class Vente {
 		this.nbre = nbre;
 	}
 
+	/**
+	 * @return the idCommande
+	 */
+	public int getIdCommande() {
+		return idCommande;
+	}
+
+	/**
+	 * @param idCommande the idCommande to set
+	 */
+	public void setIdCommande(int idCommande) {
+		this.idCommande = idCommande;
+	}
+
+	/**
+	 * @return the heureCommande
+	 */
+	public String getHeureCommande() {
+		return heureCommande;
+	}
+
+	/**
+	 * @param heureCommande the heureCommande to set
+	 */
+	public void setHeureCommande(String heureCommande) {
+		this.heureCommande = heureCommande;
+	}
+
+	/**
+	 * @return the contenu
+	 */
+	public List<Parametrage> getContenu() {
+		return contenu;
+	}
+
+	/**
+	 * @param contenu the contenu to set
+	 */
+	public void setContenu(List<Parametrage> contenu) {
+		this.contenu = contenu;
+	}
+
+	/**
+	 * @return the moins
+	 */
+	public boolean isMoins() {
+		return moins;
+	}
+
+	/**
+	 * @param moins the moins to set
+	 */
+	public void setMoins(boolean moins) {
+		this.moins = moins;
+	}
+
+	
 }
